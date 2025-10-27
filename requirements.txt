@@ -1,0 +1,7 @@
+streamlit
+pymongo
+pandas
+cloudinary
+Pillow
+python-dotenv
+openpyxl
