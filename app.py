@@ -163,10 +163,13 @@ with tab2:
 # Procedures Tab
 with tab3:
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
+    st.divider()
+    st.markdowm("Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất ")
     st.markdown("""
     1. **Nhận diện lỗi:** Kỹ thuật viên xác định lỗi dựa trên mô tả và hình ảnh từ khách hàng.
     2. **Tra cứu mã lỗi:** Sử dụng tab '🔍 Tra cứu lỗi' để tìm mã lỗi và thông tin liên quan.
     3. **Phân tích nguyên nhân:** Xem phần 'Nguyên nhân' để hiểu lý do gây ra lỗi.
     4. **Đề xuất giải pháp:** Dựa trên nguyên nhân đã phân tích, kỹ thuật viên đề xuất giải pháp khắc phục.
     5. **Ghi nhận và theo dõi:** Tất cả các bước xử lý lỗi đều được ghi nhận để phục vụ cho việc cải tiến sản phẩm trong tương lai.
+
     """)
