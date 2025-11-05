@@ -167,14 +167,15 @@ with tab3:
     st.markdown("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/e715218bb20e69eb00814f9bc04f2876446730eb/Quy%20Tr%C3%ACnh.jpg",width=400,output_format="jpg")
     st.markdown("""
-    1. *Nhận diện lỗi:* Kỹ thuật viên xác định lỗi dựa trên mô tả và hình ảnh từ khách hàng.
-    2. *Tra cứu mã lỗi:* Sử dụng tab '🔍 Tra cứu lỗi' để tìm mã lỗi và thông tin liên quan.
-    3. *Phân tích nguyên nhân:* Xem phần 'Nguyên nhân' để hiểu lý do gây ra lỗi.
-    4. *Đề xuất giải pháp:* Dựa trên nguyên nhân đã phân tích, kỹ thuật viên đề xuất giải pháp khắc phục.
-    5. *Ghi nhận và theo dõi:* Tất cả các bước xử lý lỗi đều được ghi nhận để phục vụ cho việc cải tiến sản phẩm trong tương lai.
-
+    1. *Sản xuất:* Vai trò làm đúng thao tác theo WI, nếu phát sinh hàng lỗi về chức năng tại trạm thao tác phải thông báo cho PIE và điền Form"RPDNF0020".
+    2. *IPQC:* Vai trò xác nhận bất thường về ngoại quan và cùng với MQA hoặc PIE phán định bất thường đó có là lỗi hay không.
+    3. *PIE:* Vai trò chính phân tích lỗi ảnh hưởng tới chức năng sản phẩm và nếu phát hiện lỗi đó liên quan tới bộ phận nào thì báo đến bộ phận đó tìm cách cải thiện & hỗ trợ sản xuất & cùng với MQA tìm giải pháp tạm thời để tránh đứt quãng sản xuất .
+    4. *MQA:* Vai trò hỗ trợ cùng với PIE phân tích & xác nhận kết quả & xác nhận bất thường có phải là lỗi hay không & đưa ra mức độ cho phép nếu bất thường đó không ảnh hưởng tới chức năng sản phẩm .
+    5. *SQE:* Chịu trách nhiệm phân loại vật tư NG nếu lỗi đến từ vật tư đầu vào sau khi PIE/MQA phân tích & cải thiện vật tư đầu vào .
+    6. **Lưu ý: Hàng sau khi phân tích phải đánh dấu tròn "O" lên phích cắm trước khi trả lại cho sản xuất**
     """)
     
+
 
 
 
