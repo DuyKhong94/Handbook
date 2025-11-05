@@ -165,7 +165,7 @@ with tab3:
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
     st.divider()
     st.markdown("Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất ")
-    st.image(https://github.com/DuyKhong94/Handbook/blob/main/Quy%20Tr%C3%ACnh.jpg,caption="DDC Procedure",witdh=400,output_format="jpg")
+    st.image("https://github.com/DuyKhong94/Handbook/blob/main/Quy%20Tr%C3%ACnh.jpg",caption="DDC Procedure",witdh=400,output_format="jpg")
     st.markdown("""
     1. **Nhận diện lỗi:** Kỹ thuật viên xác định lỗi dựa trên mô tả và hình ảnh từ khách hàng.
     2. **Tra cứu mã lỗi:** Sử dụng tab '🔍 Tra cứu lỗi' để tìm mã lỗi và thông tin liên quan.
@@ -175,4 +175,5 @@ with tab3:
 
     """)
     
+
 
