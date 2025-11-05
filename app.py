@@ -165,7 +165,7 @@ with tab3:
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
     st.divider()
     st.markdown("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
-    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/e715218bb20e69eb00814f9bc04f2876446730eb/Quy%20Tr%C3%ACnh.jpg",width=400,output_format="jpg")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/5d53967118908656d91d073f0f723b3653267d95/3.jpg")
     st.markdown("""
     1. *Sản xuất:* Vai trò làm đúng thao tác theo WI, nếu phát sinh hàng lỗi về chức năng tại trạm thao tác phải thông báo cho PIE và điền Form"RPDNF0020".
     2. *IPQC:* Vai trò xác nhận bất thường về ngoại quan và cùng với MQA hoặc PIE phán định bất thường đó có là lỗi hay không.
@@ -175,6 +175,7 @@ with tab3:
     6. **Lưu ý: Hàng sau khi phân tích phải đánh dấu tròn "O" lên phích cắm trước khi trả lại cho sản xuất**
     """)
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/7d1b28335ebbd203552ea93084496b16ff2946a7/2.jpg")
+
 
 
 
