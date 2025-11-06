@@ -21,7 +21,7 @@ collection = db["errors"]
 st.set_page_config(page_title="Handbook for RYOBI Products", layout="wide")
 st.title("Handbook for RYOBI Products")
 
-tab1, tab2, tab3 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích"])
+tab1, tab2, tab3, tab4 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", "⚛ ERP System"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -176,6 +176,7 @@ with tab3:
     st.markdown("""**Lưu ý: Hàng sau khi phân tích phải đánh dấu tròn "O" lên phích cắm trước khi trả lại cho sản xuất**""")         
     
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/7d1b28335ebbd203552ea93084496b16ff2946a7/2.jpg")
+
 
 
 
