@@ -212,6 +212,8 @@ with tab4:
     st.markdown("Hello I'm working on this tab")
 with tab5:
     st.subheader("Process Capability Analysis")
+    st.markdown("*Nhập dữ liệu của mẫu*")
+    project_name=st.text_input("Nhập tiêu đề của dự án")
 
 
 
