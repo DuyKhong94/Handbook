@@ -180,6 +180,15 @@ with tab3:
     st.divider()
     st.subheader("Quy trình Cảnh Báo Line Down")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/346bf96fec732bc713c93e9749bfa64d29509de8/1.jpg")
+    st.markdown("***Điều Kiện Dừng Line***")
+    st.markdown("""
+    1. *Vấn đề an toàn*
+    2. *Vấn đề chức năng sản phẩm nghiêm trọng*
+    3. *Tỉ lệ sản phẩm AC/DC/BP/Charger không đạt 2pcs/giờ*
+    4. *Nhân lực sản xuất nhàn rỗi quá 10 phút*
+    """)
+    
+
 
 
 
