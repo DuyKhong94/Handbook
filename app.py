@@ -211,7 +211,8 @@ with tab3:
 with tab4:
     st.markdown("Hello I'm working on this tab")
 with tab5:
-    st.subheader("Capability Analysis")
+    st.subheader("Process Capability Analysis")
+
 
 
 
