@@ -200,9 +200,11 @@ with tab3:
     4. Phát Sai liệu/phát liệu không kịp/Sai liệu trong thùng lẻ: RWH
     5. Vấn đề thao tác: PROD
     6. Vấn đề vẫn chưa ra nguyên nhân: PIE/MQA tiếp tục phân tích
+    7. Vấn đề về phương pháp: IE
     """)
     st.markdown("***Lưu ý nếu sau 30 phút vấn đề được giải quyết và đảm bảo những yếu tố cho line sản xuất hoạt động thì sản xuất phải khôi phục hoạt động và bỏ cảnh báo line down này đi***")
     st.markdown("***Lưu ý nếu vẫn chưa ra nguyên nhân và nguy cơ cao ảnh hưởng chất lượng thì sản xuất sắp xếp nhân lực qua khu vực khác để giảm tổn thất cho nhà máy và bộ phận PC điều chỉnh kế hoạch nếu có thể***")
+
 
 
 
