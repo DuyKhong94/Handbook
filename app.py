@@ -164,7 +164,7 @@ with tab2:
 with tab3:
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
     st.divider()
-    st.markdown("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
+    st.subheader("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/5d53967118908656d91d073f0f723b3653267d95/3.jpg")
     st.markdown("""
     1. *Sản xuất:* Vai trò làm đúng thao tác theo WI, nếu phát sinh hàng lỗi về chức năng tại trạm thao tác phải thông báo cho PIE và điền Form"RPDNF0020".
@@ -188,6 +188,7 @@ with tab3:
     4. *Nhân lực sản xuất nhàn rỗi quá 10 phút*
     """)
     
+
 
 
 
