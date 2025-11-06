@@ -177,6 +177,11 @@ with tab3:
     
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/7d1b28335ebbd203552ea93084496b16ff2946a7/2.jpg")
 
+    st.divider()
+    st.subheader("Quy trình Cảnh Báo Line Down")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/346bf96fec732bc713c93e9749bfa64d29509de8/1.jpg")
+
+
 
 
 
