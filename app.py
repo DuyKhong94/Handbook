@@ -7,7 +7,7 @@ import pandas as pd
 import random, string
 import os
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 # ------------------ MongoDB ------------------
 def get_db():
@@ -211,6 +211,7 @@ with tab4:
     st.markdown("Hello I'm working on this tab")
 with tab5:
     st.subheader("Capability Analysis")
+
 
 
 
