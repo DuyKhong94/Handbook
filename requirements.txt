@@ -7,4 +7,5 @@ python-dotenv
 
 openpyxl
 numpy
+
 matplotlib.pyplot
