@@ -206,8 +206,10 @@ with tab3:
     st.markdown("***Lưu ý nếu vẫn chưa ra nguyên nhân và nguy cơ cao ảnh hưởng chất lượng thì sản xuất sắp xếp nhân lực qua khu vực khác để giảm tổn thất cho nhà máy và bộ phận PC điều chỉnh kế hoạch nếu có thể.***")
 
 with tab4:
-
+    st.markdown("Hello I'm working on this tab")
 with tab5:
+    st.subheader("Capability Analysis")
+
 
 
 
