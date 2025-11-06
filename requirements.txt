@@ -4,4 +4,7 @@ pandas
 cloudinary
 Pillow
 python-dotenv
+
 openpyxl
+numpy
+matplotlib.pyplot
