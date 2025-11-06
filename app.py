@@ -187,6 +187,21 @@ with tab3:
     3. *Tỉ lệ sản phẩm AC/DC/BP/Charger không đạt 2pcs/giờ*
     4. *Nhân lực sản xuất nhàn rỗi quá 10 phút*
     """)
+    st.markdown("***Quy Trình Xử Lý***")
+    st.markdown("""
+    1. Đối với vấn đề 4M thông thường thì PIE chủ đạo & MQA hỗ trợ cùng với PIE đánh giá đối sách cải thiện và kết quả.
+    2. Đối với vấn đề liên quan tới thiết kế và thông số PCP/PM/Check Card: PIE/MQA/Engineering/QE phải cùng tạo 1 nhóm để giải quyết vấn đề.
+    """)
+    st.markdown("***Vai trò sau khi biết nguyên nhân***")
+    st.markdown("""
+    1. Vật tư đầu vào/sai liệu trong thùng nguyên: SQE/IQC
+    2. Vấn đề thiết bị & Khuôn: Mass Production: PM or EB/QB/1stMP: PM/APE
+    3. Vấn đề thiếu liệu: PMC
+    4. Phát Sai liệu/phát liệu không kịp/Sai liệu trong thùng lẻ: RWH
+    5. Vấn đề thao tác: PROD
+    6. Vấn đề vẫn chưa ra nguyên nhân: PIE/MQA tiếp tục phân tích
+    """)
+    st.markdown("***Lưu ý nếu sau 30 phút vấn đề được giải quyết và đảm bảo những yếu tố cho line sản xuất hoạt động thì sản xuất phải khôi phục hoạt động và bỏ cảnh báo line down này đi***")
     
 
 
