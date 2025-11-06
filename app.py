@@ -147,7 +147,7 @@ with tab2:
                 st.write(f"📸 Có {len(images)} hình minh hoạ:")
                 cols = st.columns(min(3, len(images)))
                 for i, img_url in enumerate(images):
-                    cols[i % 3].image(img_url, caption=f"Ảnh {i+1}", width=300)
+                    cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
             else:
                 st.info("Không có hình ảnh minh hoạ cho lỗi này.")
 
@@ -204,6 +204,7 @@ with tab3:
     """)
     st.markdown("***Lưu ý nếu sau 30 phút vấn đề được giải quyết và đảm bảo những yếu tố cho line sản xuất hoạt động thì sản xuất phải khôi phục hoạt động và bỏ cảnh báo line down này đi.***")
     st.markdown("***Lưu ý nếu vẫn chưa ra nguyên nhân và nguy cơ cao ảnh hưởng chất lượng thì sản xuất sắp xếp nhân lực qua khu vực khác để giảm tổn thất cho nhà máy và bộ phận PC điều chỉnh kế hoạch nếu có thể.***")
+
 
 
 
