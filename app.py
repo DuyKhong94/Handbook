@@ -24,7 +24,7 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Technical Handbook", layout="wide")
 st.title("Process Engineering Technical Handbook")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", "⚛ ERP System","☯ CPK"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", "⚛ ERP System","☯ ECO Checking"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -211,20 +211,9 @@ with tab3:
 with tab4:
     st.markdown("Hello I'm working on this tab")
 with tab5:
-    st.subheader("Process Capability Analysis")
-    st.markdown("*Nhập dữ liệu của mẫu*")
-    project_name=st.text_input("Nhập tiêu đề của dự án")
-    n_rows, n_cols = 6, 5
-    data_inputs = []
-    for i in range(n_rows):
-        cols = st.columns(n_cols)
-        for j in range(n_cols):
-            idx = i * n_cols + j + 1
-            val = cols[j].number_input(f"{idx}", value=0.0, key=f"val_{idx}")
-            data_inputs.append(val)
+    st.subheader("ECO Export|Inquiry")
+       
 
-    # Remove zeros if user didn’t fill all
-    data = np.array([v for v in data_inputs if v != 0])    
 
 
 
