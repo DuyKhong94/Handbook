@@ -136,9 +136,9 @@ with tab2:
     if search_code:
         result = collection.find_one({"error_code": search_code})
         if result:
-            st.write(f" 📘 Model: `{result['model']}`")
-            st.write(f" 🛠 Mã lỗi: `{result['error_code']}`")
-            st.write(f" 🕒 Thời gian: `{result.get('timestamp', 'Chưa có thông tin')}`")
+            st.write(f" 📘 Model: {result['model']}")
+            st.write(f" 🛠 Mã lỗi: {result['error_code']}")
+            st.write(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
             st.write(f" 📜 Mô tả:** {result['description']}")
             st.write(f" 🔍 Nguyên nhân:** {result.get('root_cause', 'Chưa có thông tin')}") 
             st.write(f" 🛠 Giải pháp:** {result.get('solution', 'Chưa có thông tin')}")
@@ -215,6 +215,7 @@ with tab4:
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
