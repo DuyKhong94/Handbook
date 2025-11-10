@@ -210,11 +210,13 @@ with tab3:
 
     st.divider()
     st.subheader("Sơ đồ liên hệ - Hotline:")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/276302b6f5a16ba5f5db7089cabe410b7cf19206/MQAchart.jpg")
 with tab4:
     st.markdown("Hello I'm working on this tab")
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
