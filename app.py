@@ -224,10 +224,11 @@ with tab4:
     st.markdown("**Tra cứu BOM & Mã WI của Console và Packing**")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/64b2d8e6548a748ac417d222ef945b5e821bb936/ERP.jpg")
     st.divider()
-    
+    st.markdown("**Tra cứu ECO**")
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
