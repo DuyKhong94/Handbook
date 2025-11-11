@@ -221,12 +221,13 @@ with tab4:
     4. *ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
     """)
     st.divider()
-    st.markdown("*Tra cứu BOM*")
+    st.markdown("**Tra cứu BOM**")
     
     
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
