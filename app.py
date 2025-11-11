@@ -220,11 +220,14 @@ with tab4:
     3. *ERP cũng được dùng để tra cứu lý do và lịch sử thay đổi của mã vật tư.*
     4. *ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
     """)
+    st.divider()
+    st.markdown("*Tra cứu BOM*")
     
     
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
