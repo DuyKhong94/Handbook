@@ -222,11 +222,12 @@ with tab4:
     """)
     st.divider()
     st.markdown("**Tra cứu BOM**")
-    
+    st.image("https:///raw.githubusercontent.com/DuyKhong94/blob/64b2d8e6548a748ac417d222ef945b5e821bb936/ERP.jpg")
     
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
