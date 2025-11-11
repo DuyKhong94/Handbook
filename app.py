@@ -212,10 +212,20 @@ with tab3:
     st.subheader("Sơ đồ liên hệ - Hotline:")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/276302b6f5a16ba5f5db7089cabe410b7cf19206/MQAchart.jpg")
 with tab4:
-    st.markdown("Hello I'm working on this tab")
+    st.subheader("Xử lý trên hệ thống ERP")
+    st.markdown("***Công dụng của ERP***")
+    st.markdown("""
+    1.*ERP dùng để tra cứu BOM theo mã model được ghi trên bảng sản lượng đầu line, ví dụ: 030383007, 030247012...*
+    2.*ERP dùng để tra cứu ECO xem BOM job hoặc mã liệu đó có ECO hay không, thông thường để tra cứu phiên bản của mã vật tư đó có được sử dụng hay không.*
+    3.*ERP cũng được dùng để tra cứu lý do và lịch sử thay đổi của mã vật tư.*
+    4.*ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
+    """)
+    
+    
 with tab5:
     st.subheader("ECO Export|Inquiry")
        
+
 
 
 
