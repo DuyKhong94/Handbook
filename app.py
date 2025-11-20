@@ -24,7 +24,8 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Technical Handbook", layout="wide")
 st.title("Process Engineering Technical Handbook")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", "⚛ ERP System","☯ ECO Checking"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+                                        "⚛ ERP System","☯ Team Center"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -227,8 +228,15 @@ with tab4:
     st.markdown("**Tra cứu ECO**")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/283f48edd8d4c515187a5eab35f2a5215f29e03d/ECO.jpg")
 with tab5:
-    st.subheader("ECO Export|Inquiry")
-       
+    st.subheader("Tra cứu Bản vẽ trên Team Center")
+    st.divider()
+    st.markdown("""
+    1. **Phải tra cứu BOM theo model đang chạy hoặc tìm đến tem nhãn của thùng vật tư để lấy mã vật tư và phiên bản
+    2. **Đảm bảo tra cứu đúng mã, đúng phiên bản của vật tư để phân tích chính xác nhất.
+    """)
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/e20c0fccc62799dad6c71c31240d7e284b60d26f/174513.jpg")
+
+
 
 
 
