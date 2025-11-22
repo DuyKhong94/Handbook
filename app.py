@@ -240,6 +240,8 @@ with tab5:
     st.divider()
     st.subheader("Tra cứu FAI Report")
     st.write(" Link: http://cnsserprod01:8080/")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
+
 
 
 
