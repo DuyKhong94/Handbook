@@ -221,7 +221,7 @@ with tab4:
     3. *ERP cũng được dùng để tra cứu lý do và lịch sử thay đổi của mã vật tư.*
     4. *ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
     """)
-    st.write(" ***Link: http://hkerpapp.hk.globaltti.net:8068/OA_HTML/AppsLocalLogin.jsp")
+    st.write(" Link: http://hkerpapp.hk.globaltti.net:8068/OA_HTML/AppsLocalLogin.jsp")
     st.divider()
     st.markdown("**Tra cứu BOM & Mã WI của Console và Packing**")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/64b2d8e6548a748ac417d222ef945b5e821bb936/ERP.jpg")
@@ -242,6 +242,7 @@ with tab5:
     st.write(" Link: http://cnsserprod01:8080/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+
 
 
 
