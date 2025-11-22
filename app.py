@@ -229,6 +229,7 @@ with tab4:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/283f48edd8d4c515187a5eab35f2a5215f29e03d/ECO.jpg")
 with tab5:
     st.subheader("Tra cứu Bản vẽ trên Team Center")
+    st.write(" Link: https://cnstclb01.cn.globaltti.net/awc/#/showHome")
     st.divider()
     st.markdown("""
     1. **Phải tra cứu BOM theo model đang chạy hoặc tìm đến tem nhãn của thùng vật tư để lấy mã vật tư và phiên bản
@@ -238,6 +239,7 @@ with tab5:
     st.divider()
     st.subheader("Tra cứu FAI Report")
     st.write(" Link: http://cnsserprod01:8080/")
+
 
 
 
