@@ -25,7 +25,7 @@ st.set_page_config(page_title="Process Engineering Technical Handbook", layout="
 st.title("Process Engineering Technical Handbook")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System","☯ Team Center"])
+                                        "⚛ ERP System","☯ Team Center & FAI"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -235,6 +235,10 @@ with tab5:
     2. **Đảm bảo tra cứu đúng mã, đúng phiên bản của vật tư để phân tích chính xác nhất.
     """)
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/e20c0fccc62799dad6c71c31240d7e284b60d26f/174513.jpg")
+    st.divider()
+    st.subheader("Tra cứu FAI Report")
+    st.write(" Link: http://cnsserprod01:8080/")
+
 
 
 
