@@ -168,7 +168,7 @@ with tab2:
 with tab3:
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
     st.divider()
-    st.subheader("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
+    st.markdown("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/5d53967118908656d91d073f0f723b3653267d95/3.jpg")
     st.markdown("""
     1. *Sản xuất:* Vai trò làm đúng thao tác theo WI, nếu phát sinh hàng lỗi về chức năng tại trạm thao tác phải thông báo cho PIE và điền Form"RPDNF0020".
@@ -182,7 +182,7 @@ with tab3:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/7d1b28335ebbd203552ea93084496b16ff2946a7/2.jpg")
 
     st.divider()
-    st.subheader("Quy trình Cảnh Báo Line Down")
+    st.markdown("Quy trình Cảnh Báo Line Down")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/346bf96fec732bc713c93e9749bfa64d29509de8/1.jpg")
     st.markdown("***Điều Kiện Dừng Line***")
     st.markdown("""
@@ -245,6 +245,7 @@ with tab5:
     st.write(" Link: http://cnsserprod01:8080/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+
 
 
 
