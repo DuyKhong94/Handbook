@@ -212,7 +212,7 @@ with tab3:
     st.divider()
     st.subheader("Sơ đồ liên hệ - Hotline:")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/276302b6f5a16ba5f5db7089cabe410b7cf19206/MQAchart.jpg")
-    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/547fd9f4aa90551db17b850b5e12ce98efd84d75/094237.jpg")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/710c394ac305c7c018753d3bd5ec1dc58c541d7e/094237.jpg")
 with tab4:
     st.subheader("Xử lý trên hệ thống ERP")
     st.markdown("***Công dụng của ERP***")
@@ -246,6 +246,7 @@ with tab5:
     st.write(" Link: http://cnsserprod01:8080/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+
 
 
 
