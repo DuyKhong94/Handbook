@@ -235,7 +235,6 @@ with tab4:
 with tab5:
     st.subheader("Tra cứu Bản vẽ trên Team Center")
     st.write(" Link: https://cnstclb01.cn.globaltti.net/awc/#/showHome")
-    st.divider()
     st.markdown("""
     1. **Phải tra cứu BOM theo model đang chạy hoặc tìm đến tem nhãn của thùng vật tư để lấy mã vật tư và phiên bản
     2. **Đảm bảo tra cứu đúng mã, đúng phiên bản của vật tư để phân tích chính xác nhất.
@@ -246,6 +245,7 @@ with tab5:
     st.write(" Link: http://cnsserprod01:8080/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+
 
 
 
