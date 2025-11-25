@@ -25,7 +25,7 @@ st.set_page_config(page_title="Process Engineering Technical Handbook", layout="
 st.title("Process Engineering Technical Handbook")
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System","☯ Team Center & FAI","Sách Tham Khảo"]
+                                        "⚛ ERP System","☯ Team Center & FAI","Sách Tham Khảo"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -247,6 +247,7 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     st.write('Sách Lean Six Sigma Black: [Link]("https://raw.githubusercontent.com/DuyKhong94/Handbook/7e3126b9ea6b615b895fd1e7c7ed39fb1cb4cc20/0.%20MUST%20READ_Hand%20Book%20Black.pdf")')
+
 
 
 
