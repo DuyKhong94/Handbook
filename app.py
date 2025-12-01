@@ -250,11 +250,14 @@ with tab6:
     pdf_url1="https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
     pdf_url1a="https://drive.google.com/file/d/1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N/view?usp=drive_link"
     response=requests.get(pdf_url1a)
+    content_type = response.headers.get('Content-Type')
+    print("Content-Type:", content_type)
     with open("temp.pdf","wb") as f:
         f.write(response.content)
     with open("temp.pdf","rb") as f:
         st.download_button("Tải về",f,file_name="file.pdf")
    
+
 
 
 
