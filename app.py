@@ -248,12 +248,14 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     pdf_url1="https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
-    response=requests.get(pdf_url1)
+    pdf_url1a="https://drive.google.com/file/d/1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N/view?usp=drive_link"
+    response=requests.get(pdf_url1a)
     with open("temp.pdf","wb") as f:
         f.write(response.content)
     with open("temp.pdf","rb") as f:
         st.download_button("Tải về",f,file_name="file.pdf")
    
+
 
 
 
