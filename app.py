@@ -248,7 +248,7 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     with st.container():
-        st.write("hello")
+       
         uploaded_file = st.file_uploader("Chọn file DPS mới nhất", type=["xlsx", "xlsb"])
     
         if uploaded_file is not None:
@@ -291,6 +291,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
