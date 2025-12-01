@@ -254,11 +254,12 @@ with tab6:
         df.columns=df.columns.str.strip()
         column_to_keep=['TTI Model No','Job No','Curent line','QTY']
         df=df[column_to_keep]
-        overview=pd.DataFrame(df)
+        st.dataframe(df)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
