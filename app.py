@@ -283,7 +283,7 @@ with tab6:
             total_quantity = df3.groupby(['Curent line'], as_index=False)['QTY'].sum()
             total_quantity_sum= total_quantity['QTY'].sum()
             total_verification_job=df3[df3['Job No'].str.startswith(('EB','QB','MP','PR'),na=False)]
-            total_verification_job_count=total_verification_job['Job No'].unique().count()
+            total_verification_job_count=len(total_verification_job['Job No'].unique())
             st.markdown(f"Tổng số lượng: {int(total_quantity_sum)}")
             st.markdown(f"Tổng số job EB QB 1stMP: {int(total_verification_job_count)}")
             #st.dataframe(df2)
@@ -291,6 +291,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
