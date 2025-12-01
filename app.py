@@ -247,29 +247,10 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
-   
+   st.write("Sách Hay", [Link] "https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf")
 
-    pdf_url1 = "https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
+  
 
-    response = requests.get(pdf_url1)
-
-    content_type = response.headers.get("Content-Type")
-    file_size = len(response.content)
-
-    st.write(f"Content-Type: {content_type}")
-    st.write(f"File size (bytes): {file_size}")
-
-    if content_type == "application/pdf":
-        st.success("Đây là file PDF hợp lệ.")
-    else:
-        st.error("Không phải file PDF, có thể là trang HTML lỗi hoặc xác nhận.")
-
-    # Lưu file
-    with open("downloaded_file.pdf", "wb") as f:
-        f.write(response.content)
-
-    st.write("File đã được lưu thành downloaded_file.pdf")
-   
 
 
 
