@@ -247,7 +247,8 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
-    st.write('Sách Lean Six Sigma Black: [Link]("https://raw.githubusercontent.com/DuyKhong94/Handbook/4628b0a553bfce506c033984150c12f855547fcc/Hand_Book_Black_Belt_ASQ.pdf")')
+    st.write('Sách Lean Six Sigma Black: [Link]("https://drive.google.com/file/d/1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N/view?usp=sharing")')
+
 
 
 
