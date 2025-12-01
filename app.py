@@ -123,7 +123,7 @@ with tab2:
     search_model = st.text_input("Nhập model cần tra cứu:")
     prefix=search_model[:6]
     if search_model:
-        cursor = collection.find({"model": {"$regex":f"^{prefix}"}})
+        cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
         data = list(cursor)
         if data:
             for d in data:
@@ -248,6 +248,7 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     st.write('Sách Lean Six Sigma Black: [Link]("https://raw.githubusercontent.com/DuyKhong94/Handbook/4628b0a553bfce506c033984150c12f855547fcc/Hand_Book_Black_Belt_ASQ.pdf")')
+
 
 
 
