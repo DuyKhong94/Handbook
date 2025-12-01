@@ -258,12 +258,13 @@ with tab6:
         df1.columns=df1.columns.str.strip()
         column_to_keep1=['Cur Date','Completion date']
         df1=df1[column_to_keep1]
-        df2=df.merge(df,df1,how='left')
+        df2=df.merge(df,df1,on='Job No',how='left')
         st.dataframe(df2)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
