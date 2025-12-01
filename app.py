@@ -277,13 +277,17 @@ with tab6:
             # Nối 2 bảng lại theo cột
             df2 = pd.concat([df_clean, df1_clean], axis=1)
             selected_line=st.selectbox("Chọn số line",df2['Curent line'].unique())
+            st.divider()
             st.dataframe(df2[df2['Curent line'] == selected_line])
-            
-            st.dataframe(df2)
+            df3=df2[df2['Curent line'] == selected_line]
+            total_quantity = df3.groupby(['TTI Model No","Curent line"], as_index=False).['QTY'].sum()
+            st.write(total_quantity)
+            #st.dataframe(df2)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
