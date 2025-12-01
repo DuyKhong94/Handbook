@@ -247,25 +247,42 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
-    st.write("hello")
-    uploaded_file=st.file_uploader("chọn file DPS mới nhất",type=["xlsx","xlsb"])
-    if uploaded_file is not None:
-        df=pd.read_excel(uploaded_file,sheet_name="Combine",skiprows=3)
-        df.columns=df.columns.str.strip()
-        column_to_keep=['TTI Model No','Job No','Curent line','QTY']
-        df=df[column_to_keep]
-        df_clean = df.dropna(how='all').reset_index(drop=True)
-        df1=pd.read_excel(uploaded_file,sheet_name="Combine",skiprows=2)
-        df1.columns=df1.columns.str.strip()
-        column_to_keep1=['Cur Date','Completion date']
-        df1=df1[column_to_keep1]
-        df1_clean = df1.dropna(how='all').reset_index(drop=True)
-        df2=pd.concat([df,df1],axis=1)
-        st.dataframe(df2)
+    with st.container():
+        st.write("hello")
+        uploaded_file = st.file_uploader("Chọn file DPS mới nhất", type=["xlsx", "xlsb"])
+    
+        if uploaded_file is not None:
+            # Đọc sheet Combine với skiprows=3
+            df = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=3)
+            df.columns = df.columns.str.strip()
+            column_to_keep = ['TTI Model No', 'Job No', 'Curent line', 'QTY']
+            df = df[column_to_keep]
+    
+            # Drop các dòng toàn NaN
+            df_clean = df.dropna(how='all').reset_index(drop=True)
+    
+            # Đọc lại sheet Combine với skiprows=2 (cho df1)
+            df1 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
+            df1.columns = df1.columns.str.strip()
+            column_to_keep1 = ['Cur Date', 'Completion date']
+            df1 = df1[column_to_keep1]
+    
+            df1_clean = df1.dropna(how='all').reset_index(drop=True)
+    
+            # Đảm bảo số dòng 2 bảng bằng nhau trước khi concat, nếu không thì sẽ sinh NaN ở dòng thừa
+            min_len = min(len(df_clean), len(df1_clean))
+            df_clean = df_clean.iloc[:min_len].reset_index(drop=True)
+            df1_clean = df1_clean.iloc[:min_len].reset_index(drop=True)
+    
+            # Nối 2 bảng lại theo cột
+            df2 = pd.concat([df_clean, df1_clean], axis=1)
+    
+            st.dataframe(df2)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
