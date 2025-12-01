@@ -280,13 +280,14 @@ with tab6:
             st.divider()
             st.dataframe(df2[df2['Curent line'] == selected_line])
             df3=df2[df2['Curent line'] == selected_line]
-            total_quantity = df3.groupby(['TTI Model No','Curent line'], as_index=False)['QTY'].sum()
+            total_quantity = df3.groupby(['Curent line'], as_index=False)['QTY'].sum()
             st.write("Tổng số lượng:" total_quantity)
             #st.dataframe(df2)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
