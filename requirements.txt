@@ -4,9 +4,10 @@ pandas
 cloudinary
 Pillow
 python-dotenv
-
+requests
 openpyxl
 numpy
 
 matplotlib
+
 
