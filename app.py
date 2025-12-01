@@ -247,7 +247,9 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
-    st.write('Sách Lean Six Sigma Black: [Link]("https://drive.google.com/file/d/1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N/view?usp=sharing")')
+    pdf_url1="https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
+    st.components.v1.iframe(pdf_url, height=600)
+
 
 
 
