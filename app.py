@@ -8,7 +8,7 @@ import random, string
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-
+import requests
 
 # ------------------ MongoDB ------------------
 def get_db():
@@ -248,7 +248,12 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     pdf_url1="https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
-    st.components.v1.iframe(pdf_url1, height=600)
+    response=request.get("pdf_url1")
+    with open("temp.pdf","wb") as f:
+        f.write(response.content)
+    with open("temp.pdf","rb") as f:
+        st.download_button("Tải về",f,file_name="file.pdf")
+   
 
 
 
