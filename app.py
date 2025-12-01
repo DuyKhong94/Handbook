@@ -248,7 +248,8 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     pdf_url1="https://drive.google.com/uc?export=download&id=1hsfe0bht8x5v_WLceTn_FUmHAlsyQs4N"
-    st.components.v1.iframe(pdf_url, height=600)
+    st.components.v1.iframe(pdf_url1, height=600)
+
 
 
 
