@@ -317,7 +317,7 @@ with tab6:
             plt.ylabel('Job No')
             plt.title('Plan Schedule')
             plt.xticks(rotation=45)
-            plt.xlim([0.1,1])
+            #plt.xlim([0.1,1])
             plt.ylim([1,15])
             #plt.tight_layout()
             st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
@@ -326,6 +326,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
