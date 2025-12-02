@@ -295,7 +295,7 @@ with tab6:
             df5=pd.merge(df3,df_left2, on='Job No',how='left')
             
             
-            
+            st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
             st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY']])
 
             # Tính tổng QTY
@@ -319,12 +319,13 @@ with tab6:
             plt.xticks(rotation=45)
             
             plt.tight_layout()
-            st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
+            
             #st.pyplot(plt)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
