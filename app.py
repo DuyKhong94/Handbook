@@ -296,7 +296,7 @@ with tab6:
             
             
             
-            st.dataframe(df5['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY'])
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY']])
 
             # Tính tổng QTY
             total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
@@ -316,6 +316,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
