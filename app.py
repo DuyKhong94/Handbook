@@ -248,49 +248,56 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 with tab6:
     with st.container():
-       
+
         uploaded_file = st.file_uploader("Chọn file DPS mới nhất", type=["xlsx", "xlsb"])
-    
+
         if uploaded_file is not None:
-            # Đọc sheet Combine với skiprows=3
-            df = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=3)
-            df.columns = df.columns.str.strip()
-            column_to_keep = ['TTI Model No', 'Job No', 'Curent line', 'QTY']
-            df = df[column_to_keep]
-    
-            # Drop các dòng toàn NaN
-            df_clean = df.dropna(how='all').reset_index(drop=True)
-    
-            # Đọc lại sheet Combine với skiprows=2 (cho df1)
-            df1 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
-            df1.columns = df1.columns.str.strip()
-            column_to_keep1 = ['Cur Date', 'Completion date']
-            df1 = df1[column_to_keep1]
-    
-            df1_clean = df1.dropna(how='all').reset_index(drop=True)
-    
-            # Đảm bảo số dòng 2 bảng bằng nhau trước khi concat, nếu không thì sẽ sinh NaN ở dòng thừa
-            min_len = min(len(df_clean), len(df1_clean))
-            df_clean = df_clean.iloc[:min_len].reset_index(drop=True)
-            df1_clean = df1_clean.iloc[:min_len].reset_index(drop=True)
-    
-            # Nối 2 bảng lại theo cột
-            df2 = pd.concat([df_clean, df1_clean], axis=1)
-            selected_line=st.selectbox("Chọn số line",df2['Curent line'].unique())
+
+            # Đọc sheet Combine (chỉ 1 lần)
+            df_raw = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
+            df_raw.columns = df_raw.columns.str.strip()
+
+            # Lấy bảng trái
+            left_cols = ['TTI Model No', 'Job No', 'Curent line', 'QTY']
+            df_left = df_raw[left_cols].dropna(how='all')
+
+            # Lấy bảng phải
+            right_cols = ['Cur Date', 'Completion date']
+            df_right = df_raw[right_cols].dropna(how='all')
+
+            # Đồng bộ index cho chắc chắn
+            df_left = df_left.reset_index(drop=True)
+            df_right = df_right.reset_index(drop=True)
+
+            # Ghép 2 bảng chính xác theo index
+            df2 = pd.concat([df_left, df_right], axis=1)
+
+            # Loại bỏ các dòng hoàn toàn rỗng nếu có
+            df2 = df2.dropna(how='all')
+
+            # UI filter
+            selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
+
             st.divider()
-            st.dataframe(df2[df2['Curent line'] == selected_line])
-            df3=df2[df2['Curent line'] == selected_line]
-            total_quantity = df3.groupby(['Curent line'], as_index=False)['QTY'].sum()
-            total_quantity_sum= total_quantity['QTY'].sum()
-            total_verification_job=df3[df3['Job No'].str.startswith(('EB','QB','MP','PR'),na=False)]
-            total_verification_job_count=len(total_verification_job['Job No'].unique())
-            st.markdown(f"Tổng số lượng(pcs): {int(total_quantity_sum)}")
-            st.markdown(f"Tổng số job EB QB 1stMP PR: {int(total_verification_job_count)}")
-            #st.dataframe(df2)
+
+            df3 = df2[df2['Curent line'] == selected_line]
+            st.dataframe(df3)
+
+            # Tính tổng QTY
+            total_quantity_sum = df3['QTY'].astype(float).sum()
+
+            # Tính số job EB / QB / MP / PR
+            total_verification_job = df3[df3['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
+            total_verification_job_count = len(total_verification_job['Job No'].unique())
+
+            # Hiển thị
+            st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
+            st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
