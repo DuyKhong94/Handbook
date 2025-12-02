@@ -285,7 +285,7 @@ with tab6:
             df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
             df2['Progress Time']=df2['Completion date']-df2['Cur Date']
-            df2['Progress_Days']=int(df2['Progress Time'].dt.days)
+            df2['Progress_Days']=df2['Progress Time'].dt.days.astype(float)
             st.divider()
 
             df3 = df2[df2['Curent line'] == selected_line]
@@ -316,6 +316,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
