@@ -311,11 +311,27 @@ with tab6:
             st.divider()
             plt.figure(figsize=(10,5))
             bars=plt.barh(df5['Job No'],df5['Progress_Days'],left=df5['Cur Date'], color='skyblue')
+            for i, (bar, (_,row)) in enumerate (zip(bars,df_plot1.iterrows())):
+                start=float(row['Cur Date'])
+                duration=float(row['Progress_Days'])
+                qty=row['Need Bulit QTY']
+                centerx=start+duration/2
+                centery=bar.get_y() + bar.get_height() /2
+                plt.text(centerx,centery,f'{int(qty)}',
+                         va='center',ha='center',fontsize=9,color='black')
+
+            plt.xlabel('Days')
+            plt.ylabel('Job No')
+            plt.title('Plan Schedule')
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+            st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
             st.pyplot(plt)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
