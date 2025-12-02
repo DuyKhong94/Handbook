@@ -315,7 +315,7 @@ with tab6:
                 start=df5['Cur Date']
                 duration=df5['Progress_Days']
                 qty=df5['Need Bulit QTY']
-                centerx=start+duration/2
+                centerx= start + duration/2
                 centery=bar.get_y() + bar.get_height() /2
                 plt.text(centerx,centery,f'{int(qty)}',
                          va='center',ha='center',fontsize=9,color='black')
@@ -331,6 +331,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
