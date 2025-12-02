@@ -306,10 +306,13 @@ with tab6:
             # Hiển thị
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
+    st.divider()
+    
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
