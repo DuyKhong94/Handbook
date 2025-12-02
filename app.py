@@ -257,13 +257,12 @@ with tab6:
             df_raw = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=3)
             df_raw.columns = df_raw.columns.str.strip()
             df_raw2 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
-            df_raw3 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=4)
             df_raw2.columns = df_raw2.columns.str.strip()
             # Lấy bảng trái
-            left_cols = ['TTI Model No', 'Job No', 'Curent line', 'Need Bulit QTY']
-            st.write("Columns in df_raw:", df_raw.columns.tolist())
-            st.write("Columns in df_raw:", df_raw2.columns.tolist())
-            st.write("Columns in df_raw:", df_raw3.columns.tolist())
+            left_cols = ['TTI Model No', 'Job No', 'Curent line']
+            #st.write("Columns in df_raw:", df_raw.columns.tolist())
+            #st.write("Columns in df_raw:", df_raw2.columns.tolist())
+            #st.write("Columns in df_raw:", df_raw3.columns.tolist())
             df_left = df_raw[left_cols].dropna(how='all')
 
             # Lấy bảng phải
@@ -289,7 +288,12 @@ with tab6:
             st.divider()
 
             df3 = df2[df2['Curent line'] == selected_line]
+            df4=pd.read_excel(upload_file,sheet_name=selected_line,skiprows=3)
+            quantity_col=['Job No','Need Bulit QTY']
+            df_left2=df4[quantity_col].dropna(how='all')
+            
             st.dataframe(df3)
+            st.dataframe(df_left2)
 
             # Tính tổng QTY
             total_quantity_sum = df3['Need Bulit QTY'].astype(float).sum()
@@ -305,6 +309,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
