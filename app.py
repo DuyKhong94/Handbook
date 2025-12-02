@@ -259,7 +259,7 @@ with tab6:
             df_raw2 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
             df_raw2.columns = df_raw2.columns.str.strip()
             # Lấy bảng trái
-            left_cols = ['TTI Model No', 'Job No', 'Curent line', 'QTY']
+            left_cols = ['TTI Model No', 'Job No', 'Curent line', 'Need Bulit QTY']
             df_left = df_raw[left_cols].dropna(how='all')
 
             # Lấy bảng phải
@@ -288,7 +288,7 @@ with tab6:
             st.dataframe(df3)
 
             # Tính tổng QTY
-            total_quantity_sum = df3['QTY'].astype(float).sum()
+            total_quantity_sum = df3['Need Bulit QTY'].astype(float).sum()
 
             # Tính số job EB / QB / MP / PR
             total_verification_job = df3[df3['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
@@ -301,6 +301,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
