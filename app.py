@@ -297,10 +297,10 @@ with tab6:
             st.dataframe(df5)
 
             # Tính tổng QTY
-            total_quantity_sum = df3['Need Bulit QTY'].astype(float).sum()
+            total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
 
             # Tính số job EB / QB / MP / PR
-            total_verification_job = df3[df3['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
+            total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
             total_verification_job_count = len(total_verification_job['Job No'].unique())
 
             # Hiển thị
@@ -310,6 +310,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
