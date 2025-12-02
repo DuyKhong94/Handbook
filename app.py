@@ -320,11 +320,12 @@ with tab6:
             
             plt.tight_layout()
             st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
-            st.pyplot(plt)
+            #st.pyplot(plt)
 with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
