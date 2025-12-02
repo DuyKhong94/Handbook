@@ -280,7 +280,7 @@ with tab6:
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
             df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
-            df2['Progress Time']=df2['Cur Date']-df2['Completion date']
+            df2['Progress Time']=df2['Completion date']-df2['Cur Date']
 
             st.divider()
 
@@ -301,6 +301,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
