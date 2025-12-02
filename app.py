@@ -291,7 +291,7 @@ with tab6:
             df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
             quantity_col=['Job No','Need Bulit QTY']
             df_left2=df4[quantity_col].dropna(how='all')
-            df5=pd.merge(['df3','df_left2'], on='Job No',how='left')
+            df5=pd.merge(df3,df_left2, on='Job No',how='left')
             st.dataframe(df3)
             st.dataframe(df_left2)
             st.dataframe(df5)
@@ -310,6 +310,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
