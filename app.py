@@ -257,11 +257,13 @@ with tab6:
             df_raw = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=3)
             df_raw.columns = df_raw.columns.str.strip()
             df_raw2 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=2)
+            df_raw3 = pd.read_excel(uploaded_file, sheet_name="Combine", skiprows=4)
             df_raw2.columns = df_raw2.columns.str.strip()
             # Lấy bảng trái
             left_cols = ['TTI Model No', 'Job No', 'Curent line', 'Need Bulit QTY']
             st.write("Columns in df_raw:", df_raw.columns.tolist())
             st.write("Columns in df_raw:", df_raw2.columns.tolist())
+            st.write("Columns in df_raw:", df_raw3.columns.tolist())
             df_left = df_raw[left_cols].dropna(how='all')
 
             # Lấy bảng phải
@@ -303,6 +305,7 @@ with tab7:
    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
 
   
+
 
 
 
