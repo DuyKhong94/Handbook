@@ -309,34 +309,57 @@ with tab6:
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
-            plt.figure(figsize=(12,6))
-            
-            ax = plt.gca()
-            
-            # duration theo ngày thực
-            duration = (df5['Completion date'] - df5['Cur Date']).dt.total_seconds() / 86400
-            
-            # Vẽ Gantt
-            ax.barh(
-                df5['Job No'],
-                duration,
-                left=df5['Cur Date'],
-                color='skyblue'
-            )
-            
-            # Format datetime cho trục X
             import matplotlib.dates as mdates
-            ax.xaxis_date()
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-            ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
+            from datetime import timedelta
             
-            plt.xticks(rotation=90)
-            plt.xlabel('Days')
-            plt.ylabel('Job No')
-            plt.title('Plan Schedule')
+            # --- Chuẩn hoá dữ liệu trước khi plot ---
+            # 1) convert datetime, loại bỏ các dòng thiếu start hoặc end
+            df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
+            df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
+            
+            # Drop hoặc giữ nhưng width = 0 cho các dòng thiếu
+            df_plot = df5.dropna(subset=['Cur Date', 'Completion date']).copy()
+            
+            # 2) (tùy chọn) sắp xếp theo Cur Date để bars nối nhau hợp lý
+            df_plot = df_plot.sort_values(by='Cur Date').reset_index(drop=True)
+            
+            # 3) convert to matplotlib numeric dates (1.0 = 1 day)
+            start_nums = mdates.date2num(df_plot['Cur Date'])
+            end_nums = mdates.date2num(df_plot['Completion date'])
+            widths = end_nums - start_nums  # width in days (float)
+            
+            # nếu có negative widths (end < start), bạn có thể log / set thành 0
+            neg_idx = widths < 0
+            if neg_idx.any():
+                # bạn có thể in ra các Job No sai để debug
+                st.warning(f"Có {neg_idx.sum()} job có Completion date < Cur Date (đã set width = 0).")
+                widths[neg_idx] = 0
+            
+            # --- Plot ---
+            fig, ax = plt.subplots(figsize=(12,6))
+            
+            # vị trí y: dùng range(len(df_plot)) để đảm bảo mapping đúng (1:1 với label)
+            y_pos = range(len(df_plot))
+            
+            # vẽ barh: left cần là start_nums (numeric), width là widths (numeric)
+            ax.barh(y=y_pos, width=widths, left=start_nums, height=0.6, color='skyblue', align='center')
+            
+            # set y ticks thành Job No (theo cùng thứ tự)
+            ax.set_yticks(y_pos)
+            ax.set_yticklabels(df_plot['Job No'])
+            
+            # Format trục x là datetime
+            ax.xaxis_date()
+            ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))   # tùy chỉnh interval
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+            plt.xticks(rotation=45)
+            
+            ax.set_xlabel('Days')
+            ax.set_ylabel('Job No')
+            ax.set_title('Plan Schedule')
             plt.tight_layout()
             
-            st.pyplot(plt)
+            st.pyplot(fig)
 with tab7:
     st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
     st.markdown("[2. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
@@ -350,6 +373,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
