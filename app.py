@@ -322,9 +322,11 @@ with tab6:
             
             #st.pyplot(plt)
 with tab7:
-   st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
-
+    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
+    st.markdown("[2. Quy trình xử lý hàng lỗi trên line](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
+    
   
+
 
 
 
