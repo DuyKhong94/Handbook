@@ -327,7 +327,10 @@ with tab7:
     st.markdown("[3. Quy trình & Điều Kiện phát cảnh báo Line Down](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746737/ROIPIE0015_A-_Line_Down_Alarm_Operating_Instruction_xuthwd.pdf)")
     st.markdown("[4. Giới thiệu sản phẩm Battery](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748575/22-1_Battery_Pack_Design_and_Process_-_new_Format_ubypxc.pdf)")
     st.markdown("[5. Giới thiệu sản phẩm Máy Khoan & Máy Siết Bu Lông DC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748763/22-2._Training_of_drill_driver_design_and_process_Tuan_english_version_new_format_vi4i02.pdf)")
-
+    st.markdown("[6. Giới thiệu sản phẩm Máy Cắt DC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749206/22-3._Training_of_Cutting_tools_Tuan_english_version_new_format_v0ihcz.pdf)")
+    st.markdown("[7. Giới thiệu sản phẩm Battery(2)](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/26_BP_EE_Trainning_fhupid.pdf)")
+    st.markdown("[8. Tài liệu DOE Battery Pack](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
+    st.markdown("[9. Giới thiệu sản phẩm AC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/28._AC_Failure_Analysis_-_RYOBI_1_gzh635.pdf)")
 
 
 
