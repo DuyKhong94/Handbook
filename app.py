@@ -350,9 +350,9 @@ with tab6:
             
             # Format trục x là datetime
             ax.xaxis_date()
-            ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))   # tùy chỉnh interval
+            ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))   # tùy chỉnh interval
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-            ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
+            
             plt.xticks(rotation=90)
             
             ax.set_xlabel('Days')
@@ -374,6 +374,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
