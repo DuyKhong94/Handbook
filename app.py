@@ -284,8 +284,8 @@ with tab6:
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
             df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
-            df2['Progress Time']=df2['Completion date']-df2['Cur Date']
-            df2['Progress_Days']=df2['Progress Time'].dt.days.astype(float)
+            df2['Progress Time']=(df2['Completion date']-df2['Cur Date'])+1
+          
             st.divider()
 
             df3 = df2[df2['Curent line'] == selected_line]
@@ -296,7 +296,7 @@ with tab6:
             
             
             st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
-            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY']])
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY',['Progress Time']])
 
             # Tính tổng QTY
             total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
@@ -334,6 +334,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
