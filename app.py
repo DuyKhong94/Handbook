@@ -331,6 +331,8 @@ with tab7:
     st.markdown("[7. Giới thiệu sản phẩm Battery(2)](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/26_BP_EE_Trainning_fhupid.pdf)")
     st.markdown("[8. Tài liệu DOE Battery Pack](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[9. Giới thiệu sản phẩm AC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/28._AC_Failure_Analysis_-_RYOBI_1_gzh635.pdf)")
+    st.markdown("[10. Tài liệu MSA GR&R Cross](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
+
 
 
 
