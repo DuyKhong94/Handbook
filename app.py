@@ -309,22 +309,31 @@ with tab6:
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
-            plt.figure(figsize=(10,5))
+            plt.figure(figsize=(12,6))
+            
+            ax = plt.gca()
+            
+            # duration theo ngày thực
             duration = (df5['Completion date'] - df5['Cur Date']).dt.total_seconds() / 86400
-
-            bars = plt.barh(
+            
+            # Vẽ Gantt
+            ax.barh(
                 df5['Job No'],
                 duration,
                 left=df5['Cur Date'],
                 color='skyblue'
-                )
-           
-
+            )
+            
+            # Format datetime cho trục X
+            import matplotlib.dates as mdates
+            ax.xaxis_date()
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+            ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
+            
+            plt.xticks(rotation=45)
             plt.xlabel('Days')
             plt.ylabel('Job No')
             plt.title('Plan Schedule')
-            plt.xticks(rotation=45)
-            
             plt.tight_layout()
             
             st.pyplot(plt)
@@ -341,6 +350,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
