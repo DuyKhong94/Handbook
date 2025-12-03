@@ -330,7 +330,7 @@ with tab6:
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
             ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
             
-            plt.xticks(rotation=45)
+            plt.xticks(rotation=90)
             plt.xlabel('Days')
             plt.ylabel('Job No')
             plt.title('Plan Schedule')
@@ -350,6 +350,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
