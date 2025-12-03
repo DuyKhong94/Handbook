@@ -310,7 +310,7 @@ with tab6:
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
             plt.figure(figsize=(10,5))
-            bars=plt.barh(df5['Job No'],df5['Progress_Days'],left=df5['Cur Date'], color='skyblue')
+            bars=plt.barh(df5['Job No'],df5['Progress Time'],left=df5['Cur Date'], color='skyblue')
            
 
             plt.xlabel('Days')
@@ -320,7 +320,7 @@ with tab6:
             
             plt.tight_layout()
             
-            #st.pyplot(plt)
+            st.pyplot(plt)
 with tab7:
     st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
     st.markdown("[2. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
@@ -334,6 +334,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
