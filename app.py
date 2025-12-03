@@ -343,6 +343,17 @@ with tab6:
             
             # vẽ barh: left cần là start_nums (numeric), width là widths (numeric)
             ax.barh(y=y_pos, width=widths, left=start_nums, height=0.6, color='skyblue', align='center')
+            qty_list = df_plot['Need Bulit QTY'].fillna(0).astype(int).tolist()
+
+            for i, (start, width, qty) in enumerate(zip(start_nums, widths, qty_list)):
+                if width > 0:
+                    x_text = start + width / 2
+                    y_text = i
+                    label = f"{qty:,}"     # hiển thị số có dấu phẩy
+        
+                    ax.text(x_text, y_text, label,
+                            ha='center', va='center', fontsize=9,
+                            fontweight='bold', color='black')
             
             # set y ticks thành Job No (theo cùng thứ tự)
             ax.set_yticks(y_pos)
@@ -374,6 +385,7 @@ with tab7:
     st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
