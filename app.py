@@ -322,18 +322,19 @@ with tab6:
             
             #st.pyplot(plt)
 with tab7:
-    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
-    st.markdown("[2. Quy trình xử lý hàng lỗi trên line](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
-    st.markdown("[3. Quy trình & Điều Kiện phát cảnh báo Line Down](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746737/ROIPIE0015_A-_Line_Down_Alarm_Operating_Instruction_xuthwd.pdf)")
-    st.markdown("[4. Giới thiệu sản phẩm Battery](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748575/22-1_Battery_Pack_Design_and_Process_-_new_Format_ubypxc.pdf)")
-    st.markdown("[5. Giới thiệu sản phẩm Battery(2)](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/26_BP_EE_Trainning_fhupid.pdf)")
-    st.markdown("[6. Giới thiệu sản phẩm Máy Khoan & Máy Siết Bu Lông DC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748763/22-2._Training_of_drill_driver_design_and_process_Tuan_english_version_new_format_vi4i02.pdf)")
-    st.markdown("[7. Giới thiệu sản phẩm Máy Cắt DC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749206/22-3._Training_of_Cutting_tools_Tuan_english_version_new_format_v0ihcz.pdf)")
-    st.markdown("[8. Giới thiệu sản phẩm máy mài DC ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749208/22-4._Training_of_grinder_design_and_process_Tuan_english_version_new_format_vqnlsn.pdf)")
-    st.markdown("[9. Giới thiệu sản phẩm AC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/28._AC_Failure_Analysis_-_RYOBI_1_gzh635.pdf)")
-    st.markdown("[10. Tài liệu DOE Battery Pack](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
-    st.markdown("[11. Tài liệu MSA GR&R ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
+    st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
+    st.markdown("[2. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
+    st.markdown("[3. Quy trình & Điều Kiện phát cảnh báo Line Down - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746737/ROIPIE0015_A-_Line_Down_Alarm_Operating_Instruction_xuthwd.pdf)")
+    st.markdown("[4. Giới thiệu sản phẩm Battery - Author: Ryan](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748575/22-1_Battery_Pack_Design_and_Process_-_new_Format_ubypxc.pdf)")
+    st.markdown("[5. Giới thiệu sản phẩm Battery(2) - Author: Ryan](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/26_BP_EE_Trainning_fhupid.pdf)")
+    st.markdown("[6. Giới thiệu sản phẩm Máy Khoan & Máy Siết Bu Lông DC - Author: PEDC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764748763/22-2._Training_of_drill_driver_design_and_process_Tuan_english_version_new_format_vi4i02.pdf)")
+    st.markdown("[7. Giới thiệu sản phẩm Máy Cắt DC - Author: PEDC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749206/22-3._Training_of_Cutting_tools_Tuan_english_version_new_format_v0ihcz.pdf)")
+    st.markdown("[8. Giới thiệu sản phẩm máy mài DC - Author: PEDC](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749208/22-4._Training_of_grinder_design_and_process_Tuan_english_version_new_format_vqnlsn.pdf)")
+    st.markdown("[9. Giới thiệu sản phẩm AC - Author: Duy Khong](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/28._AC_Failure_Analysis_-_RYOBI_1_gzh635.pdf)")
+    st.markdown("[10. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
+    st.markdown("[11. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
