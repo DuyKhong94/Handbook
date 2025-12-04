@@ -372,7 +372,7 @@ with tab6:
             
             st.pyplot(fig)
             st.divider()
-
+            st.dataframe(df2)
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
                 day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
@@ -397,6 +397,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
