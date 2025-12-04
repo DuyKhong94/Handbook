@@ -299,6 +299,8 @@ with tab6:
             df_filtered_by_date = df_filtered_by_date.drop_duplicates(
                                     subset=['TTI Model No', 'Curent line']
                                     )
+            total_changeover=len(df_filtered_by_date['Cur line'].nunique())
+            st.markdown(f"**Tổng số lượng changover trong ngày:{total_changeover}**")
             st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])       
             st.divider()
             df3 = df2[df2['Curent line'] == selected_line]
@@ -402,6 +404,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
