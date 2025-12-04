@@ -296,7 +296,7 @@ with tab6:
                     (df2['Completion date'] >= day_start)
                 ]
             df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','106','001597','001606','001514','001406','011196','130514','130606','130597','130690'),na=False)]
-            df_filtered_by_date = df_filtered_by_date.drop_duplicates(
+            #df_filtered_by_date = df_filtered_by_date.drop_duplicates(
                                     subset=['TTI Model No', 'Curent line']
                                     )
             
@@ -405,6 +405,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
