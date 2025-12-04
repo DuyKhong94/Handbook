@@ -295,7 +295,7 @@ with tab6:
                     (df2['Cur Date'] <= day_end) &
                     (df2['Completion date'] >= day_start)
                 ]
-            st.dataframe(df_filtered_by_date)       
+            st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])       
             st.divider()
             df3 = df2[df2['Curent line'] == selected_line]
             df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
@@ -398,6 +398,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
