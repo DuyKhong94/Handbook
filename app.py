@@ -281,22 +281,22 @@ with tab6:
             df2 = df2.dropna(how='all')
 
             # UI filter
-            #selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
+            selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
             df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
             df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
           
             st.divider()
 
-            #df3 = df2[df2['Curent line'] == selected_line]
-            #df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
-            #quantity_col=['Job No','Need Bulit QTY']
-            #df_left2=df4[quantity_col].dropna(how='all')
-            #df5=pd.merge(df3,df_left2, on='Job No',how='left')
+            df3 = df2[df2['Curent line'] == selected_line]
+            df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
+            quantity_col=['Job No','Need Bulit QTY']
+            df_left2=df4[quantity_col].dropna(how='all')
+            df5=pd.merge(df3,df_left2, on='Job No',how='left')
             
             
-            #st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
-            #st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
+            st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
                 day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
@@ -308,23 +308,23 @@ with tab6:
                 ]
 
             # Tính tổng QTY
-            #total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
+            total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
 
             # Tính số job EB / QB / MP / PR
-            #total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
-            #total_verification_job_count = len(total_verification_job['Job No'].unique())
+            total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
+            total_verification_job_count = len(total_verification_job['Job No'].unique())
 
-            # Hiển thị
-            #st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
-            #st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
+             Hiển thị
+            st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
+            st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
             import matplotlib.dates as mdates
             from datetime import timedelta
             
             # --- Chuẩn hoá dữ liệu trước khi plot ---
             # 1) convert datetime, loại bỏ các dòng thiếu start hoặc end
-            #df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
-            #df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
+            df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
+            df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
             
             # Drop hoặc giữ nhưng width = 0 cho các dòng thiếu
             df_plot = df5.dropna(subset=['Cur Date', 'Completion date']).copy()
@@ -395,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
