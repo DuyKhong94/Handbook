@@ -299,11 +299,21 @@ with tab6:
             #df_filtered_by_date = df_filtered_by_date.drop_duplicates(subset=['TTI Model No', 'Curent line'])
             
             st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])   
-            total_line=len(df_filtered_by_date['Curent line'].unique())
-            total_model=df_filtered_by_date['TTI Model No'].count()
-            total_changeover=len(df_filtered_by_date['TTI Model No'].unique())-total_line
-            st.markdown(f"**Tổng số line trong ngày:{total_line}**")
-            st.markdown(f"**Tổng số changeover trong ngày:{total_changeover}**")
+            df_calc = df_filtered_by_date.sort_values(by=['Curent line', 'Cur Date'])
+            
+            df_calc['change_flag'] = (
+                df_calc['TTI Model No'] != df_calc.groupby('Curent line')['TTI Model No'].shift(1)
+            ).astype(int)
+            
+            changeover_by_line = df_calc.groupby('Curent line')['change_flag'].sum() - 1
+            
+            total_changeover = changeover_by_line.sum()
+            
+            total_line = len(df_filtered_by_date['Curent line'].unique())
+            total_model = df_filtered_by_date['TTI Model No'].count()
+            
+            st.markdown(f"**Tổng số line trong ngày: {total_line}**")
+            st.markdown(f"**Tổng số changeover trong ngày: {int(total_changeover)}**")
             st.divider()
             df3 = df2[df2['Curent line'] == selected_line]
             df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
@@ -406,6 +416,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
