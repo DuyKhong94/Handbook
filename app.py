@@ -282,7 +282,9 @@ with tab6:
 
             
             # UI filter
-
+            df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
+            df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
+            df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
                 day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
@@ -317,9 +319,8 @@ with tab6:
             st.markdown(f"**Danh sách model trong ngày: {model_list}**")
             st.divider()
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
-            df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
-            df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
-            df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
+
+            
             df3 = df2[df2['Curent line'] == selected_line]
             df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
             quantity_col=['Job No','Need Bulit QTY']
@@ -421,6 +422,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
