@@ -315,16 +315,16 @@ with tab6:
             #total_verification_job_count = len(total_verification_job['Job No'].unique())
 
             # Hiển thị
-            st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
-            st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
+            #st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
+            #st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
             import matplotlib.dates as mdates
             from datetime import timedelta
             
             # --- Chuẩn hoá dữ liệu trước khi plot ---
             # 1) convert datetime, loại bỏ các dòng thiếu start hoặc end
-            df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
-            df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
+            #df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
+            #df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
             
             # Drop hoặc giữ nhưng width = 0 cho các dòng thiếu
             df_plot = df5.dropna(subset=['Cur Date', 'Completion date']).copy()
@@ -395,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
