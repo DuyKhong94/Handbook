@@ -314,7 +314,7 @@ with tab6:
             total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
             total_verification_job_count = len(total_verification_job['Job No'].unique())
 
-             Hiển thị
+            #Hiển thị
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
             st.divider()
@@ -395,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
