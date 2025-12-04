@@ -289,13 +289,13 @@ with tab6:
             st.divider()
 
             #df3 = df2[df2['Curent line'] == selected_line]
-            df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
+            #df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
             quantity_col=['Job No','Need Bulit QTY']
             df_left2=df4[quantity_col].dropna(how='all')
             df5=pd.merge(df3,df_left2, on='Job No',how='left')
             
             
-            st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
+            #st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
             #st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
@@ -395,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
