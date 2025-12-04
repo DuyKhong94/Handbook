@@ -297,16 +297,7 @@ with tab6:
             
             st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
             #st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
-            selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
-            if selected_date:
-                day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
-                day_end   = pd.to_datetime(str(selected_date) + " 23:59:59")
             
-                df_filtered_by_date = df2[
-                    (df2['Cur Date'] <= day_end) &
-                    (df2['Completion date'] >= day_start)
-                ]
-
             # Tính tổng QTY
             total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
 
@@ -317,7 +308,7 @@ with tab6:
             #Hiển thị
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
             st.markdown(f"**Tổng số job EB QB 1stMP PR: {total_verification_job_count}**")
-            st.divider()
+            
             import matplotlib.dates as mdates
             from datetime import timedelta
             
@@ -381,6 +372,18 @@ with tab6:
             plt.tight_layout()
             
             st.pyplot(fig)
+            st.divider()
+
+            selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
+            if selected_date:
+                day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
+                day_end   = pd.to_datetime(str(selected_date) + " 23:59:59")
+            
+                df_filtered_by_date = df2[
+                    (df2['Cur Date'] <= day_end) &
+                    (df2['Completion date'] >= day_start)
+                ]
+
 with tab7:
     st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
     st.markdown("[2. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
@@ -395,6 +398,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
