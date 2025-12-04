@@ -290,9 +290,9 @@ with tab6:
 
             #df3 = df2[df2['Curent line'] == selected_line]
             #df4=pd.read_excel(uploaded_file,sheet_name=selected_line,skiprows=3)
-            quantity_col=['Job No','Need Bulit QTY']
-            df_left2=df4[quantity_col].dropna(how='all')
-            df5=pd.merge(df3,df_left2, on='Job No',how='left')
+            #quantity_col=['Job No','Need Bulit QTY']
+            #df_left2=df4[quantity_col].dropna(how='all')
+            #df5=pd.merge(df3,df_left2, on='Job No',how='left')
             
             
             #st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
@@ -308,11 +308,11 @@ with tab6:
                 ]
 
             # Tính tổng QTY
-            total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
+            #total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
 
             # Tính số job EB / QB / MP / PR
-            total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
-            total_verification_job_count = len(total_verification_job['Job No'].unique())
+            #total_verification_job = df5[df5['Job No'].str.startswith(('EB','QB','MP','PR'), na=False)]
+            #total_verification_job_count = len(total_verification_job['Job No'].unique())
 
             # Hiển thị
             st.markdown(f"**Tổng số lượng (pcs): {int(total_quantity_sum):,}**")
@@ -395,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
