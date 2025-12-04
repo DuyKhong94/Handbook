@@ -281,7 +281,7 @@ with tab6:
             df2 = df2.dropna(how='all')
 
             # UI filter
-            selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
+            #selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
             df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
             df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
@@ -296,7 +296,16 @@ with tab6:
             
             
             st.subheader(f"{selected_line}: thống kê số liệu sản xuất")
-            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
+            #st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
+            selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
+            if selected_date:
+                day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
+                day_end   = pd.to_datetime(str(selected_date) + " 23:59:59")
+            
+                df_filtered_by_date = df2[
+                    (df2['Cur Date'] <= day_end) &
+                    (df2['Completion date'] >= day_start)
+                ]
 
             # Tính tổng QTY
             total_quantity_sum = df5['Need Bulit QTY'].astype(float).sum()
@@ -386,6 +395,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
