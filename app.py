@@ -387,7 +387,7 @@ with tab6:
                 for line, models in line_job_dict.items()
             ])
 
-            st.subheader("📋 Danh sách line và model trong ngày")
+        
             st.dataframe(df_line_model, use_container_width=True)
 
             
@@ -497,6 +497,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
