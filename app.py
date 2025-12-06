@@ -376,7 +376,7 @@ with tab6:
             st.markdown(f"**Tổng số line DC A1196: {total_line_dc196} | Danh sách line DC A1196: {line_list_dc196}**")
 
           
-            mask_c2012=(df_filtered_by_date['Curent line']==C2-012).tolist()
+            mask_c2012=(df_filtered_by_date['Curent line']== 'C2-012').tolist()
             st.write(mask_c2012)
 
 
@@ -487,6 +487,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
