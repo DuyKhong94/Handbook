@@ -317,12 +317,21 @@ with tab6:
             model_list = df_filtered_by_date['TTI Model No'].dropna().unique().tolist()
             line_list=df_filtered_by_date['Curent line'].dropna().unique().tolist()
             prefixes_AC=('C2-012','C2-013','C2-032','C2-033')
+            prefixes_pneu=('C2-055')
             mask_AC=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_AC))
+            mask_pneu=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_pneu))
+
+            
             total_line_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].nunique()
             line_list_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].unique().tolist()
+            total_line_pneu=df_filtered_by_date.loc[mask_pneu,'Curent line'].nunique()
+            line_list_pneu=df_filtered_by_date.loc[mask_pneu,'Curent line'].unique().tolist()
+
+            
             st.markdown(f"**Danh sách model trong ngày: {model_list}**")
             st.markdown(f"**Danh sách line: {line_list}**")
             st.markdown(f"**Tổng số line AC: {total_line_AC} | Danh sách line AC: {line_list_AC}**")
+            st.markdown(f"**Tổng số line Pneumactic tool: {total_line_Pneu} | Danh sách line Pneumatic: {line_list_pneu}**")
             
             st.divider()
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
@@ -430,6 +439,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
