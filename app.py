@@ -376,7 +376,7 @@ with tab6:
             st.markdown(f"**Tổng số line DC A1196: {total_line_dc196} | Danh sách line DC A1196: {line_list_dc196}**")
             line_model_dict = (
                 df_filtered_by_date
-                .groupby('Curent line')['TTI Model No']
+                .groupby('Curent line')['Job No'].str[:9].
                 .apply(lambda x: sorted(x.unique()))
                 .to_dict()
             )
@@ -495,6 +495,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
