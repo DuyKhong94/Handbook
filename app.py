@@ -406,7 +406,7 @@ with tab6:
             y_pos = range(len(df_plot))
             
             # vẽ barh: left cần là start_nums (numeric), width là widths (numeric)
-            ax.barh(y=y_pos, width=widths, left=start_nums, height=0.6, color='skyblue', align='center')
+            ax.barh(y=y_pos, width=widths, left=start_nums, height=0.6, color='green', align='center')
             qty_list = df_plot['Need Bulit QTY'].fillna(0).astype(int).tolist()
 
             for i, (start, width, qty) in enumerate(zip(start_nums, widths, qty_list)):
@@ -454,6 +454,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
