@@ -386,7 +386,26 @@ with tab6:
                 {"Curent line": line, "Danh sách model": ", ".join(models)}
                 for line, models in line_job_dict.items()
             ])
-
+            # Tạo mapping line → type
+            line_type_map = {}
+            
+            for line in line_list_AC:
+                line_type_map[line] = "AC"
+            
+            for line in line_list_pneu:
+                line_type_map[line] = "Pneumatic"
+            
+            for line in line_list_pk:
+                line_type_map[line] = "PK"
+            
+            for line in line_list_sub:
+                line_type_map[line] = "SUB"
+            
+            for line in line_list_dc196:
+                line_type_map[line] = "DC A1196"
+            
+            # Thêm cột Type vào df_line_model
+            df_line_model["Type"] = df_line_model["Curent line"].map(line_type_map).fillna("")
         
             st.dataframe(df_line_model, use_container_width=True)
 
@@ -497,6 +516,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
