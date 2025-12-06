@@ -343,6 +343,7 @@ with tab6:
                 width=bar.get_x() + bar.get_width() /2
                 
                 ax.text(width,height +0.1,str(int(height)),ha='center',va='bottom')
+            ax.tight_layout()
             st.pyplot(fig)
             
             
@@ -479,6 +480,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
