@@ -375,7 +375,17 @@ with tab6:
             st.markdown(f"**Tổng số line Sub: {total_line_sub} | Danh sách line Sub: {line_list_sub}**")
             st.markdown(f"**Tổng số line DC A1196: {total_line_dc196} | Danh sách line DC A1196: {line_list_dc196}**")
             df_filtered_by_date['Job9'] = df_filtered_by_date['Job No'].astype(str).str[:9]
+            summary = f"""
+            **Tổng số changeover hôm nay: {total_changeover}**
             
+            AC ({len(ac_list)}): {', '.join(ac_list) if ac_list else '-'}
+            PK ({len(pk_list)}): {', '.join(pk_list) if pk_list else '-'}
+            Sub ({len(sub_list)}): {', '.join(sub_list) if sub_list else '-'}
+            Pneumatic ({len(pneumatic_list)}): {', '.join(pneumatic_list) if pneumatic_list else '-'}
+            DC A1196 ({len(a1196_list)}): {', '.join(a1196_list) if a1196_list else '-'}
+            """
+            
+            st.markdown(summary)
             line_job_dict = (
                 df_filtered_by_date
                 .groupby('Curent line')['Job9']
@@ -497,6 +507,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
