@@ -320,11 +320,12 @@ with tab6:
             prefixes_PK=('C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059')
             prefixes_sub=('C2-015','C2-020','C2-016','C2-017','C2-018','C2-019')
             prefixes_dc196=('C2-027','C2-028','C2-029','C2-034')
+            prefixes_qb_ac=('C2-005')
             groups={"AC":['C2-012','C2-013','C2-032','C2-033'] ,
                     "Pneu Tool":['C2-055'],
                     "Packing":['C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059'],
                     "SUB":['C2-015','C2-020','C2-016','C2-017','C2-018','C2-019'],
-                    "DC A1196":['C2-027','C2-028','C2-029','C2-034']}
+                    "DC A1196":['C2-027','C2-028','C2-029','C2-034'],"QB":['C2-005']}
             group_values = {}
             for group_name, prefix_list in groups.items():
                 mask=df_filtered_by_date['Curent line'].astype(str).str.startswith(tuple(prefix_list))
@@ -353,6 +354,7 @@ with tab6:
             mask_pk=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_PK))
             mask_sub=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_sub))
             mask_dc196=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_dc196))
+            mask_qb=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_qb_ac))
             
             total_line_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].nunique()
             line_list_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].unique().tolist()
@@ -363,7 +365,8 @@ with tab6:
             total_line_sub=df_filtered_by_date.loc[mask_sub,'Curent line'].nunique()
             line_list_sub=df_filtered_by_date.loc[mask_sub,'Curent line'].unique().tolist()
             total_line_dc196=df_filtered_by_date.loc[mask_dc196,'Curent line'].nunique()
-            line_list_dc196=df_filtered_by_date.loc[mask_dc196,'Curent line'].unique().tolist()      
+            line_list_dc196=df_filtered_by_date.loc[mask_dc196,'Curent line'].unique().tolist()
+            line_list_qb=df_filtered_by_date.loc[mask_qb,'Curent line'].unique().tolist()     
             
             #st.markdown(f"**Tổng số line trong ngày (Bao gồm line QB để theo dõi sự thay đổi): {total_line}**")
             st.markdown(f"**Tổng số changeover trong ngày(Bao gồm line QB để theo dõi sự thay đổi): {int(total_changeover)}**")
@@ -404,6 +407,8 @@ with tab6:
             
             for line in line_list_dc196:
                 line_type_map[line] = "DC A1196"
+            for line in line_list_qb:
+                line_type_map[line] = "QB AC"
             
             # Thêm cột Type vào df_line_model
             df_line_model["Type"] = df_line_model["Curent line"].map(line_type_map).fillna("")
@@ -520,6 +525,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
