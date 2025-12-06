@@ -318,7 +318,7 @@ with tab6:
             line_list=df_filtered_by_date['Curent line'].dropna().unique().tolist()
             prefixes_AC=('C2-012','C2-013','C2-032','C2-033')
             mask_AC=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_AC))
-            total_line_AC=mask_AC.dropna().unique().count()
+            total_line_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].unique().count()
             line_list_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].unique().tolist()
             st.markdown(f"**Danh sách model trong ngày: {model_list}**")
             st.markdown(f"**Danh sách line: {line_list}**")
@@ -430,6 +430,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
