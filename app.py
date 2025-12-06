@@ -382,7 +382,7 @@ with tab6:
             )
             
             # Hiển thị dạng đẹp
-            for line, models in line_model_dict.items():
+            for line, models in line_job_dict.items():
                 st.markdown(f"**{line} : {', '.join(models)}**")
           
 
@@ -495,6 +495,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
