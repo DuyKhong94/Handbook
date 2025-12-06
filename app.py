@@ -333,13 +333,15 @@ with tab6:
             #st.write(group_values)
             names=list(group_values.keys())
             values=list(group_values.values())
-            fig,ax=plt.subplots(figsize=(10, 5))
+            fig,bar,ax=plt.subplots(figsize=(10, 5))
             ax.bar(names, values, color="#90EE90")
             ax.set_xlabel("Khu Vực")
             ax.set_ylabel("Số lượng")
             ax.set_title("Số lượng Line theo khu vực")
-            for i,v in enumerate(values):
-                ax.text(v,i+0.1,str(v),va='center')
+            for bars in zips:
+                height=bar.get_height()
+                
+                ax.text(height,va='center')
             st.pyplot(fig)
             
             
@@ -476,6 +478,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
