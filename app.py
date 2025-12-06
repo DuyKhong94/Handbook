@@ -337,7 +337,7 @@ with tab6:
             bars=ax.bar(names, values, color="#90EE90")
             ax.set_xlabel("Khu Vực")
             ax.set_ylabel("Số lượng")
-            ax.set_title("Số lượng Line theo khu vực")
+            ax.set_title(f"Số lượng Line theo khu vực: {selected_date}")
             ax.set_ylim([0,15])
             for bar in bars:
                 height=bar.get_height()
@@ -481,6 +481,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
