@@ -295,7 +295,7 @@ with tab6:
                     (df2['Completion date'] >= day_start)
                 ]
             df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','001457','001350','106','001597','001606','001514','001406','011196','130514','130606','130597','130690'),na=False)
-                                & df_filtered_by_date['Job No'].str.startswith(('001','030','QB','PR','MP','EB','ESB','106','054','056','159196','SAM','313','316','307','319'), na=False)]
+                                & df_filtered_by_date['Job No'].str.startswith(('001','030','QB','PR','MP','EB','ESB','106','054','056','159196','SAM','313','316','307','319','318'), na=False)]
             
             
             st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])   
@@ -318,12 +318,12 @@ with tab6:
             prefixes_AC=('C2-012','C2-013','C2-032','C2-033')
             prefixes_pneu=('C2-055')
             prefixes_PK=('C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059')
-
+            prefixes_sub=('C2-015')
             
             mask_AC=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_AC))
             mask_pneu=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_pneu))
             mask_pk=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_PK))
-
+            mask_sub=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_sub))
             
             total_line_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].nunique()
             line_list_AC=df_filtered_by_date.loc[mask_AC,'Curent line'].unique().tolist()
@@ -331,7 +331,9 @@ with tab6:
             line_list_pneu=df_filtered_by_date.loc[mask_pneu,'Curent line'].unique().tolist()
             total_line_pk=df_filtered_by_date.loc[mask_pk,'Curent line'].nunique()
             line_list_pk=df_filtered_by_date.loc[mask_pk,'Curent line'].unique().tolist()
-
+            total_line_sub=df_filtered_by_date.loc[mask_sub,'Curent line'].nunique()
+            line_list_sub=df_filtered_by_date.loc[mask_sub,'Curent line'].unique().tolist()
+            
             #st.markdown(f"**Tổng số line trong ngày (Bao gồm line QB để theo dõi sự thay đổi): {total_line}**")
             st.markdown(f"**Tổng số changeover trong ngày(Bao gồm line QB để theo dõi sự thay đổi): {int(total_changeover)}**")
             st.markdown(f"**Danh sách model trong ngày: {model_list}**")
@@ -339,6 +341,8 @@ with tab6:
             st.markdown(f"**Tổng số line AC: {total_line_AC} | Danh sách line AC: {line_list_AC}**")
             st.markdown(f"**Tổng số line Pneumactic tool: {total_line_pneu} | Danh sách line Pneumatic: {line_list_pneu}**")
             st.markdown(f"**Tổng số line PK: {total_line_pk} | Danh sách line PK: {line_list_pk}**")
+            st.markdown(f"**Tổng số line Sub: {total_line_sub} | Danh sách line Sub: {line_list_sub}**")
+
             
             st.divider()
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
@@ -446,6 +450,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
