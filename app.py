@@ -368,8 +368,8 @@ with tab6:
             line_list_dc196=df_filtered_by_date.loc[mask_dc196,'Curent line'].unique().tolist()
             line_list_qb=df_filtered_by_date.loc[mask_qb,'Curent line'].unique().tolist()     
             
-            #st.markdown(f"**Tổng số line trong ngày (Bao gồm line QB để theo dõi sự thay đổi): {total_line}**")
-            st.markdown(f"**Tổng số changeover trong ngày(Bao gồm line QB để theo dõi sự thay đổi): {int(total_changeover)}**")
+            st.markdown(f"**Tổng số line trong ngày (Bao gồm line QB ): {total_line}**")
+            st.markdown(f"**Tổng số changeover trong ngày(Bao gồm line QB ): {int(total_changeover)}**")
             #st.markdown(f"**Danh sách model trong ngày: {model_list}**")
             #st.markdown(f"**Danh sách line: {line_list}**")
             #st.markdown(f"**Tổng số line AC: {total_line_AC} | Danh sách line AC: {line_list_AC}**")
@@ -525,6 +525,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
