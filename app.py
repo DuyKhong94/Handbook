@@ -374,19 +374,21 @@ with tab6:
             st.markdown(f"**Tổng số line PK: {total_line_pk} | Danh sách line PK: {line_list_pk}**")
             st.markdown(f"**Tổng số line Sub: {total_line_sub} | Danh sách line Sub: {line_list_sub}**")
             st.markdown(f"**Tổng số line DC A1196: {total_line_dc196} | Danh sách line DC A1196: {line_list_dc196}**")
+            df_filtered_by_date['Job9'] = df_filtered_by_date['Job No'].astype(str).str[:9]
+            
             line_job_dict = (
                 df_filtered_by_date
-                .groupby('Curent line')['Job No']
-                .apply(lambda x: sorted(x.astype(str).str[:9].unique()))
+                .groupby('Curent line')['Job9']
+                .apply(lambda x: sorted(x.unique()))
                 .to_dict()
             )
-            
-            # Hiển thị dạng đẹp
-            for line, models in line_job_dict.items():
-                st.markdown(f"**{line} : {', '.join(models)}**")
-          
+            df_line_model = pd.DataFrame([
+                {"Curent line": line, "Danh sách model": ", ".join(models)}
+                for line, models in line_job_dict.items()
+            ])
 
-
+            st.subheader("📋 Danh sách line và model trong ngày")
+            st.dataframe(df_line_model, use_container_width=True)
 
             
             st.divider()
@@ -495,6 +497,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
