@@ -330,11 +330,11 @@ with tab6:
                 mask=df_filtered_by_date['Curent line'].astype(str).str.startswith(tuple(prefix_list))
                 count=df_filtered_by_date.loc[mask,'Curent line'].nunique()
                 group_values[group_name]=count
-            st.write(group_values)
+            #st.write(group_values)
             names=list(group_values.keys())
             values=list(group_values.values())
             fix,ax=plt.subplots(figsize=(10, 5))
-            ax.bar(values, names, color="90EE90")
+            ax.bar(values, names, color="#90EE90")
             ax.set_xlabel("Khu Vực")
             ax.set_ylabel("Số lượng")
             ax.set_title("Số lượng Line theo khu vực")
@@ -476,6 +476,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
