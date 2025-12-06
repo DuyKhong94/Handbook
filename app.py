@@ -320,6 +320,17 @@ with tab6:
             prefixes_PK=('C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059')
             prefixes_sub=('C2-015','C2-020','C2-016','C2-017','C2-018','C2-019')
             prefixes_dc196=('C2-027','C2-028','C2-029','C2-034')
+            groups={"AC":['C2-012','C2-013','C2-032','C2-033'] ,
+                    "Pneu Tool":['C2-055'],
+                    "Packing":['C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059'],
+                    "SUB":['C2-015','C2-020','C2-016','C2-017','C2-018','C2-019'],
+                    "DC A1196":['C2-027','C2-028','C2-029','C2-034']}
+            group_values = {}
+                for group_name, prefix_list in group.items():
+                    mask=df_filtered_by_date['Curent line'].astype(str).str.startswith(tuple(prefix_list))
+                    count=df_filtered_by_date.loc[mask,'Curent line'].nunique()
+                    group_values[group_name]=count
+            st.write(group_values)
             
             mask_AC=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_AC))
             mask_pneu=(df_filtered_by_date['Curent line'].dropna().str.startswith(prefixes_pneu))
@@ -454,6 +465,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
