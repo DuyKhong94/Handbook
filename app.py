@@ -315,7 +315,12 @@ with tab6:
             st.markdown(f"**Tổng số line trong ngày (Bao gồm line QB để theo dõi sự thay đổi): {total_line}**")
             st.markdown(f"**Tổng số changeover trong ngày(Bao gồm line QB để theo dõi sự thay đổi): {int(total_changeover)}**")
             model_list = df_filtered_by_date['TTI Model No'].dropna().unique().tolist()
+            line_list=df_filtered_by_date['Curent line'].dropna().unique().tolist()
+            line_list_AC=df_filtered_by_date['Curent line'].startswith('C2-012','C2-013','C2-032','C2-033').dropna().unique().tolist()
             st.markdown(f"**Danh sách model trong ngày: {model_list}**")
+            st.markdown(f"**Danh sách line: {line_list}**")
+            st.markdown(f"**Danh sách line AC: {line_list_AC}**")
+            
             st.divider()
             selected_line = st.selectbox("Chọn số line", df2['Curent line'].dropna().unique())
 
@@ -422,6 +427,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
