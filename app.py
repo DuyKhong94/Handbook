@@ -294,7 +294,7 @@ with tab6:
                     (df2['Cur Date'] <= day_end) &
                     (df2['Completion date'] >= day_start)
                 ]
-            df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','001457','001350','106','001597','001606','001514','001406','011196','159196','130514','130606','130597','130690'),na=False)
+            df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','001457','001350','106','001597','001606','001514','001406','011196','159196','130514','130606','130597','130690','054196','056196'),na=False)
                                 & df_filtered_by_date['Job No'].str.startswith(('001','030','QB','PR','MP','EB','ESB','106','054','056','159196','SAM','313','316','307','319','318','290','300003120','291','292'), na=False)]
             
             
@@ -454,6 +454,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
