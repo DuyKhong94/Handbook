@@ -547,21 +547,9 @@ with tab8:
         key="cpk_input_table"
     )
     
-    # Lưu lại bảng đã nhập
-    st.session_state.input_table = edited_df
+  
     
-    # 4. Nút RUN để xử lý
-    if st.button("▶ RUN / TÍNH TOÁN"):
-    
-        df = st.session_state.input_table.copy()
-    
-        numeric_cols = ["Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5"]
-    
-        df["Mean"] = df[numeric_cols].mean(axis=1)
-    
-        st.write("👉 Bảng kết quả (đã tính Mean):")
-        st.dataframe(df)
-    
+
 
 
 
