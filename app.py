@@ -542,7 +542,7 @@ with tab8:
     
     # 3. Data editor
     edited_df = st.data_editor(
-        df_current,
+        st.session_state.input_table,
         num_rows="dynamic",
         key="cpk_input_table"
     )
@@ -562,6 +562,7 @@ with tab8:
         st.write("👉 Bảng kết quả (đã tính Mean):")
         st.dataframe(df)
     
+
 
 
 
