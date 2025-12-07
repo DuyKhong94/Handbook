@@ -527,7 +527,8 @@ with tab7:
 
 with tab8:
     st.write("hello world")
-    template=pd.DataFrame({
+    if "input_table" not in st.session_state:
+    st.session_state.input_table=pd.DataFrame({
        "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
@@ -536,19 +537,24 @@ with tab8:
        "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
     })
-    df_input=st.data_editor(template,num_rows="dynamic",key="input_table")
+    edited_df = st.data_editor(
+        st.session_state.input_table,
+        num_rows="dynamic",
+        key="cpk_input_table"
+    )
+    st.session_state.input_table = edited_df
     if st.button("▶ RUN / TÍNH TOÁN"):
-        
-        st.subheader("📊 Kết quả sau khi xử lý")
+        df=st.session_state.input_table.copy()
+      
 
         numeric_cols = ["Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5"]
 
-        # Tính Mean
-        df_input["Mean"] = df_input[numeric_cols].mean(axis=1)
+        df["Mean"] = df[numeric_cols].mean(axis=1)
 
         st.write("👉 Bảng kết quả (đã tính Mean):")
-        st.dataframe(df_input)
+        st.dataframe(df)
     
+
 
 
 
