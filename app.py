@@ -25,8 +25,8 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Technical Handbook", layout="wide")
 st.title("Process Engineering Technical Handbook")
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+                                        "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo","PE Tools"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -524,7 +524,11 @@ with tab7:
     st.markdown("[10. Giới thiệu sản phẩm Pneumatic Nailer - Author: ME](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764823583/22-5_Pneumatic_Tools_Design_and_Process_ENG_version_Red_new_format_nsi8lz.pdf)")
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
+
+with tab8:
+    st.write("hello world")
    
+
 
 
 
