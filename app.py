@@ -529,12 +529,12 @@ with tab8:
     st.write("hello world")
     if "input_table" not in st.session_state:
         st.session_state.input_table = pd.DataFrame({
-            "Order ID": [None],
-            "Sample 1": [None]*19,
-            "Sample 2": [None]*19,
-            "Sample 3": [None]*19,
-            "Sample 4": [None]*19,
-            "Sample 5": [None]*19,
+            "Order ID": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+            "Sample 1": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+            "Sample 2": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+            "Sample 3": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+            "Sample 4": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+            "Sample 5": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
         })
     
     # 2. Đảm bảo luôn là DataFrame
@@ -543,6 +543,7 @@ with tab8:
 
   
     
+
 
 
 
