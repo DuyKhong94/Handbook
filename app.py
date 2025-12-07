@@ -528,32 +528,41 @@ with tab7:
 with tab8:
     st.write("hello world")
     if "input_table" not in st.session_state:
-        st.session_state.input_table=pd.DataFrame({
-           "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "sample 3":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "sample 4":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-           "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
+        st.session_state.input_table = pd.DataFrame({
+            "Order ID": [None]*19,
+            "Sample 1": [None]*19,
+            "Sample 2": [None]*19,
+            "Sample 3": [None]*19,
+            "Sample 4": [None]*19,
+            "Sample 5": [None]*19,
         })
+    
+    # 2. Đảm bảo luôn là DataFrame
+    df_current = pd.DataFrame(st.session_state.input_table)
+    
+    # 3. Data editor
     edited_df = st.data_editor(
-        st.session_state.input_table,
+        df_current,
         num_rows="dynamic",
         key="cpk_input_table"
     )
+    
+    # Lưu lại bảng đã nhập
     st.session_state.input_table = edited_df
+    
+    # 4. Nút RUN để xử lý
     if st.button("▶ RUN / TÍNH TOÁN"):
-        df=st.session_state.input_table.copy()
-      
-
+    
+        df = st.session_state.input_table.copy()
+    
         numeric_cols = ["Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5"]
-
+    
         df["Mean"] = df[numeric_cols].mean(axis=1)
-
+    
         st.write("👉 Bảng kết quả (đã tính Mean):")
         st.dataframe(df)
     
+
 
 
 
