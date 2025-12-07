@@ -529,7 +529,7 @@ with tab8:
     st.write("hello world")
     if "input_table" not in st.session_state:
         st.session_state.input_table = pd.DataFrame({
-            "Order ID": [None]*19,
+            "Order ID": [None],
             "Sample 1": [None]*19,
             "Sample 2": [None]*19,
             "Sample 3": [None]*19,
@@ -543,6 +543,7 @@ with tab8:
 
   
     
+
 
 
 
