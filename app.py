@@ -538,7 +538,7 @@ with tab8:
         })
     
     # 2. Đảm bảo luôn là DataFrame
-    df_current = pd.DataFrame(st.session_state.input_table)
+    #df_current = pd.DataFrame(st.session_state.input_table)
     
     # 3. Data editor
     edited_df = st.data_editor(
@@ -562,6 +562,7 @@ with tab8:
         st.write("👉 Bảng kết quả (đã tính Mean):")
         st.dataframe(df)
     
+
 
 
 
