@@ -527,7 +527,7 @@ with tab7:
 
 with tab8:
     st.write("hello world")
-   template=pd.dataframe({
+    template=pd.dataframe({
        "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
@@ -535,7 +535,9 @@ with tab8:
        "sample 4":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
-   })
+    })
+    df_input=st.data_editor(template,num_rows="dynamic",key="input_table")
+    st.dataframe(df_input)
 
 
 
