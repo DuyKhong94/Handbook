@@ -528,15 +528,15 @@ with tab7:
 with tab8:
     st.write("hello world")
     if "input_table" not in st.session_state:
-    st.session_state.input_table=pd.DataFrame({
-       "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "sample 3":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "sample 4":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-       "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
-    })
+        st.session_state.input_table=pd.DataFrame({
+           "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "sample 3":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "sample 4":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+           "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
+        })
     edited_df = st.data_editor(
         st.session_state.input_table,
         num_rows="dynamic",
@@ -554,6 +554,7 @@ with tab8:
         st.write("👉 Bảng kết quả (đã tính Mean):")
         st.dataframe(df)
     
+
 
 
 
