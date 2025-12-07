@@ -538,17 +538,12 @@ with tab8:
         })
     
     # 2. Đảm bảo luôn là DataFrame
-    #df_current = pd.DataFrame(st.session_state.input_table)
+    df_current = pd.DataFrame(st.session_state.input_table)
     
-    # 3. Data editor
-    edited_df = st.data_editor(
-        st.session_state.input_table,
-        num_rows="dynamic",
-        key="cpk_input_table"
-    )
-    
+
   
     
+
 
 
 
