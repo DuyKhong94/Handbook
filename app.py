@@ -527,7 +527,7 @@ with tab7:
 
 with tab8:
     st.write("hello world")
-    template=pd.dataframe({
+    template=pd.DataFrame({
        "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
        "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
@@ -538,6 +538,7 @@ with tab8:
     })
     df_input=st.data_editor(template,num_rows="dynamic",key="input_table")
     st.dataframe(df_input)
+
 
 
 
