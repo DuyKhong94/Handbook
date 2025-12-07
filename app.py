@@ -25,8 +25,8 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Technical Handbook", layout="wide")
 st.title("Process Engineering Technical Handbook")
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo","PE Tools"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+                                        "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -525,24 +525,12 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
 
-with tab8:
-    st.write("hello world")
-    if "input_table" not in st.session_state:
-        st.session_state.input_table = pd.DataFrame({
-            "Order ID": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-            "Sample 1": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-            "Sample 2": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-            "Sample 3": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-            "Sample 4": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-            "Sample 5": ['None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
-        })
-    
-    # 2. Đảm bảo luôn là DataFrame
-    df_current = pd.DataFrame(st.session_state.input_table)
+
     
 
   
     
+
 
 
 
