@@ -527,10 +527,15 @@ with tab7:
 
 with tab8:
     st.write("hello world")
-   
-
-
-
+   template=pd.dataframe({
+       "order_id":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "sample 1":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "sample 2":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "sample 3":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "sample 4":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "sample 5":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'],
+       "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
+   })
 
 
 
