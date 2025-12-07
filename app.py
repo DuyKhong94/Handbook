@@ -377,7 +377,7 @@ with tab6:
             #st.markdown(f"**Tổng số line PK: {total_line_pk} | Danh sách line PK: {line_list_pk}**")
             #st.markdown(f"**Tổng số line Sub: {total_line_sub} | Danh sách line Sub: {line_list_sub}**")
             #st.markdown(f"**Tổng số line DC A1196: {total_line_dc196} | Danh sách line DC A1196: {line_list_dc196}**")
-            df_filtered_by_date['Job9'] = df_filtered_by_date['Job No'].astype(str).str[:9]
+            df_filtered_by_date['Job9'] = df_filtered_by_date['Job No'].astype(str).str[:12]
 
             line_job_dict = (
                 df_filtered_by_date
@@ -525,6 +525,7 @@ with tab7:
     st.markdown("[11. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[12. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
    
+
 
 
 
