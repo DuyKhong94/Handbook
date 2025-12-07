@@ -537,7 +537,19 @@ with tab8:
        "Mean":['None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None']
     })
     df_input=st.data_editor(template,num_rows="dynamic",key="input_table")
-    st.dataframe(df_input)
+    if st.button("▶ RUN / TÍNH TOÁN"):
+        
+        st.subheader("📊 Kết quả sau khi xử lý")
+
+        numeric_cols = ["Sample 1", "Sample 2", "Sample 3", "Sample 4", "Sample 5"]
+
+        # Tính Mean
+        df_input["Mean"] = df_input[numeric_cols].mean(axis=1)
+
+        st.write("👉 Bảng kết quả (đã tính Mean):")
+        st.dataframe(df_input)
+    
+
 
 
 
