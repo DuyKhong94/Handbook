@@ -282,7 +282,7 @@ with tab6:
 
             
             # UI filter
-            df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
+            df2['Line']=pd.to_datetime(df2['Line'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
             df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
@@ -291,7 +291,7 @@ with tab6:
                 day_end   = pd.to_datetime(str(selected_date) + " 23:59:59")
             
                 df_filtered_by_date = df2[
-                    (df2['Cur Date'] <= day_end) &
+                    (df2['Line'] <= day_end) &
                     (df2['Completion date'] >= day_start)
                 ]
             df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','001457','001350','106','001597','001606','001540','001514','001406','011196','159196','054196','056196','PR001'),na=False)
@@ -299,7 +299,7 @@ with tab6:
             
             
             #st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])   
-            df_calc = df_filtered_by_date.sort_values(by=['Curent line', 'Cur Date'])
+            df_calc = df_filtered_by_date.sort_values(by=['Curent line', 'Line'])
             
             df_calc['change_flag'] = (
                 df_calc['TTI Model No'] != df_calc.groupby('Curent line')['TTI Model No'].shift(1)
@@ -530,6 +530,7 @@ with tab7:
 
   
     
+
 
 
 
