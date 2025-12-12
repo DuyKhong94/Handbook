@@ -284,7 +284,7 @@ with tab6:
             # UI filter
             df2['Line']=pd.to_datetime(df2['Line'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
-            df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
+            df2['Progress Time'] = (df2['Completion date'] - df2['Line']).dt.total_seconds() / 86400
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
                 day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
@@ -530,6 +530,7 @@ with tab7:
 
   
     
+
 
 
 
