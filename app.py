@@ -247,6 +247,11 @@ with tab5:
     st.write(" Link: http://cnsserprod01:8080/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+    st.divider()
+    st.subheader("Tra cứu số lượng sản phẩm của model bất kỳ đã sản xuất")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/131254.jpg")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/131834.jpg")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/133623.jpg")
 with tab6:
     with st.container():
 
@@ -530,6 +535,7 @@ with tab7:
 
   
     
+
 
 
 
