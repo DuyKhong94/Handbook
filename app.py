@@ -251,7 +251,7 @@ with tab5:
     st.subheader("Tra cứu số lượng sản phẩm của model bất kỳ đã sản xuất")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/131254.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/eefaa55da7818f3bb86579da9312cca31c944f71/131834.jpg")
-    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/133623.jpg")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/a36d828ee14aa1e21e5ef68bc4a4f033554508df/134527.jpg")
 with tab6:
     with st.container():
 
@@ -535,6 +535,7 @@ with tab7:
 
   
     
+
 
 
 
