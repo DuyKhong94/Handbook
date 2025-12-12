@@ -507,7 +507,7 @@ with tab6:
             plt.tight_layout()
             
             st.pyplot(fig)
-            st.dataframe(df5[['TTI Model No','Job No','Curent line','Line(Cur Date)','Completion date','Need Bulit QTY','Progress Time']])
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Line','Completion date','Need Bulit QTY','Progress Time']])
             st.divider()
             #st.dataframe(df2)
 
@@ -530,6 +530,7 @@ with tab7:
 
   
     
+
 
 
 
