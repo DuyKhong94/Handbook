@@ -267,7 +267,7 @@ with tab6:
             df_left = df_raw[left_cols].dropna(how='all')
 
             # Lấy bảng phải
-            right_cols = ['Cur Date', 'Completion date']
+            right_cols = ['Line', 'Completion date']
             df_right = df_raw2[right_cols].dropna(how='all')
 
             # Đồng bộ index cho chắc chắn
@@ -530,6 +530,7 @@ with tab7:
 
   
     
+
 
 
 
