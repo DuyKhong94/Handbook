@@ -449,17 +449,17 @@ with tab6:
             
             # --- Chuẩn hoá dữ liệu trước khi plot ---
             # 1) convert datetime, loại bỏ các dòng thiếu start hoặc end
-            df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
+            df5['Line'] = pd.to_datetime(df5['Line'], errors='coerce')
             df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
             
             # Drop hoặc giữ nhưng width = 0 cho các dòng thiếu
-            df_plot = df5.dropna(subset=['Cur Date', 'Completion date']).copy()
+            df_plot = df5.dropna(subset=['Line', 'Completion date']).copy()
             
             # 2) (tùy chọn) sắp xếp theo Cur Date để bars nối nhau hợp lý
-            df_plot = df_plot.sort_values(by='Cur Date').reset_index(drop=True)
+            df_plot = df_plot.sort_values(by='Line').reset_index(drop=True)
             
             # 3) convert to matplotlib numeric dates (1.0 = 1 day)
-            start_nums = mdates.date2num(df_plot['Cur Date'])
+            start_nums = mdates.date2num(df_plot['Line'])
             end_nums = mdates.date2num(df_plot['Completion date'])
             widths = end_nums - start_nums  # width in days (float)
             
@@ -507,7 +507,7 @@ with tab6:
             plt.tight_layout()
             
             st.pyplot(fig)
-            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Line(Cur Date)','Completion date','Need Bulit QTY','Progress Time']])
             st.divider()
             #st.dataframe(df2)
 
@@ -530,6 +530,7 @@ with tab7:
 
   
     
+
 
 
 
