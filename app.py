@@ -297,7 +297,7 @@ with tab6:
                 day_end   = pd.to_datetime(str(selected_date) + " 23:59:59")
             
                 df_filtered_by_date = df2[
-                    (df2['Line'] <= day_end) &
+                    (df2['Cur Date'] <= day_end) &
                     (df2['Completion date'] >= day_start)
                 ]
             df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','001457','001350','106','001597','001606','001540','001514','001406','011196','159196','054196','056196','PR001'),na=False)
@@ -305,7 +305,7 @@ with tab6:
             
             
             #st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])   
-            df_calc = df_filtered_by_date.sort_values(by=['Curent line', 'Line'])
+            df_calc = df_filtered_by_date.sort_values(by=['Curent line', 'Cur Date'])
             
             df_calc['change_flag'] = (
                 df_calc['TTI Model No'] != df_calc.groupby('Curent line')['TTI Model No'].shift(1)
@@ -455,17 +455,17 @@ with tab6:
             
             # --- Chuẩn hoá dữ liệu trước khi plot ---
             # 1) convert datetime, loại bỏ các dòng thiếu start hoặc end
-            df5['Line'] = pd.to_datetime(df5['Line'], errors='coerce')
+            df5['Cur Date'] = pd.to_datetime(df5['Cur Date'], errors='coerce')
             df5['Completion date'] = pd.to_datetime(df5['Completion date'], errors='coerce')
             
             # Drop hoặc giữ nhưng width = 0 cho các dòng thiếu
-            df_plot = df5.dropna(subset=['Line', 'Completion date']).copy()
+            df_plot = df5.dropna(subset=['Cur Date', 'Completion date']).copy()
             
             # 2) (tùy chọn) sắp xếp theo Cur Date để bars nối nhau hợp lý
-            df_plot = df_plot.sort_values(by='Line').reset_index(drop=True)
+            df_plot = df_plot.sort_values(by='Cur Date').reset_index(drop=True)
             
             # 3) convert to matplotlib numeric dates (1.0 = 1 day)
-            start_nums = mdates.date2num(df_plot['Line'])
+            start_nums = mdates.date2num(df_plot['Cur Date'])
             end_nums = mdates.date2num(df_plot['Completion date'])
             widths = end_nums - start_nums  # width in days (float)
             
@@ -513,7 +513,7 @@ with tab6:
             plt.tight_layout()
             
             st.pyplot(fig)
-            st.dataframe(df5[['TTI Model No','Job No','Curent line','Line','Completion date','Need Bulit QTY','Progress Time']])
+            st.dataframe(df5[['TTI Model No','Job No','Curent line','Cur Date','Completion date','Need Bulit QTY','Progress Time']])
             st.divider()
             #st.dataframe(df2)
 
@@ -536,6 +536,7 @@ with tab7:
 
   
     
+
 
 
 
