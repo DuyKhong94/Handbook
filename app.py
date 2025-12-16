@@ -273,7 +273,7 @@ with tab6:
             df_left = df_raw[left_cols].dropna(how='all')
 
             # Lấy bảng phải
-            right_cols = ['Line', 'Completion date']
+            right_cols = ['Cur Date', 'Completion date']
             df_right = df_raw2[right_cols].dropna(how='all')
 
             # Đồng bộ index cho chắc chắn
@@ -288,9 +288,9 @@ with tab6:
 
             
             # UI filter
-            df2['Line']=pd.to_datetime(df2['Line'],errors='coerce')
+            df2['Cur Date']=pd.to_datetime(df2['Cur Date'],errors='coerce')
             df2['Completion date']=pd.to_datetime(df2['Completion date'],errors='coerce')
-            df2['Progress Time'] = (df2['Completion date'] - df2['Line']).dt.total_seconds() / 86400
+            df2['Progress Time'] = (df2['Completion date'] - df2['Cur Date']).dt.total_seconds() / 86400
             selected_date = st.date_input("Chọn ngày muốn xem job chạy:")
             if selected_date:
                 day_start = pd.to_datetime(str(selected_date) + " 00:00:00")
@@ -536,6 +536,7 @@ with tab7:
 
   
     
+
 
 
 
