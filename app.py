@@ -142,7 +142,7 @@ with tab2:
             with st.container(border=True):
                 st.markdown("## Failure Analyze Ticket")
 
-                col1, col2=st.columns(2)
+                col1, col2=st.columns(1,1)
                 with col1:
                     st.markdown(f" 📘 Model: {result['model']}")
                     st.markdown(f" 🛠 Mã lỗi: {result['error_code']}")
@@ -150,12 +150,13 @@ with tab2:
                     st.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
                 
                 with col2:
-                    st.markdown("### Description|Mô tả")
+                    st.markdown("## Description|Mô tả")
                     st.write(f"{result.get('description','chưa có thông tin')}")
-                    st.markdown("### Temporay Action|Giải pháp tạm thời")
+                    
+                    st.markdown("## Temporay Action|Giải pháp tạm thời")
                     st.write(f"{result.get('solution','Chưa có thông tin')}")
                 with col1:
-                    st.markdown("### Improvement Action|Biện pháp lâu dài")
+                    st.markdown("## Improvement Action|Biện pháp lâu dài")
                     st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
                 st.divider()
                 # --- Hiển thị danh sách hình ---
@@ -547,6 +548,7 @@ with tab7:
 
   
     
+
 
 
 
