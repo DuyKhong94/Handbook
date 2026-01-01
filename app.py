@@ -150,7 +150,7 @@ with tab2:
                 
                 st.divider()
                 st.markdown("### Description|Mô tả")
-                st.write(f"result.get('description',"chưa có thông tin')")
+                st.write(f"result.get('description','chưa có thông tin')")
                 st.markdown("###Temporay Action|Giải pháp tạm thời")
                 st.write(f"result.get('solution','Chưa có thông tin')")
                 
@@ -546,6 +546,7 @@ with tab7:
 
   
     
+
 
 
 
