@@ -139,13 +139,23 @@ with tab2:
     if search_code:
         result = collection.find_one({"error_code": search_code})
         if result:
-            st.write(f" 📘 Model: {result['model']}")
-            st.write(f" 🛠 Mã lỗi: {result['error_code']}")
-            st.write(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
-            st.write(f" 📜 Mô tả:** {result['description']}")
-            st.write(f" 🔍 Nguyên nhân:** {result.get('root_cause', 'Chưa có thông tin')}") 
-            st.write(f" 🛠 Giải pháp:** {result.get('solution', 'Chưa có thông tin')}")
-            st.write(f" 📈 Cải tiến dài hạn:** {result.get('improvement', 'Chưa có thông tin')}")
+            with st.container(border=True)
+                st.markdown(""Failure Analyze Ticket"")
+
+                col1, col2=st.columns(2)
+                col1.markdown(f" 📘 Model: {result['model']}")
+                col1.markdown(f" 🛠 Mã lỗi: {result['error_code']}")
+                
+                col1.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
+                
+                st.divider()
+                st.markdown("### Description|Mô tả")
+                st.write(result.get(f"description","chưa có thông tin"))
+                st.markdown("###Temporay Action|Giải pháp tạm thời")
+                st.write(result.get(f"solution","Chưa có thông tin"))
+                
+                st.markdown("###Improvement Action|Biện pháp lâu dài")
+                st.write(f"result.get("improvement", "Chưa có thông tin"))
 
             # --- Hiển thị danh sách hình ---
             images = result.get("images", [])
@@ -536,6 +546,7 @@ with tab7:
 
   
     
+
 
 
 
