@@ -152,10 +152,10 @@ with tab2:
                 with col2:
                     col2.markdown("### Description|Mô tả")
                     col2.write(f"{result.get('description','chưa có thông tin')}")
-                    col2.markdown("###Temporay Action|Giải pháp tạm thời")
+                    col2.markdown("### Temporay Action|Giải pháp tạm thời")
                     col2.write(f"{result.get('solution','Chưa có thông tin')}")
                 with col1:
-                    col1.markdown("###Improvement Action|Biện pháp lâu dài")
+                    col1.markdown("### Improvement Action|Biện pháp lâu dài")
                     col1.write(f"{result.get('improvement', 'Chưa có thông tin')}")
                 st.divider()
                 # --- Hiển thị danh sách hình ---
@@ -547,6 +547,7 @@ with tab7:
 
   
     
+
 
 
 
