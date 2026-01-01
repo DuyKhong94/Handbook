@@ -164,23 +164,23 @@ if search_code:
 
             st.divider()
                 # --- Hiển thị danh sách hình ---
-                images = result.get("images", [])
-                if images:
-                    st.write(f"📸 Có {len(images)} hình minh hoạ:")
-                    cols = st.columns(min(3, len(images)))
-                    for i, img_url in enumerate(images):
-                        cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
-                else:
-                    st.info("Không có hình ảnh minh hoạ cho lỗi này.")
-    
-                # --- File PDF ---
-                pdf_url = result.get("pdf_report")
-                if pdf_url:
-                    st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
-                else:
-                    st.info("Không có file báo cáo PDF cho lỗi này.")
+            images = result.get("images", [])
+            if images:
+                st.write(f"📸 Có {len(images)} hình minh hoạ:")
+                cols = st.columns(min(3, len(images)))
+                for i, img_url in enumerate(images):
+                    cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
             else:
-                st.error("❌ Không tìm thấy mã lỗi trong database.")
+                st.info("Không có hình ảnh minh hoạ cho lỗi này.")
+    
+            # --- File PDF ---
+            pdf_url = result.get("pdf_report")
+            if pdf_url:
+                st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+            else:
+                st.info("Không có file báo cáo PDF cho lỗi này.")
+        else:
+            st.error("❌ Không tìm thấy mã lỗi trong database.")
 
 # Procedures Tab
 with tab3:
@@ -552,6 +552,7 @@ with tab7:
 
   
     
+
 
 
 
