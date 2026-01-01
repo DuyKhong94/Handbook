@@ -153,13 +153,13 @@ if search_code:
                 st.markdown(f"**🕒 Thời gian:** {result.get('timestamp', 'Chưa có thông tin')}")
 
             with col2:
-                st.markdown("### 📝 Description | Mô tả")
+                st.markdown(" **Description | Mô tả** ")
                 st.markdown(result.get("description", "Chưa có thông tin"))
 
-                st.markdown("### 🩹 Temporary Action | Giải pháp tạm thời")
+                st.markdown(" Temporary Action | Giải pháp tạm thời")
                 st.markdown(result.get("solution", "Chưa có thông tin"))
 
-                st.markdown("### 🔧 Improvement Action | Biện pháp lâu dài")
+                st.markdown(" Improvement Action | Biện pháp lâu dài")
                 st.markdown(result.get("improvement", "Chưa có thông tin"))
 
             st.divider()
@@ -552,6 +552,7 @@ with tab7:
 
   
     
+
 
 
 
