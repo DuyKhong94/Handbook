@@ -144,19 +144,19 @@ with tab2:
 
                 col1, col2=st.columns(2)
                 with col1:
-                    col1.markdown(f" 📘 Model: {result['model']}")
-                    col1.markdown(f" 🛠 Mã lỗi: {result['error_code']}")
+                    st.markdown(f" 📘 Model: {result['model']}")
+                    st.markdown(f" 🛠 Mã lỗi: {result['error_code']}")
                     
-                    col1.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
+                    st.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
                 
                 with col2:
-                    col2.markdown("### Description|Mô tả")
-                    col2.write(f"{result.get('description','chưa có thông tin')}")
-                    col2.markdown("### Temporay Action|Giải pháp tạm thời")
-                    col2.write(f"{result.get('solution','Chưa có thông tin')}")
+                    st.markdown("### Description|Mô tả")
+                    st.write(f"{result.get('description','chưa có thông tin')}")
+                    st.markdown("### Temporay Action|Giải pháp tạm thời")
+                    st.write(f"{result.get('solution','Chưa có thông tin')}")
                 with col1:
-                    col1.markdown("### Improvement Action|Biện pháp lâu dài")
-                    col1.write(f"{result.get('improvement', 'Chưa có thông tin')}")
+                    st.markdown("### Improvement Action|Biện pháp lâu dài")
+                    st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
                 st.divider()
                 # --- Hiển thị danh sách hình ---
                 images = result.get("images", [])
@@ -547,6 +547,7 @@ with tab7:
 
   
     
+
 
 
 
