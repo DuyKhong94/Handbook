@@ -148,33 +148,33 @@ with tab2:
                 
                 col1.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
                 
-                st.divider()
-                st.markdown("### Description|Mô tả")
-                st.write(f"{result.get('description','chưa có thông tin')}")
-                st.markdown("###Temporay Action|Giải pháp tạm thời")
-                st.write(f"{result.get('solution','Chưa có thông tin')}")
                 
-                st.markdown("###Improvement Action|Biện pháp lâu dài")
-                st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
-
-            # --- Hiển thị danh sách hình ---
-            images = result.get("images", [])
-            if images:
-                st.write(f"📸 Có {len(images)} hình minh hoạ:")
-                cols = st.columns(min(3, len(images)))
-                for i, img_url in enumerate(images):
-                    cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
+                col2.markdown("### Description|Mô tả")
+                col2.write(f"{result.get('description','chưa có thông tin')}")
+                col2.markdown("###Temporay Action|Giải pháp tạm thời")
+                col2.write(f"{result.get('solution','Chưa có thông tin')}")
+                
+                col1.markdown("###Improvement Action|Biện pháp lâu dài")
+                col1.write(f"{result.get('improvement', 'Chưa có thông tin')}")
+                st.divider()
+                # --- Hiển thị danh sách hình ---
+                images = result.get("images", [])
+                if images:
+                    st.write(f"📸 Có {len(images)} hình minh hoạ:")
+                    cols = st.columns(min(3, len(images)))
+                    for i, img_url in enumerate(images):
+                        cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
+                else:
+                    st.info("Không có hình ảnh minh hoạ cho lỗi này.")
+    
+                # --- File PDF ---
+                pdf_url = result.get("pdf_report")
+                if pdf_url:
+                    st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+                else:
+                    st.info("Không có file báo cáo PDF cho lỗi này.")
             else:
-                st.info("Không có hình ảnh minh hoạ cho lỗi này.")
-
-            # --- File PDF ---
-            pdf_url = result.get("pdf_report")
-            if pdf_url:
-                st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
-            else:
-                st.info("Không có file báo cáo PDF cho lỗi này.")
-        else:
-            st.error("❌ Không tìm thấy mã lỗi trong database.")
+                st.error("❌ Không tìm thấy mã lỗi trong database.")
 
 # Procedures Tab
 with tab3:
@@ -546,6 +546,7 @@ with tab7:
 
   
     
+
 
 
 
