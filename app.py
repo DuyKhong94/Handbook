@@ -135,30 +135,34 @@ with tab2:
         else:
             st.warning("Không tìm thấy dữ liệu cho model này.")
 
-    search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):")
-    if search_code:
-        result = collection.find_one({"error_code": search_code})
-        if result:
-            with st.container(border=True):
-                st.markdown("## Failure Analyze Ticket")
+search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):")
 
-                col1, col2=st.columns(1,1)
-                with col1:
-                    st.markdown(f" 📘 Model: {result['model']}")
-                    st.markdown(f" 🛠 Mã lỗi: {result['error_code']}")
-                    
-                    st.markdown(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
-                
-                with col2:
-                    st.markdown("## Description|Mô tả")
-                    st.write(f"{result.get('description','chưa có thông tin')}")
-                    
-                    st.markdown("## Temporay Action|Giải pháp tạm thời")
-                    st.write(f"{result.get('solution','Chưa có thông tin')}")
-                with col1:
-                    st.markdown("## Improvement Action|Biện pháp lâu dài")
-                    st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
-                st.divider()
+if search_code:
+    result = collection.find_one({"error_code": search_code})
+
+    if result:
+        with st.container(border=True):
+            st.markdown("## 🧾 Failure Analysis Ticket")
+
+            # 🔴 FIX Ở ĐÂY
+            col1, col2 = st.columns([1, 2])
+
+            with col1:
+                st.markdown(f"**📘 Model:** {result['model']}")
+                st.markdown(f"**🛠 Mã lỗi:** {result['error_code']}")
+                st.markdown(f"**🕒 Thời gian:** {result.get('timestamp', 'Chưa có thông tin')}")
+
+            with col2:
+                st.markdown("### 📝 Description | Mô tả")
+                st.markdown(result.get("description", "Chưa có thông tin"))
+
+                st.markdown("### 🩹 Temporary Action | Giải pháp tạm thời")
+                st.markdown(result.get("solution", "Chưa có thông tin"))
+
+                st.markdown("### 🔧 Improvement Action | Biện pháp lâu dài")
+                st.markdown(result.get("improvement", "Chưa có thông tin"))
+
+            st.divider()
                 # --- Hiển thị danh sách hình ---
                 images = result.get("images", [])
                 if images:
@@ -548,6 +552,7 @@ with tab7:
 
   
     
+
 
 
 
