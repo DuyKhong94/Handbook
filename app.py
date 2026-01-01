@@ -150,12 +150,12 @@ with tab2:
                 
                 st.divider()
                 st.markdown("### Description|Mô tả")
-                st.write(result.get(f"description","chưa có thông tin"))
+                st.write(f"result.get('description',"chưa có thông tin')")
                 st.markdown("###Temporay Action|Giải pháp tạm thời")
-                st.write(result.get(f"solution","Chưa có thông tin"))
+                st.write(f"result.get('solution','Chưa có thông tin')")
                 
                 st.markdown("###Improvement Action|Biện pháp lâu dài")
-                st.write(f"result.get("improvement", "Chưa có thông tin"))
+                st.write(f"result.get('improvement', 'Chưa có thông tin')")
 
             # --- Hiển thị danh sách hình ---
             images = result.get("images", [])
@@ -546,6 +546,7 @@ with tab7:
 
   
     
+
 
 
 
