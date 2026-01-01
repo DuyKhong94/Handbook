@@ -138,49 +138,33 @@ with tab2:
 search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):")
 
 if search_code:
-    result = collection.find_one({"error_code": search_code})
-
-    if result:
-        with st.container(border=True):
-            st.markdown("## 🧾 Failure Analysis Ticket")
-
-            # 🔴 FIX Ở ĐÂY
-            col1, col2 = st.columns([1, 2])
-
-            with col1:
-                st.markdown(f"**📘 Model:** {result['model']}")
-                st.markdown(f"**🛠 Mã lỗi:** {result['error_code']}")
-                st.markdown(f"**🕒 Thời gian:** {result.get('timestamp', 'Chưa có thông tin')}")
-
-            with col2:
-                st.markdown(" **Description | Mô tả** ")
-                st.markdown(result.get("description", "Chưa có thông tin"))
-
-                st.markdown(" Temporary Action | Giải pháp tạm thời")
-                st.markdown(result.get("solution", "Chưa có thông tin"))
-
-                st.markdown(" Improvement Action | Biện pháp lâu dài")
-                st.markdown(result.get("improvement", "Chưa có thông tin"))
-
-            st.divider()
+        result = collection.find_one({"error_code": search_code})
+        if result:
+            st.write(f" 📘 Model: {result['model']}")
+            st.write(f" 🛠 Mã lỗi: {result['error_code']}")
+            st.write(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
+            st.write(f" 📜 Mô tả:** {result['description']}")
+            st.write(f" 🔍 Nguyên nhân:** {result.get('root_cause', 'Chưa có thông tin')}") 
+            st.write(f" 🛠 Giải pháp:** {result.get('solution', 'Chưa có thông tin')}")
+            st.write(f" 📈 Cải tiến dài hạn:** {result.get('improvement', 'Chưa có thông tin')}")
                 # --- Hiển thị danh sách hình ---
-        images = result.get("images", [])
-        if images:
-            st.write(f"📸 Có {len(images)} hình minh hoạ:")
-            cols = st.columns(min(3, len(images)))
-            for i, img_url in enumerate(images):
-                cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
-        else:
-            st.info("Không có hình ảnh minh hoạ cho lỗi này.")
+            images = result.get("images", [])
+            if images:
+                st.write(f"📸 Có {len(images)} hình minh hoạ:")
+                cols = st.columns(min(3, len(images)))
+                for i, img_url in enumerate(images):
+                    cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
+            else:
+                st.info("Không có hình ảnh minh hoạ cho lỗi này.")
     
         # --- File PDF ---
-        pdf_url = result.get("pdf_report")
-        if pdf_url:
-            st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+            pdf_url = result.get("pdf_report")
+            if pdf_url:
+                st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+            else:
+                st.info("Không có file báo cáo PDF cho lỗi này.")
         else:
-            st.info("Không có file báo cáo PDF cho lỗi này.")
-    else:
-        st.error("❌ Không tìm thấy mã lỗi trong database.")
+            st.error("❌ Không tìm thấy mã lỗi trong database.")
 
 # Procedures Tab
 with tab3:
@@ -552,6 +536,7 @@ with tab7:
 
   
     
+
 
 
 
