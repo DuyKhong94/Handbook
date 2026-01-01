@@ -140,7 +140,7 @@ with tab2:
         result = collection.find_one({"error_code": search_code})
         if result:
             with st.container(border=True):
-                st.markdown("***Failure Analyze Ticket***")
+                st.markdown("## Failure Analyze Ticket")
 
                 col1, col2=st.columns(2)
                 col1.markdown(f" 📘 Model: {result['model']}")
@@ -546,6 +546,7 @@ with tab7:
 
   
     
+
 
 
 
