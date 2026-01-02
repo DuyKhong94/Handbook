@@ -121,7 +121,7 @@ with tab1:
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
 
-    search_model = st.text_input("Nhập model cần tra cứu:")
+    search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
     prefix=search_model[:6]
     if search_model:
         cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
@@ -135,7 +135,7 @@ with tab2:
         else:
             st.warning("Không tìm thấy dữ liệu cho model này.")
 
-    search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):")
+    search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
     
     if search_code:
         result = collection.find_one({"error_code": search_code})
@@ -539,6 +539,7 @@ with tab7:
 
   
     
+
 
 
 
