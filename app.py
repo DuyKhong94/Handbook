@@ -120,10 +120,11 @@ with tab1:
 # ==========================================================
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
-
-    search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
+    with st.form("form_search_model_tab2")
+        search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
+        submit_model= st.form_submit_button("🔍 Tra cứu Model")
     prefix=search_model[:6]
-    if search_model:
+    if submit_model and search_model:
         cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
         data = list(cursor)
         if data:
@@ -134,10 +135,14 @@ with tab2:
             st.dataframe(df1)
         else:
             st.warning("Không tìm thấy dữ liệu cho model này.")
+            
+    st.divider()
 
-    search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
-    
-    if search_code:
+    with st.form("form_search_code_tab2")
+        search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
+        submit_code= st.form_submit_button(""🔍 Tra cứu lịch sử lỗi")
+        
+    if submit_code and search_code:
         result = collection.find_one({"error_code": search_code})
     
         if result:
@@ -539,6 +544,7 @@ with tab7:
 
   
     
+
 
 
 
