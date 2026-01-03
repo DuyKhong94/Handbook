@@ -149,7 +149,7 @@ with tab2:
                 with col1:
                     st.markdown("Model No")   
                     st.write(f" 📘 Model: {result['model']}")
-                    st.mardown("Problem Statement")
+                    st.markdown("Problem Statement")
                     st.write(f"  Mã lỗi: {result['error_code']}")
                     st.write(f"  Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
                     st.write(f"  Mô tả hiện tượng lỗi: {result['description']}")
@@ -550,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
