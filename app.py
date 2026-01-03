@@ -137,7 +137,7 @@ with tab2:
             st.warning("Không tìm thấy dữ liệu cho model này.")
             
     st.divider()
-
+    col1, col2 = st.columns(2)
     with st.form("form_search_code_tab2"):
         search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
         submit_code= st.form_submit_button("🔍 Tra cứu lịch sử lỗi")
@@ -146,13 +146,19 @@ with tab2:
             result = collection.find_one({"error_code": search_code})
         
             if result:
-                st.write(f" 📘 Model: {result['model']}")
-                st.write(f" 🛠 Mã lỗi: {result['error_code']}")
-                st.write(f" 🕒 Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
-                st.write(f" 📜 Mô tả: {result['description']}")
-                st.write(f" 🔍 Nguyên nhân: {result.get('root_cause', 'Chưa có thông tin')}")
-                st.write(f" 🛠 Giải pháp: {result.get('solution', 'Chưa có thông tin')}")
-                st.write(f" 📈 Cải tiến dài hạn: {result.get('improvement', 'Chưa có thông tin')}")
+                with col1:
+                    st.markdown("Model No")   
+                    st.write(f" 📘 Model: {result['model']}")
+                    st.mardown("Problem Statement")
+                    st.write(f"  Mã lỗi: {result['error_code']}")
+                    st.write(f"  Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
+                    st.write(f"  Mô tả hiện tượng lỗi: {result['description']}")
+                with col2:
+                    st.markdown("Root Cause")
+                    st.write(f"{result.get('root_cause', 'Chưa có thông tin')}")
+                    st.markdown("Effective Action")
+                    st.write(f"{result.get('solution', 'Chưa có thông tin')}")
+                    st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
         
                 # --- Hiển thị danh sách hình ---
                 images = result.get("images", [])
@@ -544,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
