@@ -147,16 +147,16 @@ with tab2:
             col1, col2 = st.columns(2)    
             if result:
                 with col1:
-                    st.markdown("Model No")   
+                    st.markdown("<b><u>Model No</u></b>",unsafe_allow_html=True)   
                     st.write(f" 📘 Model: {result['model']}")
-                    st.markdown("Problem Statement")
+                    st.markdown("<b><u>Problem Statement</u></b>",unsafe_allow_html=True)
                     st.write(f"  Mã lỗi: {result['error_code']}")
                     st.write(f"  Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
                     st.write(f"  Mô tả hiện tượng lỗi: {result['description']}")
                 with col2:
-                    st.markdown("Root Cause")
+                    st.markdown("<b><u>Root Cause</u></b>",unsafe_allow_html=True)
                     st.write(f"{result.get('root_cause', 'Chưa có thông tin')}")
-                    st.markdown("Effective Action")
+                    st.markdown("<b><u>Effective Action Taken</u></b>",unsafe_allow_html=True)
                     st.write(f"{result.get('solution', 'Chưa có thông tin')}")
                     st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
         
@@ -550,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
