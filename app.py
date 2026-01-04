@@ -136,12 +136,12 @@ with tab2:
         else:
             st.warning("Không tìm thấy dữ liệu cho model này.")
             
-    st.divider()
+    
     
     with st.form("form_search_code_tab2"):
         search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
         submit_code= st.form_submit_button("🔍 Tra cứu lịch sử lỗi")
-        
+        st.divider()
         if submit_code and search_code:
             result = collection.find_one({"error_code": search_code})
             col1, col2 = st.columns(2)    
@@ -550,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
