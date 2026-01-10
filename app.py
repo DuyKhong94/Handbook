@@ -314,8 +314,8 @@ with tab6:
                     (df2['Cur Date'] <= day_end) &
                     (df2['Completion date'] >= day_start)
                 ]
-            df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','011104','001457','001350','106','001597','001606','001540','001514','001406','011196','159196','054196','056196','PR001'),na=False)
-                                & df_filtered_by_date['Job No'].str.startswith(('001','030','QB','PR','MP','EB','ESB','106','054','056','159196','SAM','313','316','307','319','318','290','300003120','291','292'), na=False)]
+            df_filtered_by_date=df_filtered_by_date[df_filtered_by_date['TTI Model No'].str.startswith(('030','011104','001457','001350','106','001597','001','001606','001540','001514','001406','011196','159196','054196','056196','PR001'),na=False)
+                                & df_filtered_by_date['Job No'].str.startswith(('001','011104','030','QB','PR','MP','EB','ESB','106','054','056','159196','SAM','313','316','307','319','318','290','300003120','291','292'), na=False)]
             
             
             #st.dataframe(df_filtered_by_date[['TTI Model No','Job No','Curent line']])   
@@ -550,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
