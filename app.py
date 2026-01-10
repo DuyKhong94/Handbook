@@ -22,8 +22,8 @@ db = get_db()
 collection = db["errors"]
 
 # ------------------ Streamlit config ------------------
-st.set_page_config(page_title="Process Engineering Technical Handbook", layout="wide")
-st.title("Process Engineering Technical Handbook")
+st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
+st.title("Process Engineering Handbook")
 
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
                                         "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo"])
@@ -550,6 +550,7 @@ with tab7:
 
   
     
+
 
 
 
