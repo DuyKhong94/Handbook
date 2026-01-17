@@ -120,7 +120,7 @@ with tab1:
 # ==========================================================
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
-    images_model ={"030247": ""}
+    images_model ={}
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
@@ -553,6 +553,7 @@ with tab7:
 
   
     
+
 
 
 
