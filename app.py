@@ -120,11 +120,14 @@ with tab1:
 # ==========================================================
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
+    images_model ={"030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg"}
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
     prefix=search_model[:6]
     if submit_model and search_model:
+        if search_model in images_model:
+            st.image(images_model[search_model])
         cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
         data = list(cursor)
         if data:
@@ -550,6 +553,7 @@ with tab7:
 
   
     
+
 
 
 
