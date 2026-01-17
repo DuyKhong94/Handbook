@@ -120,7 +120,7 @@ with tab1:
 # ==========================================================
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
-    images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94//1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png"}
+    images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94/1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png"}
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
@@ -553,6 +553,7 @@ with tab7:
 
   
     
+
 
 
 
