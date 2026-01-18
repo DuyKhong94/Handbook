@@ -128,8 +128,9 @@ with tab2:
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
     prefix=search_model[:6]
     if submit_model and search_model:
+        model=search_model.strip()[:6]
         if search_model in images_model:
-            st.image(images_model[search_model])
+            st.image(images_model[model])
         cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
         data = list(cursor)
         if data:
@@ -555,6 +556,7 @@ with tab7:
 
   
     
+
 
 
 
