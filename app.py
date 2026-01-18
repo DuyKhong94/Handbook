@@ -121,7 +121,8 @@ with tab1:
 with tab2:
     st.subheader("Tra cứu mã lỗi hoặc model")
     images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94/Handbook/1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png",
-                   "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png"}
+                   "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png",
+                   "159196": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b1d234339cb426a268b08c63e11e16aafb16ea76/A1196.jpg"}
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
@@ -554,6 +555,7 @@ with tab7:
 
   
     
+
 
 
 
