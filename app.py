@@ -124,7 +124,8 @@ with tab2:
                    "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png",
                    "159196": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b1d234339cb426a268b08c63e11e16aafb16ea76/A1196.jpg",
                    "030218": "https://raw.githubusercontent.com/DuyKhong94/Handbook/cb55b1d7b4e2004aa2b77657789297bfdb2fc4fd/C218.png",
-                   "030191": "https://raw.githubusercontent.com/DuyKhong94/Handbook/134c295588204061468f4a0e736e1dfa228a924c/C191.png"}
+                   "030191": "https://raw.githubusercontent.com/DuyKhong94/Handbook/134c295588204061468f4a0e736e1dfa228a924c/C191.png",
+                   "030267": "https://raw.githubusercontent.com/DuyKhong94/Handbook/a94e869481e8c3e1e2f348989bbc20014a3f85ea/C267.png"}
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
@@ -558,6 +559,7 @@ with tab7:
 
   
     
+
 
 
 
