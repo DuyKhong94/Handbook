@@ -7,7 +7,8 @@ python-dotenv
 requests
 openpyxl
 numpy
-
+pyxlsb
 matplotlib
+
 
 
