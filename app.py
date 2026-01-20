@@ -127,7 +127,20 @@ with tab2:
                    "030191": "https://raw.githubusercontent.com/DuyKhong94/Handbook/134c295588204061468f4a0e736e1dfa228a924c/C191.png",
                    "030267": "https://raw.githubusercontent.com/DuyKhong94/Handbook/a94e869481e8c3e1e2f348989bbc20014a3f85ea/C267.png",
                    "030041": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C041.png",
-                   "030412": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C412.png"}
+                   "030412": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C412.png",
+                   "030198": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C198.png",
+                   "030333": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C333.png",
+                   "030291": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C291.png",
+                   "030227": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C227.png",
+                   "030221": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C221.png",
+                   "030287": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C287.png",
+                   "030289": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C289.png",
+                   "030290": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C290.png",
+                   "030248": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C248.png",
+                   "030369": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C369.png",
+                   "030243": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C243.png",
+                   "030319": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C319.png"
+                    }
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
         submit_model= st.form_submit_button("🔍 Tra cứu Model")
@@ -561,6 +574,7 @@ with tab7:
 
   
     
+
 
 
 
