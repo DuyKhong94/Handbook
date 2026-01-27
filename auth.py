@@ -6,7 +6,7 @@ def require_login():
     
     if not st.session_state.logged_in:
         st.title("Login Process Engineering App")
-        st.warning("Who are you? - Please contact Mr Duy Khong for access.")
+        st.warning("Hold on 😅! Who are you? - Please contact Mr Duy Khong for access.")
 
         username=st.text_input("User")
         password=st.text_input("Password", type="password") 
@@ -18,4 +18,5 @@ def require_login():
                 st.error("Invalid username or password")
 
         st.stop()
+
 
