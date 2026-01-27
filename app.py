@@ -9,7 +9,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
+from auth import require_login
 
+require_login()
 
 # ------------------ MongoDB ------------------
 def get_db():
@@ -574,6 +576,7 @@ with tab7:
 
   
     
+
 
 
 
