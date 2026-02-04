@@ -28,7 +28,7 @@ st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System","☯ Team Center & FAI","Production Schedule","Sách Tham Khảo"])
+                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -265,6 +265,7 @@ with tab4:
     4. *ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
     """)
     st.write(" Link: http://hkerpapp.hk.globaltti.net:8068/OA_HTML/AppsLocalLogin.jsp")
+    st.write(" Link WI - copy & paste on thư mục: V:\Ryobi_PIE\Share\VN-WI")
     st.divider()
     st.markdown("**Tra cứu BOM & Mã WI của Console và Packing**")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/64b2d8e6548a748ac417d222ef945b5e821bb936/ERP.jpg")
@@ -576,6 +577,7 @@ with tab7:
 
   
     
+
 
 
 
