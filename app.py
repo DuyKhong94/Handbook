@@ -289,7 +289,7 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/e20c0fccc62799dad6c71c31240d7e284b60d26f/174513.jpg")
     st.divider()
     st.subheader("Tra cứu FAI Report")
-    st.write(" Link: https://cnsserprod01.cn.globaltti.net:8081")
+    st.write(" Link: https://grd.cn.globaltti.net/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
 
@@ -576,6 +576,7 @@ with tab7:
 
   
     
+
 
 
 
