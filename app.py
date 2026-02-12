@@ -363,7 +363,7 @@ with tab6:
             model_list = df_filtered_by_date['Job No'].dropna().str[:9].unique().tolist()
             line_list=df_filtered_by_date['Curent line'].dropna().unique().tolist()
             prefixes_AC=('C2-012','C2-013','C2-032','C2-033')
-            prefixes_pneu=('C2-055')
+            prefixes_pneu=('C2-055','C2-053')
             prefixes_PK=('C2-035','C2-036','C2-037','C2-038','C2-039','C2-056','C2-057','C2-058','C2-059')
             prefixes_sub=('C2-015','C2-020','C2-016','C2-017','C2-018','C2-019')
             prefixes_dc196=('C2-027','C2-028','C2-029','C2-034')
@@ -578,6 +578,7 @@ with tab7:
 
   
     
+
 
 
 
