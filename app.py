@@ -295,6 +295,11 @@ with tab5:
     st.write(" Link: https://grd.cn.globaltti.net/")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/54a6630ad2224f86f85dc8beb2f33fb1670d9b17/131859.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/b6fb7809341b8a50b781037f300749dc273a1bf4/133456.jpg")
+    st.divider()
+    st.subheader("Tra cứu bản đồ nổ")
+    st.write(" Link: https://intranet.cn.globaltti.net/QA/Repair_Sheet/Forms/AllItems.aspx?View={D501D1D9-93CE-4F94-B685-0F1B8E10B498}#InplviewHashd501d1d9-93ce-4f94-b685-0f1b8e10b498=")
+    st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/96b1f43ef6b902a8c1c108f7af2bec47e1e7ae0a/123618.png")
+
 
 with tab6:
     with st.container():
@@ -580,6 +585,7 @@ with tab7:
 
   
     
+
 
 
 
