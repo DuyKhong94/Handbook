@@ -141,7 +141,9 @@ with tab2:
                    "030248": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C248.png",
                    "030369": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C369.png",
                    "030243": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C243.png",
-                   "030319": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C319.png"
+                   "030319": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C319.png",
+                   "030345": "https://raw.githubusercontent.com/DuyKhong94/Handbook/19e36c797d8d2264b3dfe079f12323b948bf12de/122047.jpg".
+                   "030246": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b910a6c94946b8621b70656132d6f0a76e540038/C246.png"
                     }
     with st.form("form_search_model_tab2"):
         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
@@ -578,6 +580,7 @@ with tab7:
 
   
     
+
 
 
 
