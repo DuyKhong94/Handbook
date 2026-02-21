@@ -595,7 +595,7 @@ with tab8:
                 st.error("⚠️ Cần nhập đầy đủ thông tin!")
             else: 
                 st.write(f"🔼 Upper Limit: **{result_upper:.3f} mm**")
-                st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**)
+                st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**")
                 st.info(
                     "📌 Nếu đo bằng **PIN GAUGE**:\n"
                     "- GO pin ≈ Lower limit - 0.01 mm \n"
@@ -608,6 +608,7 @@ with tab8:
 
   
     
+
 
 
 
