@@ -593,7 +593,7 @@ with tab8:
         if st.button("🧮 Tính Toán"):
             if not all([dimension, upper_tollerence, lower_tollerence]):
                 st.error("⚠️ Cần nhập đầy đủ thông tin!")
-                if result_upper =< result_lower:
+                if result_upper <= result_lower:
                     st.error("Cần xem lại nhập đúng cận trên/cận dưới hay chưa")
                     else: 
                         st.write(f"🔼 Upper Limit: **{result_upper:.3f} mm**")
@@ -610,6 +610,7 @@ with tab8:
 
   
     
+
 
 
 
