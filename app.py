@@ -598,8 +598,8 @@ with tab8:
                 st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**")
                 st.info(
                     f"📌 Nếu đo bằng **PIN GAUGE**:\n"
-                    f"- GO PIN = {result_lower - 0.01:.3f} mm\n"
-                    f"- NO-GO PIN = {result_upper + 0.01:.3f} mm"
+                    f"- GO PIN = {result_lower - 0.01:.2f} mm\n"
+                    f"- NO-GO PIN = {result_upper + 0.01:.2f} mm"
                 )
         
 
@@ -608,6 +608,7 @@ with tab8:
 
   
     
+
 
 
 
