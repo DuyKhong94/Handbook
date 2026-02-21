@@ -591,18 +591,16 @@ with tab8:
         result_lower= dimension + lower_tollerence
     with col2:
         if st.button("🧮 Tính Toán"):
-            if not all([dimension, upper_tollerence, lower_tollerence]):
-                st.error("⚠️ Cần nhập đầy đủ thông tin!")
-                if result_upper <= result_lower:
-                    st.error("Cần xem lại nhập đúng cận trên/cận dưới hay chưa")
-                else: 
-                    st.write(f"🔼 Upper Limit: **{result_upper:.3f} mm**")
-                    st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**")
-                    st.info(
-                        f"📌 Nếu đo bằng **PIN GAUGE**:\n"
-                        f"- GO pin ≈ {result_lower - 0.01:.3f} mm\n"
-                        f"- NO-GO pin ≈ {result_upper + 0.01:.3f} mm"
-                    )
+            if result_upper <= result_lower:
+                st.error("Cần xem lại nhập đúng cận trên/cận dưới hay chưa")
+            else: 
+                st.write(f"🔼 Upper Limit: **{result_upper:.3f} mm**")
+                st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**")
+                st.info(
+                    f"📌 Nếu đo bằng **PIN GAUGE**:\n"
+                    f"- GO pin ≈ {result_lower - 0.01:.3f} mm\n"
+                    f"- NO-GO pin ≈ {result_upper + 0.01:.3f} mm"
+                )
         
 
 
@@ -610,6 +608,7 @@ with tab8:
 
   
     
+
 
 
 
