@@ -27,8 +27,8 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -579,12 +579,36 @@ with tab7:
     st.markdown("[11. Giới thiệu sản phẩm Pneumatic Nailer - Author: ME](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764823583/22-5_Pneumatic_Tools_Design_and_Process_ENG_version_Red_new_format_nsi8lz.pdf)")
     st.markdown("[12. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[13. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
+with tab8:
+    col1, col2 = st.columns(2)
+    with col1:
+        dimension=st.number_input("Nhập Kích thước danh nghĩa(mm)",format="%.3f")
+        upper_tollerence=st.number_input("Nhập dung sai trên",format="%.3f")
+        lower_tollerence=st.number_input("Nhập dung sai dưới",format="%.3f")
+
+        
+        result_upper= dimension + upper_tollerence
+        result_lower= dimension + lower_tollerence
+    with col2:
+        if st.button("🧮 Tính Toán"):
+            if not all([dimension, upper_tollerence, lower_tollerence]):
+                st.error("⚠️ Cần nhập đầy đủ thông tin!")
+            else: 
+                st.write(f"🔼 Upper Limit: **{result_upper:.3f} mm**")
+                st.write(f"🔽 Lower Limit: **{result_lower:.3f} mm**)
+                st.info(
+                    "📌 Nếu đo bằng **PIN GAUGE**:\n"
+                    "- GO pin ≈ Lower limit - 0.01 mm \n"
+                    "- NO-GO pin ≈ Upper limit + 0.01 mm"
+                )
+        
 
 
     
 
   
     
+
 
 
 
