@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import requests
 from auth import require_login
 
+
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -27,8 +28,8 @@ collection = db["errors"]
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính"."Chat Bot"])
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
@@ -602,7 +603,8 @@ with tab8:
                     f"- NO-GO PIN = {result_upper + 0.01:.2f} mm"
                 )
         
-
+with tab9:
+    This is Chatbot upcoming!
 
     
 
