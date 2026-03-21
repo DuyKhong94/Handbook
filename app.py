@@ -604,7 +604,8 @@ with tab8:
                 )
         
 with tab9:
-    This is Chatbot upcoming!
+    
+    st.write("This is Chatbot upcoming!")
 
     
 
