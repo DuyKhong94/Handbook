@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from auth import require_login
-
+from openai import OpenAI
 
 require_login()
 
