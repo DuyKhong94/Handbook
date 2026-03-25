@@ -9,6 +9,6 @@ openpyxl
 numpy
 pyxlsb
 matplotlib
-
+openai
 
 
