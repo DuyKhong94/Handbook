@@ -615,6 +615,7 @@ with tab9:
     
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    prompt=st.chat_input("you type here")
     chat_container=st.container()
     
     with chat_container:
@@ -622,7 +623,7 @@ with tab9:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
     
-    if prompt := st.chat_input("What is up?"):
+    if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
