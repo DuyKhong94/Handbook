@@ -630,7 +630,7 @@ elif mode == "Chat Bot":
     
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
             response = client.chat.completions.create(
-                model="minimax/minimax-m2.5",
+                model="stepfun/step-3.5-flash:free",
                 messages=st.session_state.messages
                 )
             reply = response.choices[0].message.content
