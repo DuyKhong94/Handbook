@@ -27,14 +27,14 @@ collection = db["errors"]
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
-
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs(["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
+mode=st.sidebar.radio("Chọn Chức năng",["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
                                         "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính","Chat Bot"])
+
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
 # ==========================================================
-with tab1:
+if mode == "➕ Thêm lỗi mới":
     st.subheader("Thêm lỗi sản phẩm mới")
 
     def generate_error_code(model, timestamp):
@@ -121,7 +121,7 @@ with tab1:
 # ==========================================================
 # 🔍 TAB 2: TRA CỨU LỖI
 # ==========================================================
-with tab2:
+elif mode == "🔍 Tra cứu lỗi":
     st.subheader("Tra cứu mã lỗi hoặc model")
     images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94/Handbook/1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png",
                    "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png",
@@ -210,7 +210,7 @@ with tab2:
                 st.error("❌ Không tìm thấy mã lỗi trong database.")
 
 # Procedures Tab
-with tab3:
+elif mode == "📘 Quy Trình Phân tích":
     st.subheader("Quy Trình Xử Lý Lỗi Sản Phẩm RYOBI")
     st.divider()
     st.markdown("**Quy Trình Xử Lý Hàng Lỗi Trên Line Sản Xuất** ")
@@ -258,7 +258,7 @@ with tab3:
     st.subheader("Sơ đồ liên hệ - Hotline:")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/276302b6f5a16ba5f5db7089cabe410b7cf19206/MQAchart.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/710c394ac305c7c018753d3bd5ec1dc58c541d7e/094237.jpg")
-with tab4:
+elif mode == "⚛ ERP System & WI":
     st.subheader("Xử lý trên hệ thống ERP")
     st.markdown("***Công dụng của ERP***")
     st.markdown("""
@@ -283,7 +283,7 @@ with tab4:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/029dc4e5fbd3e0ab1e5a18ec37bd5f8e2f311f2d/131254.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/eefaa55da7818f3bb86579da9312cca31c944f71/131834.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/a36d828ee14aa1e21e5ef68bc4a4f033554508df/134527.jpg")
-with tab5:
+elif mode == "☯ Team Center & FAI":
     st.subheader("Tra cứu Bản vẽ trên Team Center")
     st.write(" Link: https://cnstclb01.cn.globaltti.net/awc/#/showHome")
     st.markdown("""
@@ -302,7 +302,7 @@ with tab5:
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/96b1f43ef6b902a8c1c108f7af2bec47e1e7ae0a/123618.png")
 
 
-with tab6:
+elif mode == "Production Schedule":
     with st.container():
 
         uploaded_file = st.file_uploader("Chọn file DPS mới nhất", type=["xlsx", "xlsb"])
@@ -566,7 +566,7 @@ with tab6:
             st.divider()
             #st.dataframe(df2)
 
-with tab7:
+elif mode == "Link Tham Khảo":
     st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
     st.markdown("[2. The Certificated Six Sigma Master Black Belt Handbook - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/16ee5e98e6aa24b76739705150bb37cf4fff3584/01%20The%20Certified%20Six%20Sigma%20Master%20Blac%20T.M.Kubiak%20(002)%201.pdf)")
     st.markdown("[3. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
@@ -580,7 +580,7 @@ with tab7:
     st.markdown("[11. Giới thiệu sản phẩm Pneumatic Nailer - Author: ME](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764823583/22-5_Pneumatic_Tools_Design_and_Process_ENG_version_Red_new_format_nsi8lz.pdf)")
     st.markdown("[12. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[13. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
-with tab8:
+elif mode == "Trang tính":
     col1, col2 = st.columns(2)
     with col1:
         dimension=st.number_input("Nhập Kích thước danh nghĩa(mm)",format="%.3f")
@@ -603,7 +603,7 @@ with tab8:
                     f"- NO-GO PIN = {result_upper + 0.01:.2f} mm"
                 )
         
-with tab9:
+elif mode == "Chat Bot":
     
    
     #st.title("I'm Curious Bot")
