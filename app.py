@@ -623,7 +623,7 @@ with tab9:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
     
-    if prompt := st.chat_input("you type here")
+    if prompt := st.chat_input("you type here"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
