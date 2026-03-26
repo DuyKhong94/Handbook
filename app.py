@@ -628,7 +628,7 @@ elif mode == "Chat Bot":
         with st.chat_message("user"):
             st.markdown("Anh PE May Mắn:" + prompt)
     
-        with st.chat_message("assistant", avatar="https://github.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
+        with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
             response = client.chat.completions.create(
                 model="nvidia/nemotron-3-super-120b-a12b:free",
                 messages=st.session_state.messages
