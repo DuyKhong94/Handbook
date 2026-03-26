@@ -606,7 +606,7 @@ with tab8:
 with tab9:
     
    
-    st.title("I'm Curious Bot")
+    #st.title("I'm Curious Bot")
 
     client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
                    base_url="https://openrouter.ai/api/v1")
