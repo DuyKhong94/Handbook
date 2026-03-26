@@ -629,7 +629,7 @@ elif mode == "Chat Bot":
             st.markdown("Thợ cơ khí:  " + prompt)
     
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
-            MAX_MESSAGES=10
+            MAX_MESSAGES=5
             messages_to_send=st.session_state.messages[-MAX_MESSAGES:]
             response = client.chat.completions.create(
                 model="openai/gpt-4o-mini",
