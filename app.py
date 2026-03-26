@@ -625,16 +625,18 @@ elif mode == "Chat Bot":
     
     if prompt := st.chat_input("you type here"):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.markdown("Anh PE May Mắn:  " + prompt)
+        with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/b941eca89ffba933af140dcacb441cb820f01c7c/thumb-1920-366328.jpg"):
+            st.markdown("Thợ cơ khí:  " + prompt)
     
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
+            MAX_MESSAGES=10
+            messages_to_send=st.session_state.messages[-MAX_MESSAGES:]
             response = client.chat.completions.create(
                 model="openai/gpt-4o-mini",
-                messages=st.session_state.messages
+                messages=messages_to_send
                 )
             reply = response.choices[0].message.content
-            st.markdown("Idol Tập Sự:  " + reply)         
+            st.markdown("Thư ký AI:  " + reply)         
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
