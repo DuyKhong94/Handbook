@@ -625,7 +625,7 @@ elif mode == "Chat Bot":
     
     if prompt := st.chat_input("you type here"):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user", avatar="https://avatars.alphacoders.com/avatars/view/366328"):
+        with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí:  " + prompt)
     
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
