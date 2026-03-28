@@ -31,7 +31,8 @@ st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a18349
 st.sidebar.markdown("---")
 mode=st.sidebar.radio("Select a feature:",["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
                                         "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính","Chat Bot"])
-
+st.sidebar.markdown("---")
+st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
