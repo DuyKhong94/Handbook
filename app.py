@@ -30,7 +30,7 @@ st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a183490a42f138c9fb2c46b7caeb2ca/logo.png",use_container_width=True)
 st.sidebar.markdown("---")
 mode=st.sidebar.radio("APPLICATION FEATURE:",["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích", 
-                                        "⚛ ERP System & WI","☯ Team Center & FAI","Production Schedule","Link Tham Khảo","Trang tính","Chat Bot"])
+                                        "⚛ ERP System & WI","☯ Team Center & FAI","Link Tham Khảo","Trang tính","Chat Bot"])
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
