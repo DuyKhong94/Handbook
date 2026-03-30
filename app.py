@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import requests
 from auth import require_login
 from openai import OpenAI
-
+import unicodedata
 require_login()
 
 # ------------------ MongoDB ------------------
