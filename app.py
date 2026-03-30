@@ -447,7 +447,7 @@ elif mode == "🔥Trợ lý AI":
         # =====================================================
 
         elif not results:
-        
+            top_result= None
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
         
                 response = client.chat.completions.create(
