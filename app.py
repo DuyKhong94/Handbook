@@ -482,7 +482,13 @@ elif mode == "Chat Bot":
             system_prompt = f"""
             Bạn là kỹ sư phân tích lỗi.
             Chỉ được trả lời dựa trên dữ liệu sau:
-
+            Model:
+            Error Code:
+            Description:
+             🔥 🔥Root Cause 🔥 🔥:
+            Action:
+            
+            Chỉ dùng dữ liệu dưới đây:
             {context}
 
             Nếu không có dữ liệu, hãy nói không tìm thấy.
