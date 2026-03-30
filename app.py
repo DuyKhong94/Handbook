@@ -411,7 +411,7 @@ elif mode == "🔥Trợ lý AI":
             st.markdown("Thợ cơ khí: " + prompt)
 
         results = search_defect(prompt)
-
+        top_result=None
         # =====================================================
         # 🔥 CASE 1: MODEL → SHOW LIST (KHÔNG DÙNG AI)
         # =====================================================
@@ -447,7 +447,7 @@ elif mode == "🔥Trợ lý AI":
         # =====================================================
 
         elif not results:
-            top_result= None
+            #top_result= None
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
         
                 response = client.chat.completions.create(
@@ -508,6 +508,7 @@ elif mode == "🔥Trợ lý AI":
 
                 # 👉 show image đúng lỗi
                 if top_result:
+                    top_result=result[0]
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
                         st.image(img)
