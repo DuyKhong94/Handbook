@@ -305,7 +305,7 @@ elif mode == "☯ Team Center & FAI":
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/96b1f43ef6b902a8c1c108f7af2bec47e1e7ae0a/123618.png")
 
 
-elif mode == "Link Tham Khảo":
+elif mode == "📂Link Tham Khảo":
     st.markdown("[1. Six Sigma Black Belt Handbook Third Edition - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/90925edaa2a9c904df7d211e738daf0826aacee0/0.%20MUST%20READ_Hand%20Book%20Black.pdf)")
     st.markdown("[2. The Certificated Six Sigma Master Black Belt Handbook - Source: American Society of Quality](https://raw.githubusercontent.com/DuyKhong94/Handbook/16ee5e98e6aa24b76739705150bb37cf4fff3584/01%20The%20Certified%20Six%20Sigma%20Master%20Blac%20T.M.Kubiak%20(002)%201.pdf)")
     st.markdown("[3. Quy trình xử lý hàng lỗi trên line - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764746424/ROIPIE0016B_In-process_Reject_Operating_Instruction_4Mar.25_glp8ci.pdf)")
@@ -319,7 +319,7 @@ elif mode == "Link Tham Khảo":
     st.markdown("[11. Giới thiệu sản phẩm Pneumatic Nailer - Author: ME](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764823583/22-5_Pneumatic_Tools_Design_and_Process_ENG_version_Red_new_format_nsi8lz.pdf)")
     st.markdown("[12. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[13. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
-elif mode == "Trang tính":
+elif mode == "📱Trang tính":
     col1, col2 = st.columns(2)
     with col1:
         dimension=st.number_input("Nhập Kích thước danh nghĩa(mm)",format="%.3f")
@@ -342,7 +342,7 @@ elif mode == "Trang tính":
                     f"- NO-GO PIN = {result_upper + 0.01:.2f} mm"
                 )
         
-elif mode == "Chat Bot":
+elif mode == "🔥Trợ lý AI":
 
    
 
