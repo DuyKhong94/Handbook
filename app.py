@@ -343,73 +343,112 @@ elif mode == "Trang tính":
                 )
         
 elif mode == "Chat Bot":
-    
-   
-    #st.title("I'm Curious Bot")
 
-    client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
-                   base_url="https://openrouter.ai/api/v1")
+   
+
+    client = OpenAI(
+        api_key=st.secrets["OPENROUTER_API_KEY"],
+        base_url="https://openrouter.ai/api/v1"
+    )
+
+    # ================= NORMALIZE TEXT =================
     def normalize_text(text):
         text = text.lower()
         text = unicodedata.normalize('NFD', text)
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         return text
-    
+
+    # ================= SEARCH FUNCTION =================
     def search_defect(query):
         query_norm = normalize_text(query.strip())
-    
-        # 🔥 nếu user nhập số (model)
+
+        # 🔥 CASE 1: MODEL (030333)
         if query_norm.isdigit():
             prefix = query_norm[:6]
-    
-            results = list(collection.find({
+            return list(collection.find({
                 "model": {"$regex": f"^{prefix}"}
-            }).limit(10))
-    
-            return results
-    
-        # 👉 fallback: search text
+            }).limit(20))
+
+        # 🔥 CASE 2: ERROR CODE
+        result = collection.find_one({
+            "error_code": {"$regex": f"^{query.strip()}", "$options": "i"}
+        })
+        if result:
+            return [result]
+
+        # 🔥 CASE 3: TEXT SEARCH
         keywords = query_norm.split()
         results = list(collection.find())
-    
+
         scored = []
-    
         for r in results:
             text = normalize_text(
                 r.get("description", "") +
                 r.get("root_cause", "")
             )
-    
             score = sum(k in text for k in keywords)
-    
+
             if score > 0:
                 scored.append((score, r))
-    
-        scored.sort(reverse=True, key=lambda x: x[0])
-    
-        return [r for _, r in scored[:5]]
-      
 
-    
+        scored.sort(reverse=True, key=lambda x: x[0])
+        return [r for _, r in scored[:5]]
+
+    # ================= SESSION =================
     if "messages" not in st.session_state:
         st.session_state.messages = []
-    
-  
-    
 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-    
+
+    # ================= CHAT INPUT =================
     if prompt := st.chat_input("you type here"):
+
         st.session_state.messages.append({"role": "user", "content": prompt})
-        results = search_defect(prompt)
-        
+
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
-            st.markdown("Thợ cơ khí:  " + prompt)
-            context=""
+            st.markdown("Thợ cơ khí: " + prompt)
+
+        results = search_defect(prompt)
+
+        # =====================================================
+        # 🔥 CASE 1: MODEL → SHOW LIST (KHÔNG DÙNG AI)
+        # =====================================================
+        if prompt.strip().isdigit():
+
+            with st.chat_message("assistant"):
+                st.markdown(f"## 📋 Danh sách lỗi model {prompt[:6]}")
+
+                if not results:
+                    st.warning("Không tìm thấy dữ liệu")
+                else:
+                    for r in results:
+                        error_code = r.get("error_code")
+
+                        with st.expander(f"🔧 {error_code}"):
+
+                            st.write(f"📌 {r.get('description')}")
+                            st.write(f"🔍 {r.get('root_cause')}")
+                            st.write(f"🛠 {r.get('solution')}")
+
+                            images = r.get("images", [])
+
+                            if images:
+                                cols = st.columns(min(3, len(images)))
+                                for i, img in enumerate(images):
+                                    cols[i % 3].image(img, caption=error_code)
+                            else:
+                                st.info("Không có ảnh")
+
+            reply = f"Tìm thấy {len(results)} lỗi cho model {prompt[:6]}"
+
+        # =====================================================
+        # 🔥 CASE 2 + 3: AI RESPONSE
+        # =====================================================
+        else:
             top_result = results[0] if results else None
-            
+
             context = ""
             if top_result:
                 context = f"""
@@ -419,29 +458,35 @@ elif mode == "Chat Bot":
                 Root Cause: {top_result.get('root_cause')}
                 Action: {top_result.get('solution')}
                 """
+
             system_prompt = f"""
-            Chỉ được phép trả lời dựa trên lỗi sau:
-            
+            Bạn là kỹ sư phân tích lỗi.
+            Chỉ được trả lời dựa trên dữ liệu sau:
+
             {context}
-            
-            KHÔNG được dùng thông tin khác.
+
+            Nếu không có dữ liệu, hãy nói không tìm thấy.
             """
-        with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
-            MAX_MESSAGES=5
-            messages_to_send=[
-                {"role": "system", "content": system_prompt}
-            ] + st.session_state.messages[-MAX_MESSAGES:]
-            response = client.chat.completions.create(
-                model="openai/gpt-4o-mini",
-                messages=messages_to_send
+
+            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
+
+                response = client.chat.completions.create(
+                    model="openai/gpt-4o-mini",
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": prompt}
+                    ]
                 )
-            reply = response.choices[0].message.content
-            st.markdown("Thư ký AI:  " + reply) 
-            if top_result:
-                st.markdown(f"### 🔧 {top_result.get('error_code')}")
-            
-                for img in top_result.get("images", []):
-                    st.image(img)
+
+                reply = response.choices[0].message.content
+                st.markdown("Thư ký AI: " + reply)
+
+                # 👉 show image đúng lỗi
+                if top_result:
+                    st.markdown(f"### 🔧 {top_result.get('error_code')}")
+                    for img in top_result.get("images", []):
+                        st.image(img)
+
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
