@@ -486,7 +486,19 @@ elif mode == "Chat Bot":
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
                         st.image(img)
+        elif not results:
 
+            with st.chat_message("assistant"):
+                response = client.chat.completions.create(
+                    model="openai/gpt-4o-mini",
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant"},
+                        {"role": "user", "content": prompt}
+                    ]
+                )
+        
+                reply = response.choices[0].message.content
+                st.markdown(reply)
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
