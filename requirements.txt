@@ -10,5 +10,5 @@ numpy
 pyxlsb
 matplotlib
 openai
-
+unicodedata
 
