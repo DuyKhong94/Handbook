@@ -436,8 +436,17 @@ elif mode == "Chat Bot":
             reply = response.choices[0].message.content
             st.markdown("Thư ký AI:  " + reply) 
             for r in results:
-                for img in r.get("images",[]):
-                    st.image(img, caption=r.get("error_code"))
+                st.markdown(f"### 🔧 {r.get('error_code')} - {r.get('model')}")
+                st.write(f"📌 {r.get('description')}")
+            
+                images = r.get("images", [])
+            
+                if images:
+                    cols = st.columns(min(3, len(images)))
+                    for i, img in enumerate(images):
+                        cols[i % 3].image(img, caption=r.get("error_code"))
+                else:
+                    st.info("Không có ảnh")
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
