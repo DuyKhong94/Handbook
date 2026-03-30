@@ -446,7 +446,7 @@ elif mode == "Chat Bot":
         # =====================================================
         # 🔥 CASE 2 + 3: AI RESPONSE
         # =====================================================
-        else:
+        elif:
             top_result = results[0] if results else None
 
             context = ""
@@ -486,7 +486,7 @@ elif mode == "Chat Bot":
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
                         st.image(img)
-        elif not results:
+        else not results:
         
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
         
