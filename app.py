@@ -507,10 +507,10 @@ elif mode == "🔥Trợ lý AI":
                 st.markdown("Thư ký AI: " + reply)
 
                 # 👉 show image đúng lỗi
-                if top_result:
-                    st.markdown(f"### 🔧 {top_result.get('error_code')}")
-                    for img in top_result.get("images", []):
-                        st.image(img)
+                #if top_result:
+                   #st.markdown(f"### 🔧 {top_result.get('error_code')}")
+                    #for img in top_result.get("images", []):
+                        #st.image(img)
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
