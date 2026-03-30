@@ -435,10 +435,12 @@ elif mode == "Chat Bot":
                 )
             reply = response.choices[0].message.content
             st.markdown("Thư ký AI:  " + reply) 
-            for r in results:
-                st.markdown(f"### {r.get('error_code')}")
+            if results:
+                top_result = results[0]
             
-                for img in r.get("images", []):
+                st.markdown(f"### 🔧 {top_result.get('error_code')}")
+            
+                for img in top_result.get("images", []):
                     st.image(img)
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
