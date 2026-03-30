@@ -349,7 +349,10 @@ elif mode == "Chat Bot":
 
     client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
                    base_url="https://openrouter.ai/api/v1")
-    
+    def search_defect():
+        keywords = query.lower().split()
+        results=collection.find({"%or":[{"description": {"$regex": k, "$options": "i"},{"model": {"$regex": k, "$options": "i"},"error_code": {"$regex": k, "$options": "i"}} for k in keywords]}).limit(10)
+        return list(results)
 
     
     if "messages" not in st.session_state:
@@ -366,16 +369,31 @@ elif mode == "Chat Bot":
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí:  " + prompt)
-    
+            result = search_defect(prompt)
+            context=""
+            for r in results:
+                context += f"""
+                Model: {r.get('model')}
+                Error Code: {r.get('error_code')}
+                Description: {r.get('description')}
+                Root Cause: {r.get('root_cause')}
+                Action: {r.get('solution')}
+                """
+            system_prompt= {context}
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
             MAX_MESSAGES=5
-            messages_to_send=st.session_state.messages[-MAX_MESSAGES:]
+            messages_to_send=[
+                {"role": "system", "content": system_prompt}
+            ] + st.session_state.messages[-MAX_MESSAGES:]
             response = client.chat.completions.create(
                 model="openai/gpt-4o-mini",
                 messages=messages_to_send
                 )
             reply = response.choices[0].message.content
-            st.markdown("Thư ký AI:  " + reply)         
+            st.markdown("Thư ký AI:  " + reply) 
+            for r in results:
+                for img in r.get("images",[])
+                st.image(img, caption=r.get("error_code"))
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
