@@ -426,7 +426,7 @@ elif mode == "🔥Trợ lý AI":
                     for r in results:
                         error_code = r.get("error_code")
 
-                        with st.expander(f"🔧 {error_code}"):
+                        with st.expander(f"🔧 {error_code}-{description}"):
 
                             st.write(f"📌 {r.get('description')}")
                             st.write(f"🔍 {r.get('root_cause')}")
@@ -437,7 +437,7 @@ elif mode == "🔥Trợ lý AI":
                             if images:
                                 cols = st.columns(min(3, len(images)))
                                 for i, img in enumerate(images):
-                                    cols[i % 3].image(img, caption=description)
+                                    cols[i % 3].image(img, caption=error_code)
                             else:
                                 st.info("Không có ảnh")
 
