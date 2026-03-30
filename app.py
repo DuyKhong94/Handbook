@@ -487,19 +487,30 @@ elif mode == "Chat Bot":
                     for img in top_result.get("images", []):
                         st.image(img)
         elif not results:
-
-            with st.chat_message("assistant"):
+        
+            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
+        
                 response = client.chat.completions.create(
                     model="openai/gpt-4o-mini",
                     messages=[
-                        {"role": "system", "content": "You are a helpful assistant"},
+                        {
+                            "role": "system",
+                            "content": "You are a helpful assistant. If the question is not related to defect data, answer normally."
+                        },
                         {"role": "user", "content": prompt}
                     ]
                 )
         
                 reply = response.choices[0].message.content
-                st.markdown(reply)
-        st.session_state.messages.append({"role": "assistant", "content": reply})
+        
+                st.markdown("Thư ký AI: " + reply)
+        
+            # 🔥 QUAN TRỌNG: lưu lại chat
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": reply
+            })
+        #st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
 
