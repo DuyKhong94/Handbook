@@ -507,8 +507,8 @@ elif mode == "🔥Trợ lý AI":
                 st.markdown("Thư ký AI: " + reply)
 
                 # 👉 show image đúng lỗi
-                if top_result:
-                    top_result=result[0]
+                if results and top_result:
+                    top_result= results[0]
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
                         st.image(img)
