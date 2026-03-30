@@ -349,10 +349,27 @@ elif mode == "Chat Bot":
 
     client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
                    base_url="https://openrouter.ai/api/v1")
-    def search_defect():
-        keywords = query.lower().split()
-        results=collection.find({"%or":[{"description": {"$regex": k, "$options": "i"},{"model": {"$regex": k, "$options": "i"},"error_code": {"$regex": k, "$options": "i"}} for k in keywords]}).limit(10)
-        return list(results)
+    def search_defect(query):
+        keywords = normalize_text(query).split()
+        results = list(collection.find())
+    
+        scored = []
+    
+        for r in results:
+            text = normalize_text(
+                r.get("description", "") +
+                r.get("root_cause", "")
+            )
+    
+            score = sum(k in text for k in keywords)
+    
+            if score > 0:
+                scored.append((score, r))
+    
+        scored.sort(reverse=True, key=lambda x: x[0])
+    
+        return [r for _, r in scored[:5]]
+        st.write(results)
 
     
     if "messages" not in st.session_state:
