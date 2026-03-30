@@ -392,7 +392,7 @@ elif mode == "Chat Bot":
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí:  " + prompt)
-            result = search_defect(prompt)
+            results = search_defect(prompt)
             context=""
             for r in results:
                 context += f"""
