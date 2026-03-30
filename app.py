@@ -356,7 +356,20 @@ elif mode == "Chat Bot":
         return text
     
     def search_defect(query):
-        keywords = normalize_text(query).split()
+        query_norm = normalize_text(query.strip())
+    
+        # 🔥 nếu user nhập số (model)
+        if query_norm.isdigit():
+            prefix = query_norm[:6]
+    
+            results = list(collection.find({
+                "model": {"$regex": f"^{prefix}"}
+            }).limit(10))
+    
+            return results
+    
+        # 👉 fallback: search text
+        keywords = query_norm.split()
         results = list(collection.find())
     
         scored = []
