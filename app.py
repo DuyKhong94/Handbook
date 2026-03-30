@@ -344,7 +344,7 @@ elif mode == "Trang tính":
         
 elif mode == "Chat Bot":
     
-   import unicodedata
+   
     #st.title("I'm Curious Bot")
 
     client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
