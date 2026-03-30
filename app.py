@@ -437,7 +437,7 @@ elif mode == "🔥Trợ lý AI":
                             if images:
                                 cols = st.columns(min(3, len(images)))
                                 for i, img in enumerate(images):
-                                    cols[i % 3].image(img, caption=f"{error_code} - {r.get('description')}")
+                                    cols[i % 3].image(img, caption=description)
                             else:
                                 st.info("Không có ảnh")
 
@@ -511,7 +511,7 @@ elif mode == "🔥Trợ lý AI":
                 if top_result:
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
-                        st.image(img,caption=f"{error_code} - {r.get('description')}")
+                        st.image(img)
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
