@@ -408,21 +408,23 @@ elif mode == "Chat Bot":
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí:  " + prompt)
             context=""
-            for r in results:
-                context += f"""
-                Model: {r.get('model')}
-                Error Code: {r.get('error_code')}
-                Description: {r.get('description')}
-                Root Cause: {r.get('root_cause')}
-                Action: {r.get('solution')}
+            top_result = results[0] if results else None
+            
+            context = ""
+            if top_result:
+                context = f"""
+                Model: {top_result.get('model')}
+                Error Code: {top_result.get('error_code')}
+                Description: {top_result.get('description')}
+                Root Cause: {top_result.get('root_cause')}
+                Action: {top_result.get('solution')}
                 """
             system_prompt = f"""
-            Mình đã tìm kiếm được thông tin
+            Chỉ được phép trả lời dựa trên lỗi sau:
             
-            Dữ liệu:
             {context}
             
-            Hãy phân tích dựa trên dữ liệu trên.
+            KHÔNG được dùng thông tin khác.
             """
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
             MAX_MESSAGES=5
@@ -435,9 +437,7 @@ elif mode == "Chat Bot":
                 )
             reply = response.choices[0].message.content
             st.markdown("Thư ký AI:  " + reply) 
-            if results:
-                top_result = results[0]
-            
+            if top_result:
                 st.markdown(f"### 🔧 {top_result.get('error_code')}")
             
                 for img in top_result.get("images", []):
