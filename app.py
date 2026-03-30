@@ -426,7 +426,7 @@ elif mode == "🔥Trợ lý AI":
                     for r in results:
                         error_code = r.get("error_code")
 
-                with st.expander(f"🔧 {error_code} - {r.get('description', '')}"):
+                        with st.expander(f"🔧 {error_code} - {r.get('description', '')}"):
                             st.write(f"📌 {r.get('description')}")
                             st.write(f"🔍 {r.get('root_cause')}")
                             st.write(f"🛠 {r.get('solution')}")
