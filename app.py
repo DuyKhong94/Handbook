@@ -375,7 +375,7 @@ elif mode == "Chat Bot":
         scored.sort(reverse=True, key=lambda x: x[0])
     
         return [r for _, r in scored[:5]]
-        st.write(results)
+      
 
     
     if "messages" not in st.session_state:
@@ -390,9 +390,10 @@ elif mode == "Chat Bot":
     
     if prompt := st.chat_input("you type here"):
         st.session_state.messages.append({"role": "user", "content": prompt})
+        results = search_defect(prompt)
+        
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí:  " + prompt)
-            results = search_defect(prompt)
             context=""
             for r in results:
                 context += f"""
@@ -402,7 +403,14 @@ elif mode == "Chat Bot":
                 Root Cause: {r.get('root_cause')}
                 Action: {r.get('solution')}
                 """
-            system_prompt= {context}
+            system_prompt = f"""
+            Mình đã tìm kiếm được thông tin
+            
+            Dữ liệu:
+            {context}
+            
+            Hãy phân tích dựa trên dữ liệu trên.
+            """
         with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
             MAX_MESSAGES=5
             messages_to_send=[
