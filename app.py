@@ -344,11 +344,17 @@ elif mode == "Trang tính":
         
 elif mode == "Chat Bot":
     
-   
+   import unicodedata
     #st.title("I'm Curious Bot")
 
     client = OpenAI(api_key=st.secrets["OPENROUTER_API_KEY"],
                    base_url="https://openrouter.ai/api/v1")
+    def normalize_text(text):
+    text = text.lower()
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+    return text
+    
     def search_defect(query):
         keywords = normalize_text(query).split()
         results = list(collection.find())
