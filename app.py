@@ -469,7 +469,7 @@ elif mode == "🔥Trợ lý AI":
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
         
                 response = client.chat.completions.create(
-                    model="openai/gpt-4o-mini",
+                    model="gpt-4o-mini",
                     messages=[
                         {
                             "role": "system",
@@ -514,7 +514,7 @@ elif mode == "🔥Trợ lý AI":
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
 
                 response = client.chat.completions.create(
-                    model="openai/gpt-4o-mini",
+                    model="gpt-4o-mini",
                     messages=[
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": prompt}
