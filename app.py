@@ -370,6 +370,9 @@ elif mode == "🔥Trợ lý AI":
 
     # ================= SEARCH FUNCTION =================
     def search_defect(query):
+        if not query:
+            return []
+        query = str(query)
         query_norm = normalize_text(query.strip())
 
         # 🔥 CASE 1: MODEL (030333)
@@ -429,7 +432,7 @@ elif mode == "🔥Trợ lý AI":
         # 🔥 CASE 1: MODEL → SHOW LIST (KHÔNG DÙNG AI)
         # =====================================================
         if intent == "search_defect" and model:
-            results = search_defect(prompt)
+            results = search_defect(model)
             with st.chat_message("assistant"):
                 st.markdown(f"## 📋 Danh sách lỗi model {prompt[:6]}")
 
