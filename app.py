@@ -358,12 +358,10 @@ elif mode == "🔥Trợ lý AI":
         return text
 
     def detect_intent(prompt):
-        keywords = ["check", "kiểm tra", "nhờ", "xem", "lỗi"]
-        model_match = re.search(r"\d{5,}", prompt)
-
-        if model_match and any(k in prompt.lower() for k in keywords):
-            return "search_defect", model_match.group()
-
+        if re.search(r"(check|kiểm tra|lỗi)\s*\d{5,}", prompt_lower):
+            model = re.search(r"\d{5,}", prompt_lower).group()
+            return "search_defect", model
+    
         return "chat", None
 
     # ================= SEARCH FUNCTION =================
