@@ -30,8 +30,8 @@ st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a183490a42f138c9fb2c46b7caeb2ca/logo.png",use_container_width=True)
 st.sidebar.markdown("---")
-mode=st.sidebar.radio("APPLICATION FEATURE:",["➕ Thêm lỗi mới", "🔍 Tra cứu lỗi", "📘 Quy Trình Phân tích",
-                                        "⚛ ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI"])
+mode=st.sidebar.radio("APPLICATION FEATURE:",["➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
+                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI"])
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
@@ -122,96 +122,96 @@ if mode == "➕ Thêm lỗi mới":
             collection.insert_one(new_error)
             st.success(f"✅ Đã thêm lỗi {auto_error_code} cho model {model}")
 
-# ==========================================================
-# 🔍 TAB 2: TRA CỨU LỖI
-# ==========================================================
-elif mode == "🔍 Tra cứu lỗi":
-    st.subheader("Tra cứu mã lỗi hoặc model")
-    images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94/Handbook/1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png",
-                   "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png",
-                   "159196": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b1d234339cb426a268b08c63e11e16aafb16ea76/A1196.jpg",
-                   "030218": "https://raw.githubusercontent.com/DuyKhong94/Handbook/cb55b1d7b4e2004aa2b77657789297bfdb2fc4fd/C218.png",
-                   "030191": "https://raw.githubusercontent.com/DuyKhong94/Handbook/134c295588204061468f4a0e736e1dfa228a924c/C191.png",
-                   "030267": "https://raw.githubusercontent.com/DuyKhong94/Handbook/a94e869481e8c3e1e2f348989bbc20014a3f85ea/C267.png",
-                   "030041": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C041.png",
-                   "030412": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C412.png",
-                   "030198": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C198.png",
-                   "030333": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C333.png",
-                   "030291": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C291.png",
-                   "030227": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C227.png",
-                   "030221": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C221.png",
-                   "030287": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C287.png",
-                   "030289": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C289.png",
-                   "030290": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C290.png",
-                   "030248": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C248.png",
-                   "030369": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C369.png",
-                   "030243": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C243.png",
-                   "030319": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C319.png",
-                   "030345": "https://raw.githubusercontent.com/DuyKhong94/Handbook/19e36c797d8d2264b3dfe079f12323b948bf12de/122047.jpg",
-                   "030246": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b910a6c94946b8621b70656132d6f0a76e540038/C246.png"
-                    }
-    with st.form("form_search_model_tab2"):
-        search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
-        submit_model= st.form_submit_button("🔍 Tra cứu Model")
-    prefix=search_model[:6]
-    if submit_model and search_model:
-        model=search_model.strip()[:6]
-        if model in images_model:
-            st.image(images_model[model])
-        cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
-        data = list(cursor)
-        if data:
-            for d in data:
-                d.pop("_id", None)
-            df = pd.DataFrame(data)
-            df1 = df.drop(columns=["image", "images", "pdf_report"], errors='ignore')
-            st.dataframe(df1)
-        else:
-            st.warning("Không tìm thấy dữ liệu cho model này.")
+# # ==========================================================
+# # 🔍 TAB 2: TRA CỨU LỖI
+# # ==========================================================
+# elif mode == "🔍 Tra cứu lỗi":
+#     st.subheader("Tra cứu mã lỗi hoặc model")
+#     images_model ={"030169": "https://raw.githubusercontent.com/DuyKhong94/Handbook/1f4108a9f27662a2537e76bb64a9d7ae9dee3747/C169.png",
+#                    "030247": "https://raw.githubusercontent.com/DuyKhong94/Handbook/ca5f659fc4822d59df0ee1b3bf7298eaa245ed18/C247.png",
+#                    "159196": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b1d234339cb426a268b08c63e11e16aafb16ea76/A1196.jpg",
+#                    "030218": "https://raw.githubusercontent.com/DuyKhong94/Handbook/cb55b1d7b4e2004aa2b77657789297bfdb2fc4fd/C218.png",
+#                    "030191": "https://raw.githubusercontent.com/DuyKhong94/Handbook/134c295588204061468f4a0e736e1dfa228a924c/C191.png",
+#                    "030267": "https://raw.githubusercontent.com/DuyKhong94/Handbook/a94e869481e8c3e1e2f348989bbc20014a3f85ea/C267.png",
+#                    "030041": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C041.png",
+#                    "030412": "https://raw.githubusercontent.com/DuyKhong94/Handbook/f8f952035fe6fa5c06607d6793a61172aa12a8c0/C412.png",
+#                    "030198": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C198.png",
+#                    "030333": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C333.png",
+#                    "030291": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C291.png",
+#                    "030227": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C227.png",
+#                    "030221": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C221.png",
+#                    "030287": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C287.png",
+#                    "030289": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C289.png",
+#                    "030290": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C290.png",
+#                    "030248": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C248.png",
+#                    "030369": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C369.png",
+#                    "030243": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C243.png",
+#                    "030319": "https://raw.githubusercontent.com/DuyKhong94/Handbook/586c5365ff38d3e678931ca84c162cf4a6743967/C319.png",
+#                    "030345": "https://raw.githubusercontent.com/DuyKhong94/Handbook/19e36c797d8d2264b3dfe079f12323b948bf12de/122047.jpg",
+#                    "030246": "https://raw.githubusercontent.com/DuyKhong94/Handbook/b910a6c94946b8621b70656132d6f0a76e540038/C246.png"
+#                     }
+#     with st.form("form_search_model_tab2"):
+#         search_model = st.text_input("Nhập model cần tra cứu:",key="search_model_tab2")
+#         submit_model= st.form_submit_button("🔍 Tra cứu Model")
+#     prefix=search_model[:6]
+#     if submit_model and search_model:
+#         model=search_model.strip()[:6]
+#         if model in images_model:
+#             st.image(images_model[model])
+#         cursor = collection.find({"model": {"$regex":f"^{prefix[:6]}"}})
+#         data = list(cursor)
+#         if data:
+#             for d in data:
+#                 d.pop("_id", None)
+#             df = pd.DataFrame(data)
+#             df1 = df.drop(columns=["image", "images", "pdf_report"], errors='ignore')
+#             st.dataframe(df1)
+#         else:
+#             st.warning("Không tìm thấy dữ liệu cho model này.")
             
     
     
-    with st.form("form_search_code_tab2"):
-        search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
-        submit_code= st.form_submit_button("🔍 Tra cứu lịch sử lỗi")
-        st.divider()
-        if submit_code and search_code:
-            result = collection.find_one({"error_code": search_code})
-            col1, col2 = st.columns(2)    
-            if result:
-                with col1:
-                    st.markdown("<b><u>Model No</u></b>",unsafe_allow_html=True)   
-                    st.write(f" 📘 Model: {result['model']}")
-                    st.markdown("<b><u>Problem Statement</u></b>",unsafe_allow_html=True)
-                    st.write(f"  Mã lỗi: {result['error_code']}")
-                    st.write(f"  Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
-                    st.write(f"  Mô tả hiện tượng lỗi: {result['description']}")
-                with col2:
-                    st.markdown("<b><u>Root Cause</u></b>",unsafe_allow_html=True)
-                    st.write(f"{result.get('root_cause', 'Chưa có thông tin')}")
-                    st.markdown("<b><u>Effective Action Taken</u></b>",unsafe_allow_html=True)
-                    st.write(f"{result.get('solution', 'Chưa có thông tin')}")
-                    st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
+#     with st.form("form_search_code_tab2"):
+#         search_code = st.text_input("Nhập mã lỗi cụ thể (VD: 333J12ABC):",key="search_code_tab2")
+#         submit_code= st.form_submit_button("🔍 Tra cứu lịch sử lỗi")
+#         st.divider()
+#         if submit_code and search_code:
+#             result = collection.find_one({"error_code": search_code})
+#             col1, col2 = st.columns(2)    
+#             if result:
+#                 with col1:
+#                     st.markdown("<b><u>Model No</u></b>",unsafe_allow_html=True)   
+#                     st.write(f" 📘 Model: {result['model']}")
+#                     st.markdown("<b><u>Problem Statement</u></b>",unsafe_allow_html=True)
+#                     st.write(f"  Mã lỗi: {result['error_code']}")
+#                     st.write(f"  Thời gian: {result.get('timestamp', 'Chưa có thông tin')}")
+#                     st.write(f"  Mô tả hiện tượng lỗi: {result['description']}")
+#                 with col2:
+#                     st.markdown("<b><u>Root Cause</u></b>",unsafe_allow_html=True)
+#                     st.write(f"{result.get('root_cause', 'Chưa có thông tin')}")
+#                     st.markdown("<b><u>Effective Action Taken</u></b>",unsafe_allow_html=True)
+#                     st.write(f"{result.get('solution', 'Chưa có thông tin')}")
+#                     st.write(f"{result.get('improvement', 'Chưa có thông tin')}")
         
-                # --- Hiển thị danh sách hình ---
-                images = result.get("images", [])
-                if images:
-                    st.write(f"📸 Có {len(images)} hình minh hoạ:")
-                    cols = st.columns(min(3, len(images)))
-                    for i, img_url in enumerate(images):
-                        cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
-                else:
-                    st.info("Không có hình ảnh minh hoạ cho lỗi này.")
+#                 # --- Hiển thị danh sách hình ---
+#                 images = result.get("images", [])
+#                 if images:
+#                     st.write(f"📸 Có {len(images)} hình minh hoạ:")
+#                     cols = st.columns(min(3, len(images)))
+#                     for i, img_url in enumerate(images):
+#                         cols[i % 3].image(img_url, caption=f"Ảnh {i+1}")
+#                 else:
+#                     st.info("Không có hình ảnh minh hoạ cho lỗi này.")
         
-                # --- File PDF ---
-                pdf_url = result.get("pdf_report")
-                if pdf_url:
-                    st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
-                else:
-                    st.info("Không có file báo cáo PDF cho lỗi này.")
+#                 # --- File PDF ---
+#                 pdf_url = result.get("pdf_report")
+#                 if pdf_url:
+#                     st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+#                 else:
+#                     st.info("Không có file báo cáo PDF cho lỗi này.")
         
-            else:
-                st.error("❌ Không tìm thấy mã lỗi trong database.")
+#             else:
+#                 st.error("❌ Không tìm thấy mã lỗi trong database.")
 
 # Procedures Tab
 elif mode == "📘 Quy Trình Phân tích":
@@ -262,7 +262,7 @@ elif mode == "📘 Quy Trình Phân tích":
     st.subheader("Sơ đồ liên hệ - Hotline:")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/276302b6f5a16ba5f5db7089cabe410b7cf19206/MQAchart.jpg")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/710c394ac305c7c018753d3bd5ec1dc58c541d7e/094237.jpg")
-elif mode == "⚛ ERP System & WI":
+elif mode == "🔍 ERP System & WI":
     st.subheader("Xử lý trên hệ thống ERP")
     st.markdown("***Công dụng của ERP***")
     st.markdown("""
