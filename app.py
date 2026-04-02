@@ -433,7 +433,7 @@ elif mode == "🔥Trợ lý AI":
             results = search_defect(model)
 
             with st.chat_message("assistant"):
-                st.markdown(f"## 📋 Danh sách lỗi model {promp}")
+                st.markdown(f"## 📋 Danh sách lỗi model {prompt}")
 
                 if not results:
                     st.warning("Không tìm thấy dữ liệu")
@@ -453,7 +453,7 @@ elif mode == "🔥Trợ lý AI":
                                 for i, img in enumerate(images):
                                     cols[i % 3].image(img, caption=error_code)
 
-            reply = f"Tìm thấy {len(results)} lỗi cho model {prompt[:6]}"
+            reply = f"Tìm thấy {len(results)} lỗi cho model {prompt}"
 
         # ================= CASE 2: AI =================
         else:
