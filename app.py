@@ -433,7 +433,7 @@ elif mode == "🔥Trợ lý AI":
             results = search_defect(model)
 
             with st.chat_message("assistant"):
-                st.markdown(f"## 📋 Danh sách lỗi model {prompt[:6]}")
+                st.markdown(f"## 📋 Danh sách lỗi model {promp}")
 
                 if not results:
                     st.warning("Không tìm thấy dữ liệu")
@@ -457,26 +457,6 @@ elif mode == "🔥Trợ lý AI":
 
         # ================= CASE 2: AI =================
         else:
-            # results = search_defect(prompt)
-
-            # if results:
-            #     top_result = results[0]
-
-            #     context = f"""
-            #     Model: {top_result.get('model')}
-            #     Error Code: {top_result.get('error_code')}
-            #     Description: {top_result.get('description')}
-            #     Root Cause: {top_result.get('root_cause')}
-            #     Action: {top_result.get('solution')}
-            #     """
-
-            #     system_prompt = f"""
-            #     Bạn là kỹ sư phân tích lỗi. Chỉ trả lời dựa trên dữ liệu sau:
-            #     {context}
-            #     Nếu không có dữ liệu, hãy nói không tìm thấy.
-            #     """
-            # else:
-            #     system_prompt = "You are a helpful assistant."
 
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
 
