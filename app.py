@@ -345,8 +345,6 @@ elif mode == "📱Trang tính":
         
 elif mode == "🔥Trợ lý AI":
 
-   
-
     client = OpenAI(
         api_key=st.secrets["OPENROUTER_API_KEY"],
         base_url="https://openrouter.ai/api/v1"
@@ -358,7 +356,7 @@ elif mode == "🔥Trợ lý AI":
         text = unicodedata.normalize('NFD', text)
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         return text
-    # ================= NORMALIZE TEXT =================
+
     def detect_intent(prompt):
         keywords = ["check", "kiểm tra", "nhờ", "xem", "lỗi"]
         model_match = re.search(r"\d{5,}", prompt)
@@ -372,24 +370,25 @@ elif mode == "🔥Trợ lý AI":
     def search_defect(query):
         if not query:
             return []
+
         query = str(query)
         query_norm = normalize_text(query.strip())
 
-        # 🔥 CASE 1: MODEL (030333)
+        # CASE 1: MODEL
         if query_norm.isdigit():
             prefix = query_norm[:6]
             return list(collection.find({
                 "model": {"$regex": f"^{prefix}"}
             }).limit(20))
 
-        # 🔥 CASE 2: ERROR CODE
+        # CASE 2: ERROR CODE
         result = collection.find_one({
             "error_code": {"$regex": f"^{query.strip()}", "$options": "i"}
         })
         if result:
             return [result]
 
-        # 🔥 CASE 3: TEXT SEARCH
+        # CASE 3: TEXT SEARCH
         keywords = query_norm.split()
         results = list(collection.find())
 
@@ -415,24 +414,23 @@ elif mode == "🔥Trợ lý AI":
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    # ================= CHAT INPUT =================
-    if prompt := st.chat_input("you type here"):
+    # ================= INPUT =================
+    prompt = st.chat_input("You type here...")
 
+    if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
 
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí: " + prompt)
 
-        intent,model = detect_intent(prompt)
-        results=[]
+        intent, model = detect_intent(prompt)
+        results = []
+        top_result = None
 
-        #
-        top_result=None
-        # =====================================================
-        # 🔥 CASE 1: MODEL → SHOW LIST (KHÔNG DÙNG AI)
-        # =====================================================
+        # ================= CASE 1: SEARCH MODEL =================
         if intent == "search_defect" and model:
             results = search_defect(model)
+
             with st.chat_message("assistant"):
                 st.markdown(f"## 📋 Danh sách lỗi model {prompt[:6]}")
 
@@ -446,48 +444,23 @@ elif mode == "🔥Trợ lý AI":
                             st.write(f"📌 {r.get('description')}")
                             st.write(f"🔍 {r.get('root_cause')}")
                             st.write(f"🛠 {r.get('solution')}")
-                            st.write(f" {r.get('improvement')}")
+                            st.write(f"{r.get('improvement')}")
 
-                            images = r.get("images", [])
-
+                            images = r.get("images") or []
                             if images:
                                 cols = st.columns(min(3, len(images)))
                                 for i, img in enumerate(images):
                                     cols[i % 3].image(img, caption=error_code)
-                            else:
-                                st.info("Không có ảnh")
 
             reply = f"Tìm thấy {len(results)} lỗi cho model {prompt[:6]}"
 
-        # =====================================================
-        # 🔥 CASE 2 + 3: AI RESPONSE
-        # =====================================================
-    else:
-        results=search_defect(prompt)
-        if not results:
-            #top_result= None
-            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
-        
-                response = client.chat.completions.create(
-                    model="gpt-4o-mini",
-                    messages=[
-                        {
-                            "role": "system",
-                            "content": "You are a helpful assistant. If the question is not related to defect data, answer normally."
-                        },
-                        {"role": "user", "content": prompt}
-                    ]
-                )
-        
-                reply = response.choices[0].message.content
-        
-                st.markdown("Thư ký AI: " + reply)
-        
-
+        # ================= CASE 2: AI =================
         else:
-            top_result = results[0]
-            context = ""
-            if top_result:
+            results = search_defect(prompt)
+
+            if results:
+                top_result = results[0]
+
                 context = f"""
                 Model: {top_result.get('model')}
                 Error Code: {top_result.get('error_code')}
@@ -496,20 +469,13 @@ elif mode == "🔥Trợ lý AI":
                 Action: {top_result.get('solution')}
                 """
 
-            system_prompt = f"""
-            Bạn là kỹ sư phân tích lỗi.
-            Chỉ được trả lời dựa trên dữ liệu sau:
-            Model:
-            Error Code:
-            Description:
-             🔥 🔥Root Cause 🔥 🔥:
-            Action:
-            
-            Chỉ dùng dữ liệu dưới đây:
-            {context}
-
-            Nếu không có dữ liệu, hãy nói không tìm thấy.
-            """
+                system_prompt = f"""
+                Bạn là kỹ sư phân tích lỗi. Chỉ trả lời dựa trên dữ liệu sau:
+                {context}
+                Nếu không có dữ liệu, hãy nói không tìm thấy.
+                """
+            else:
+                system_prompt = "You are a helpful assistant."
 
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
 
@@ -517,20 +483,27 @@ elif mode == "🔥Trợ lý AI":
                     model="gpt-4o-mini",
                     messages=[
                         {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": prompt}
+                        {"role": "user", "content": str(prompt)}
                     ]
                 )
 
                 reply = response.choices[0].message.content
                 st.markdown("Thư ký AI: " + reply)
 
-                # 👉 show image đúng lỗi
+                # ================= SHOW IMAGE =================
                 if top_result:
-                    
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
-                    for img in top_result.get("images", []):
-                        st.image(img)
-    st.session_state.messages.append({"role": "assistant", "content": reply})
+
+                    images = top_result.get("images") or []
+
+                    if images:
+                        cols = st.columns(min(3, len(images)))
+                        for i, img in enumerate(images):
+                            cols[i % 3].image(img, caption=top_result.get('error_code'))
+                    else:
+                        st.info("Không có ảnh minh hoạ")
+
+        st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
 
