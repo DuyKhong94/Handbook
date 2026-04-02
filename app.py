@@ -12,6 +12,7 @@ import requests
 from auth import require_login
 from openai import OpenAI
 import unicodedata
+import re
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -357,6 +358,15 @@ elif mode == "🔥Trợ lý AI":
         text = unicodedata.normalize('NFD', text)
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         return text
+    # ================= NORMALIZE TEXT =================
+    def detect_intent(prompt):
+        keywords = ["check", "kiểm tra", "nhờ", "xem", "lỗi"]
+        model_match = re.search(r"\d{5,}", prompt)
+
+        if model_match and any(k in prompt.lower() for k in keywords):
+            return "search_defect", model_match.group()
+
+        return "chat", None
 
     # ================= SEARCH FUNCTION =================
     def search_defect(query):
@@ -410,13 +420,16 @@ elif mode == "🔥Trợ lý AI":
         with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
             st.markdown("Thợ cơ khí: " + prompt)
 
-        results = search_defect(prompt)
+        intent,model = detect_intent(prompt)
+        results=[]
+
+        #
         top_result=None
         # =====================================================
         # 🔥 CASE 1: MODEL → SHOW LIST (KHÔNG DÙNG AI)
         # =====================================================
-        if prompt.strip().isdigit():
-
+        if intent == "search_defect" and model:
+            results = search_defect(prompt)
             with st.chat_message("assistant"):
                 st.markdown(f"## 📋 Danh sách lỗi model {prompt[:6]}")
 
@@ -430,6 +443,7 @@ elif mode == "🔥Trợ lý AI":
                             st.write(f"📌 {r.get('description')}")
                             st.write(f"🔍 {r.get('root_cause')}")
                             st.write(f"🛠 {r.get('solution')}")
+                            st.write(f" {r.get('improvement')}")
 
                             images = r.get("images", [])
 
@@ -445,8 +459,9 @@ elif mode == "🔥Trợ lý AI":
         # =====================================================
         # 🔥 CASE 2 + 3: AI RESPONSE
         # =====================================================
-
-        elif not results:
+    else:
+        results=search_defect(prompt)
+        if not results:
             #top_result= None
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
         
@@ -507,12 +522,12 @@ elif mode == "🔥Trợ lý AI":
                 st.markdown("Thư ký AI: " + reply)
 
                 # 👉 show image đúng lỗi
-                if results and top_result:
+                if top_result:
                     
                     st.markdown(f"### 🔧 {top_result.get('error_code')}")
                     for img in top_result.get("images", []):
                         st.image(img)
-        st.session_state.messages.append({"role": "assistant", "content": reply})
+    st.session_state.messages.append({"role": "assistant", "content": reply})
 
     
 
