@@ -361,7 +361,7 @@ elif mode == "🔥Trợ lý AI":
         prompt_lower = prompt.lower().strip()
         if re.fullmatch(r"\d{5,}", prompt_lower):
             return "search_defect", prompt_lower
-        if re.search(r"(check|kiểm tra|lỗi)\s*\d{5,}", prompt_lower):
+        if re.search(r"(check|tra cứu|tìm|lỗi)\s*\d{5,}", prompt_lower):
             model = re.search(r"\d{5,}", prompt_lower).group()
             return "search_defect", model
     
