@@ -521,7 +521,7 @@ elif mode == "📋Daily Pass Down":
     name = st.selectbox("Select Your name", names)
   
    #body of email
-    body =(f"""
+    body =f"""
     Quality issues: {quality}
     Linedown issues: {linedown}
     Pending analysis: {pending}
