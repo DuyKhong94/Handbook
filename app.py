@@ -501,7 +501,7 @@ elif mode == "📋Daily Pass Down":
     
     st.header("📋 Daily Passdown")
     shifts=["Day Shift","Night Shift"]
-    shift=st.multiselect("Day/Night",shifts)
+    shift=st.selectbox("Chọn ca",shifts)
     quality=st.text_input("Quality Issues","0")
     linedown=st.text_input("Linedown Issues","0")
     pending=st.text_input("Pending Analysis","0")
@@ -516,7 +516,7 @@ elif mode == "📋Daily Pass Down":
     # Date + Name (optional)
     today = datetime.today().strftime("%d/%m/%Y")
     names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
-    name = st.multiselect("Select Your name", names)
+    name = st.selectbox("Select Your name", names)
   
    #body of email
     body = textwrap.dedent(f"""
