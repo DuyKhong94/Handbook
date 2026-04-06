@@ -547,11 +547,23 @@ elif mode == "📋Daily Pass Down":
     #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
     # unsafe_allow_html=True
     # )
-    if st.button("📩 Send Passdown Email"):
-        st.markdown(
-            f'<a href="{mail_to_link}" target="_blank">Click here to open email</a>',
-            unsafe_allow_html=True
-        )
+    st.markdown(
+        f"""
+        <a href="{mail_to_link}" target="_blank">
+            <button style="
+                background-color:#4CAF50;
+                color:white;
+                padding:10px 20px;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+                font-size:16px;">
+                📩 Send Passdown Email
+            </button>
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 
