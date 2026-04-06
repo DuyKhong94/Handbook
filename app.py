@@ -516,7 +516,7 @@ elif mode == "📋Daily Pass Down":
     for line in selected_notes.split("\n") 
     if line.strip()
     ]
-    notes_clean = " Case: ".join(lines)
+    notes_clean = "   |   ".join(lines)
 
     
     # Date + Name (optional)
