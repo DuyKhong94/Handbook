@@ -511,7 +511,11 @@ elif mode == "📋Daily Pass Down":
     selected_notes=remove_vietnamese_accents(selected_notes)
 
     uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
-    lines = [line.strip() for line in selected_notes.split("\n") if line.strip()]
+    lines = [
+    re.sub(r'^\d+\.\s*', '', line.strip()) 
+    for line in selected_notes.split("\n") 
+    if line.strip()
+    ]
     notes_clean = "\n".join([f"- {line}" for line in lines])
 
     
