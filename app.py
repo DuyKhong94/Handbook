@@ -504,6 +504,7 @@ elif mode == "📋Daily Pass Down":
     shift=st.selectbox("Chọn ca",shifts)
     quality=st.text_input("Quality Issues","0")
     linedown=st.text_input("Linedown Issues","0")
+    document=st.text_input("Document Findings","0")
     pending=st.text_input("Pending Analysis","0")
   
 
@@ -530,6 +531,7 @@ elif mode == "📋Daily Pass Down":
     I would like to pass down information for this {shift} - {today}
     Quality issues: {quality}
     Linedown issues: {linedown}
+    Document issue findings: {document}
     Pending analysis: {pending}
     
     Notes:       {notes_clean}
