@@ -13,7 +13,7 @@ from auth import require_login
 from openai import OpenAI
 import unicodedata
 import re
-import urlib.parse
+import urllib.parse
 require_login()
 
 # ------------------ MongoDB ------------------
