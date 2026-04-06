@@ -514,7 +514,8 @@ elif mode == "📋Daily Pass Down":
     
     # Date + Name (optional)
     today = datetime.today().strftime("%d/%m/%Y")
-    name = st.text_input("Your name", "Anonymous")
+    names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
+    name = st.multiselect("Select Your name", names)
   
    #body of email
     body = textwrap.dedent(f"""
