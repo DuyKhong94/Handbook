@@ -522,7 +522,7 @@ elif mode == "📋Daily Pass Down":
   
    #body of email
     body = textwrap.dedent(f"""
-    Date: {today}
+    #Date: {today}
     Name: {name}
     Shift: {shift}
     
