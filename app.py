@@ -545,8 +545,8 @@ elif mode == "📋Daily Pass Down":
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
 
     #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
-    unsafe_allow_html=True
-    )
+    # unsafe_allow_html=True
+    # )
     if st.button("📩 Send Passdown Email"):
         webbrowser.open(mail_to_link)
         
