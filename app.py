@@ -498,7 +498,7 @@ elif mode == "📋Daily Pass Down":
     linedown=st.text_input("Linedown Issues","0")
     pending=st.text_input("Pending Analysis","0")
     descripts=st.text_area("Nhập mô tả pending cases")
-
+    descripts_clean = "\n".join([line.strip() for line in descripts.split("\n")])
     uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
 
     
@@ -517,7 +517,7 @@ elif mode == "📋Daily Pass Down":
     3. Pending analysis: {pending}
     
     4. Notes:
-    {descripts}
+    {descripts_clean}
     """).strip()
     body_encoded = urllib.parse.quote(body,safe='')
     subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}")
