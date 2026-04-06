@@ -15,6 +15,7 @@ import unicodedata
 import re
 import urllib.parse
 import textwrap
+import webbrowser
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -546,7 +547,9 @@ elif mode == "📋Daily Pass Down":
     st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
     unsafe_allow_html=True
     )
-
+    if st.button("📩 Send Passdown Email"):
+        webbrowser.open(mail_to_link)
+        
 
 
 
