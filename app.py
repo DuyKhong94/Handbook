@@ -511,6 +511,8 @@ elif mode == "📋Daily Pass Down":
     selected_notes=remove_vietnamese_accents(selected_notes)
 
     uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
+    lines = [line.strip() for line in selected_notes.split("\n") if line.strip()]
+    notes_clean = "\n".join([f"- {line}" for line in lines])
 
     
     # Date + Name (optional)
@@ -524,12 +526,12 @@ elif mode == "📋Daily Pass Down":
     Name: {name}
     Shift: {shift}
     
-    1. Quality issues: {quality}
-    2. Linedown issues: {linedown}
-    3. Pending analysis: {pending}
+    Quality issues: {quality}
+    Linedown issues: {linedown}
+    Pending analysis: {pending}
     
-    4. Notes:
-    {selected_notes}
+    Notes:
+    {notes_clean}
     """).strip()
     body_encoded = urllib.parse.quote(body)
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}")
