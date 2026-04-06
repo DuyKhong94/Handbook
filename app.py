@@ -494,10 +494,10 @@ elif mode == "🔥Trợ lý AI":
 elif mode == "📋Daily Pass Down":
     def remove_vietnamese_accents(text):
     
-    text = unicodedata.normalize('NFD', text)
-    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
-    text = text.replace('đ', 'd').replace('Đ', 'D')
-    return text
+        text = unicodedata.normalize('NFD', text)
+        text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+        text = text.replace('đ', 'd').replace('Đ', 'D')
+        return text
     
     st.header("📋 Daily Passdown")
     shift=st.text_input("Day/Night","D")
