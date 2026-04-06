@@ -497,9 +497,18 @@ elif mode == "📋Daily Pass Down":
     quality=st.text_input("Quality Issues","0")
     linedown=st.text_input("Linedown Issues","0")
     pending=st.text_input("Pending Analysis","0")
-    descripts=st.text_area("Nhập mô tả pending cases")
-    lines = [line.strip() for line in descripts.split("\n") if line.strip()]
-    descripts_clean = "\n".join([f"{i+1}. {line}" for i, line in enumerate(lines)])
+    note_options = [
+    "Phân tích chưa ra vật tư",
+    "Hiện tượng lỗi",
+    "Chờ QA xác nhận",
+    "Chờ vật tư",
+    "Đã xử lý tạm thời",
+    "Khác"
+    ]
+
+    selected_notes = st.multiselect("Chọn nội dung issue", note_options)
+    
+
     uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
 
     
@@ -518,7 +527,7 @@ elif mode == "📋Daily Pass Down":
     3. Pending analysis: {pending}
     
     4. Notes:
-    {descripts_clean}
+    {selected_notes}
     """).strip()
     body_encoded = urllib.parse.quote(body,encoding="utf-8")
     subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}",encoding="utf-8")
