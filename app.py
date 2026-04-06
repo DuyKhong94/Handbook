@@ -493,7 +493,7 @@ elif mode == "🔥Trợ lý AI":
 # # ==========================================================
 elif mode == "📋Daily Pass Down":
     def remove_vietnamese_accents(text):
-    import unicodedata
+    
     text = unicodedata.normalize('NFD', text)
     text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
     text = text.replace('đ', 'd').replace('Đ', 'D')
