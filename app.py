@@ -492,22 +492,22 @@ elif mode == "🔥Trợ lý AI":
 # # 🔍 TAB : PASSDOWN
 # # ==========================================================
 elif mode == "📋Daily Pass Down":
+    def remove_vietnamese_accents(text):
+    import unicodedata
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+    text = text.replace('đ', 'd').replace('Đ', 'D')
+    return text
+    
     st.header("📋 Daily Passdown")
     shift=st.text_input("Day/Night","D")
     quality=st.text_input("Quality Issues","0")
     linedown=st.text_input("Linedown Issues","0")
     pending=st.text_input("Pending Analysis","0")
-    note_options = [
-    "Phân tích chưa ra vật tư",
-    "Hiện tượng lỗi",
-    "Chờ QA xác nhận",
-    "Chờ vật tư",
-    "Đã xử lý tạm thời",
-    "Khác"
-    ]
+  
 
-    selected_notes = st.multiselect("Chọn nội dung issue", note_options)
-    
+    selected_notes = st.text_area("Nhập mô tả cho pending cases","")
+    selected_notes=remove_vietnamese_accents(selected_notes)
 
     uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
 
