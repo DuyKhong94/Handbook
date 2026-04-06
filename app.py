@@ -544,7 +544,7 @@ elif mode == "📋Daily Pass Down":
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}")
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
 
-    st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
+    #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
     unsafe_allow_html=True
     )
     if st.button("📩 Send Passdown Email"):
