@@ -517,7 +517,7 @@ elif mode == "Daily Pass Down":
     
     4. Notes:
     {descripts}
-    """
+    """.strip()
     body_encoded = urllib.parse.quote(body)
     subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}")
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
