@@ -33,7 +33,7 @@ st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a183490a42f138c9fb2c46b7caeb2ca/logo.png",use_container_width=True)
 st.sidebar.markdown("---")
 mode=st.sidebar.radio("APPLICATION FEATURES:",["➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
-                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","Daily Pass Down"])
+                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","📋Daily Pass Down"])
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
@@ -491,7 +491,7 @@ elif mode == "🔥Trợ lý AI":
 # # ==========================================================
 # # 🔍 TAB : PASSDOWN
 # # ==========================================================
-elif mode == "Daily Pass Down":
+elif mode == "📋Daily Pass Down":
     st.header("📋 Daily Passdown")
     shift=st.text_input("Day/Night","D")
     quality=st.text_input("Quality Issues","0")
