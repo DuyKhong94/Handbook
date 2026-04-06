@@ -526,6 +526,8 @@ elif mode == "📋Daily Pass Down":
   
    #body of email
     body =f"""
+    Dear Team,
+    I would like to pass down information for this {shift} - {today}
     Quality issues: {quality}
     Linedown issues: {linedown}
     Pending analysis: {pending}
