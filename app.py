@@ -491,19 +491,19 @@ elif mode == "🔥Trợ lý AI":
 # # 🔍 TAB : PASSDOWN
 # # ==========================================================
 elif mode == "Daily Pass Down":
-    st.sidebar.header("📋 Daily Passdown")
-    shift=st.sidebar.text_input("Day/Night","D")
-    quality=st.sidebar.text_input("Quality Issues","0")
-    linedown=st.sidebar.text_input("Linedown Issues","0")
-    pending=st.sidebar.text_input("Pending Analysis","0")
-    descripts=st.sidebar.text_area("Nhập mô tả pending cases")
+    st.header("📋 Daily Passdown")
+    shift=st.text_input("Day/Night","D")
+    quality=st.text_input("Quality Issues","0")
+    linedown=st.text_input("Linedown Issues","0")
+    pending=st.text_input("Pending Analysis","0")
+    descripts=st.text_area("Nhập mô tả pending cases")
 
-    uploaded_file = st.sidebar.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
 
     
     # Date + Name (optional)
     today = datetime.today().strftime("%d/%m/%Y")
-    name = st.sidebar.text_input("Your name", "Anonymous")
+    name = st.text_input("Your name", "Anonymous")
   
    #body of email
     body = f"""
@@ -522,7 +522,7 @@ elif mode == "Daily Pass Down":
     subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}")
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
 
-    st.sidebar.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
+    st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
     unsafe_allow_html=True
     )
 
