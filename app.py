@@ -531,8 +531,8 @@ elif mode == "📋Daily Pass Down":
     4. Notes:
     {selected_notes}
     """).strip()
-    body_encoded = urllib.parse.quote(body,encoding="utf-8")
-    subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}",encoding="utf-8")
+    body_encoded = urllib.parse.quote(body)
+    subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}")
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
 
     st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
