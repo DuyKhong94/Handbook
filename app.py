@@ -13,6 +13,7 @@ from auth import require_login
 from openai import OpenAI
 import unicodedata
 import re
+import urlib.parse
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -31,7 +32,7 @@ st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a183490a42f138c9fb2c46b7caeb2ca/logo.png",use_container_width=True)
 st.sidebar.markdown("---")
 mode=st.sidebar.radio("APPLICATION FEATURE:",["➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
-                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI"])
+                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","Daily Pass Down"])
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
@@ -486,12 +487,44 @@ elif mode == "🔥Trợ lý AI":
 
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
-    
+# # ==========================================================
+# # 🔍 TAB : PASSDOWN
+# # ==========================================================
+elif mode == "Daily Pass Down":
+    st.sidebar.header("📋 Daily Passdown")
+    shift=st.sidebar.text_input("Day/Night","D")
+    quality=st.sidebar.text_input("Quality Issues","0")
+    linedown=st.sidebar.text_input("Linedown Issues","0")
+    pending=st.sidebar.text_input("Pending Analysis","0")
+    descripts=st.sidebar.text_area("Nhập mô tả pending cases")
 
+    uploaded_file = st.sidebar.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
+
+    
+    # Date + Name (optional)
+    today = datetime.today().strftime("%d/%m/%Y")
+    name = st.sidebar.text_input("Your name", "Anonymous")
   
+   #body of email
+    body = f"""
+    Date: {today}
+    Name: {name}
+    Shift: {shift}
     
+    1. Quality issues: {quality}
+    2. Linedown issues: {linedown}
+    3. Pending analysis: {pending}
+    
+    4. Notes:
+    {descripts}
+    """
+    body_encoded = urllib.parse.quote(body)
+    subject_encoded = urllib.parse.quote(f"Daily Passdown - {name} - {today} - {shift}")
+    mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
 
-
+    st.sidebar.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
+    unsafe_allow_html=True
+    )
 
 
 
