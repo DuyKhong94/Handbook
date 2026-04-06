@@ -534,6 +534,9 @@ elif mode == "📋Daily Pass Down":
     
     Notes:
     {notes_clean}
+
+    Thanks & Best Regards,
+    {name}
     """
     body_encoded = urllib.parse.quote(body)
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}")
