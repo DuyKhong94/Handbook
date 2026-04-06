@@ -507,7 +507,7 @@ elif mode == "Daily Pass Down":
     name = st.text_input("Your name", "Anonymous")
   
    #body of email
-    body = textwrap.detent(f"""
+    body = textwrap.dedent(f"""
     Date: {today}
     Name: {name}
     Shift: {shift}
