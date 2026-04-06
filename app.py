@@ -511,7 +511,7 @@ elif mode == "📋Daily Pass Down":
     selected_notes = st.text_area("Nhập mô tả cho pending cases","")
     selected_notes=remove_vietnamese_accents(selected_notes)
 
-    uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
+    #uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
     lines = [
     re.sub(r'^\d+\.\s*', '', line.strip()) 
     for line in selected_notes.split("\n") 
