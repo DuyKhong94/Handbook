@@ -533,7 +533,7 @@ elif mode == "📋Daily Pass Down":
     Pending analysis: {pending}
     
     Notes:
-    {notes_clean}
+    st.text(notes_clean)
 
     Thanks & Best Regards,
     {name}
