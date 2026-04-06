@@ -532,8 +532,7 @@ elif mode == "📋Daily Pass Down":
     Linedown issues: {linedown}
     Pending analysis: {pending}
     
-    Notes:
-    st.text(notes_clean)
+    Notes:{notes_clean}
 
     Thanks & Best Regards,
     {name}
