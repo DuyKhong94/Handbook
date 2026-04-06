@@ -521,14 +521,14 @@ elif mode == "📋Daily Pass Down":
     name = st.selectbox("Select Your name", names)
   
    #body of email
-    body = textwrap.dedent(f"""
+    body =(f"""
     Quality issues: {quality}
     Linedown issues: {linedown}
     Pending analysis: {pending}
     
     Notes:
     {notes_clean}
-    """).strip()
+    """
     body_encoded = urllib.parse.quote(body)
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}")
     mail_to_link=f"mailto:khongtrungduy12@gmail.com?subject={subject_encoded}&body={body_encoded}"
