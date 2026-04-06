@@ -500,7 +500,8 @@ elif mode == "📋Daily Pass Down":
         return text
     
     st.header("📋 Daily Passdown")
-    shift=st.text_input("Day/Night","D")
+    shifts=["Day Shift","Night Shift"]
+    shift=st.multiselect("Day/Night",shifts)
     quality=st.text_input("Quality Issues","0")
     linedown=st.text_input("Linedown Issues","0")
     pending=st.text_input("Pending Analysis","0")
