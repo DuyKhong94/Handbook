@@ -522,10 +522,6 @@ elif mode == "📋Daily Pass Down":
   
    #body of email
     body = textwrap.dedent(f"""
-    #Date: {today}
-    Name: {name}
-    Shift: {shift}
-    
     Quality issues: {quality}
     Linedown issues: {linedown}
     Pending analysis: {pending}
