@@ -510,9 +510,9 @@ elif mode == "📋Daily Pass Down":
     linedown=st.selectbox("Linedown Issues",linedowns)
     document=st.selectbox("Document Findings",documents)
     pending=st.selectbox("Pending Analysis",pendings)
-    depicts=st.text_input("Notes","")
-    depicts1=st.text_input("Notes","")
-    depicts2=st.text_input("Notes","")
+    depicts=st.text_input("Notes"," ")
+    depicts1=st.text_input("Notes"," ")
+    depicts2=st.text_input("Notes"," ")
 
     # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
     # selected_notes=remove_vietnamese_accents(selected_notes)
