@@ -499,26 +499,31 @@ elif mode == "📋Daily Pass Down":
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         text = text.replace('đ', 'd').replace('Đ', 'D')
         return text
-    
+    qualities=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
+    linedowns=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
+    documents=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
+    pendings=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     st.header("📋 Daily Passdown")
     shifts=["Day Shift","Night Shift"]
     shift=st.selectbox("Chọn ca",shifts)
-    quality=st.text_input("Quality Issues","0")
-    linedown=st.text_input("Linedown Issues","0")
-    document=st.text_input("Document Findings","0")
-    pending=st.text_input("Pending Analysis","0")
-    depicts=st.text_input("Notes","Empty ")
+    quality=st.selectbox("Quality Issues",qualities)
+    linedown=st.selectbox("Linedown Issues",linedowns)
+    document=st.selectbox("Document Findings",documents)
+    pending=st.selectbox("Pending Analysis",pendings)
+    depicts=st.text_input("Notes","")
+    depicts1=st.text_input("Notes","")
+    depicts2=st.text_input("Notes","")
 
-    selected_notes = st.text_area("Nhập mô tả cho pending cases","")
-    selected_notes=remove_vietnamese_accents(selected_notes)
+    # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
+    # selected_notes=remove_vietnamese_accents(selected_notes)
 
     #uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
-    lines = [
-    re.sub(r'^\d+\.\s*', '', line.strip()) 
-    for line in selected_notes.split("\n") 
-    if line.strip()
-    ]
-    notes_clean = "   |   ".join(lines)
+    # lines = [
+    # re.sub(r'^\d+\.\s*', '', line.strip()) 
+    # for line in selected_notes.split("\n") 
+    # if line.strip()
+    # ]
+    # notes_clean = "   |   ".join(lines)
 
     
     # Date + Name (optional)
@@ -535,8 +540,10 @@ elif mode == "📋Daily Pass Down":
     Document issue findings: {document}
     Pending analysis: {pending}
     
-    Notes:       {notes_clean}
+    Notes:       
     {depicts}
+    {depicts1}
+    {depicts2}
 
     Thanks & Best Regards,
     {name}
