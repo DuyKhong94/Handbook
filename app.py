@@ -472,7 +472,7 @@ elif mode == "🔥Trợ lý AI":
                 )
 
                 reply = response.choices[0].message.content
-                st.markdown("Emi Fukada: " + reply)
+                st.markdown("Eimi Fukada: " + reply)
 
                 # ================= SHOW IMAGE =================
                 if top_result:
