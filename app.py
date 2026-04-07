@@ -499,23 +499,26 @@ elif mode == "📋Daily Pass Down":
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         text = text.replace('đ', 'd').replace('Đ', 'D')
         return text
+    col1, col2=st.columns(1,1)
     qualities=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     linedowns=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     documents=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     pendings=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     st.header("📋 Daily Passdown")
-    shifts=["Day Shift","Night Shift"]
-    shift=st.selectbox("Chọn ca",shifts)
-    quality=st.selectbox("Quality Issues",qualities)
-    linedown=st.selectbox("Linedown Issues",linedowns)
-    document=st.selectbox("Document Findings",documents)
-    pending=st.selectbox("Pending Analysis",pendings)
-    depicts=st.text_input("Note1", "")
-    depicts=depicts.strip()
-    depicts1=st.text_input("Note2", "")
-    depicts1=depicts1.strip()
-    depicts2=st.text_input("Note3", "")
-    depicts2=depicts2.strip()
+    with col1:
+        shifts=["Day Shift","Night Shift"]
+        shift=st.selectbox("Chọn ca",shifts)
+        quality=st.selectbox("Quality Issues",qualities)
+        linedown=st.selectbox("Linedown Issues",linedowns)
+        document=st.selectbox("Document Findings",documents)
+        pending=st.selectbox("Pending Analysis",pendings)
+    with col2:
+        depicts=st.text_input("Note1", "")
+        depicts=depicts.strip()
+        depicts1=st.text_input("Note2", "")
+        depicts1=depicts1.strip()
+        depicts2=st.text_input("Note3", "")
+        depicts2=depicts2.strip()
 
     # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
     # selected_notes=remove_vietnamese_accents(selected_notes)
@@ -529,10 +532,10 @@ elif mode == "📋Daily Pass Down":
     # notes_clean = "   |   ".join(lines)
 
     
-    # Date + Name (optional)
-    today = datetime.today().strftime("%d/%m/%Y")
-    names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
-    name = st.selectbox("Select Your name", names)
+        # Date + Name (optional)
+        today = datetime.today().strftime("%d/%m/%Y")
+        names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
+        name = st.selectbox("Select Your name", names)
   
    #body of email
     body =f"""
