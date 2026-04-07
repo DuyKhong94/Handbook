@@ -493,7 +493,7 @@ elif mode == "🔥Trợ lý AI":
 # # 🔍 TAB : PASSDOWN
 # # ==========================================================
 elif mode == "📋Daily Pass Down":
-    st.header("📋 Daily Passdown")
+    st.header("📋 Daily Pass Down")
     def remove_vietnamese_accents(text):
     
         text = unicodedata.normalize('NFD', text)
@@ -514,6 +514,8 @@ elif mode == "📋Daily Pass Down":
         document=st.selectbox("Document Findings",documents)
         pending=st.selectbox("Pending Analysis",pendings)
     with col2:
+        areas=["EEC","High Mix - ACPK"]
+        area=st.selectbox("Focused Factory",areas)
         depicts=st.text_input("Note1", "")
         depicts=depicts.strip()
         depicts1=st.text_input("Note2", "")
@@ -541,7 +543,7 @@ elif mode == "📋Daily Pass Down":
    #body of email
     body =f"""
     Dear Team,
-    I would like to pass down {shift} - {today}:
+    I would like to pass down {area}-{shift}-{today}:
     Quality issues: {quality}
     Linedown issues: {linedown}
     Document issue findings: {document}
