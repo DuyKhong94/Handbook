@@ -557,8 +557,8 @@ elif mode == "📋Daily Pass Down":
     Thanks & Best Regards,
     {name}
     """
-    body_encoded = urllib.parse.quote_plus(body,encoding="utf-8")
-    subject_encoded = urllib.parse.quote_plus(f"Daily Pass Down - {name} - {today} - {shift}",encoding="utf-8")
+    body_encoded = urllib.parse.quote(body,encoding="utf-8")
+    subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}",encoding="utf-8")
     mail_to_link=f"mailto:ryobiacbppe@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}"
 
     #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
