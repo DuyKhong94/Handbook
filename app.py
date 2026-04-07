@@ -499,7 +499,7 @@ elif mode == "📋Daily Pass Down":
         text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
         text = text.replace('đ', 'd').replace('Đ', 'D')
         return text
-    col1, col2=st.columns(1,1)
+    col1, col2=st.columns([1,1])
     qualities=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     linedowns=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     documents=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
