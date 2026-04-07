@@ -493,6 +493,7 @@ elif mode == "🔥Trợ lý AI":
 # # 🔍 TAB : PASSDOWN
 # # ==========================================================
 elif mode == "📋Daily Pass Down":
+    st.header("📋 Daily Passdown")
     def remove_vietnamese_accents(text):
     
         text = unicodedata.normalize('NFD', text)
@@ -504,7 +505,7 @@ elif mode == "📋Daily Pass Down":
     linedowns=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     documents=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
     pendings=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
-    st.header("📋 Daily Passdown")
+    
     with col1:
         shifts=["Day Shift","Night Shift"]
         shift=st.selectbox("Chọn ca",shifts)
