@@ -514,7 +514,7 @@ elif mode == "📋Daily Pass Down":
         document=st.selectbox("Document Findings",documents)
         pending=st.selectbox("Pending Analysis",pendings)
     with col2:
-        areas=["EEC","High Mix - ACPK"]
+        areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
         depicts=st.text_input("Note1", "")
         depicts=depicts.strip()
