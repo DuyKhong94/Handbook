@@ -461,7 +461,7 @@ elif mode == "🔥Trợ lý AI":
         # ================= CASE 2: AI =================
         else:
 
-            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/94fe8517a617d2b97cd20bd0ad834220d36b63f2/OIP.jpg"):
+            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/32e2602963f4b3a1e668fa9b6c4ea4310577838e/6244668958904618602_109.jpg"):
 
                 response = client.chat.completions.create(
                     model="gpt-4o-mini",
