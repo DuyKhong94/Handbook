@@ -529,7 +529,7 @@ elif mode == "📋Daily Pass Down":
         #     st.session_state.num_notes +=1
 
  
-        text = st.text_area("Nhập note",height=300)
+        text = st.text_area("Nhập note",height=320)
     
         # Xóa dòng trống ở đầu
         lines=text.split("\n")
