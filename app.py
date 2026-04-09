@@ -16,6 +16,7 @@ import re
 import urllib.parse
 import textwrap
 import webbrowser
+from deep_translator import GoogleTranslator
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -530,9 +531,9 @@ elif mode == "📋Daily Pass Down":
 
  
         text = st.text_area("Nhập notes",height=320)
-    
+        translated_text=GoogleTranslator(source='vi',target='en').translate(text)
         # Xóa dòng trống ở đầu
-        lines=text.split("\n")
+        lines=translated_text.split("\n")
         if len(lines)>1:
             indented_lines=[lines[0]] + [f"    {line}" for line in lines[1:]]
         else:
