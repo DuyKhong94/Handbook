@@ -516,12 +516,12 @@ elif mode == "📋Daily Pass Down":
         outstanding=st.selectbox("Outstanding EOL Issues",cases)
         areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
-        depicts=st.text_input("Note1", "")
-        depicts=depicts.strip()
-        depicts1=st.text_input("Note2", "")
-        depicts1=depicts1.strip()
-        depicts2=st.text_input("Note3", "")
-        depicts2=depicts2.strip()
+        # depicts=st.text_input("Note1", "")
+        # depicts=depicts.strip()
+        # depicts1=st.text_input("Note2", "")
+        # depicts1=depicts1.strip()
+        # depicts2=st.text_input("Note3", "")
+        # depicts2=depicts2.strip()
         # if "num_notes" not in st.session_state:
         #     st.session_state.num_notes =1
 
@@ -529,7 +529,7 @@ elif mode == "📋Daily Pass Down":
         #     st.session_state.num_notes +=1
 
  
-        text = st.text_area("Nhập note")
+        text = st.text_area("Nhập note",height=300)
     
         # Xóa dòng trống ở đầu
         lines=text.split("\n")
