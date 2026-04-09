@@ -552,7 +552,7 @@ elif mode == "📋Daily Pass Down":
     {depicts}
     {depicts1}
     {depicts2}
-
+    {text}
 
     Thanks & Best Regards,
     {name}
