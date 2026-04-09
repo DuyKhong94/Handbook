@@ -534,9 +534,9 @@ elif mode == "📋Daily Pass Down":
         # Xóa dòng trống ở đầu
         lines=text.split("\n")
         if len(lines)>1:
-            intended_lines=[line[0]] + [f"   {line}" for line in lines[1:]]
+            indented_lines=[line[0]] + [f"   {line}" for line in lines[1:]]
         else:
-            intended_lines=lines
+            indented_lines=lines
         result = "\n".join(indented_lines)
             
 
