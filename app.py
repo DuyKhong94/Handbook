@@ -527,13 +527,13 @@ elif mode == "📋Daily Pass Down":
         if st.button("➕Add Notes"):
             st.session_state.num_notes +=1
 
-        notes=[]
+        #notes=[]
         for i in range(st.session_state.num_notes):
             note = st.text_input(f"Note {i+1}", key=f"note_{i}")
-            notes.append(note)
+            #notes.append(note)
 
-        clean_notes=[n for n in notes if n.strip()]
-        content_notes = "\n".join(clean_notes)
+        # clean_notes=[n for n in notes if n.strip()]
+        # content_notes = "\n".join(clean_notes)
 
     # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
     # selected_notes=remove_vietnamese_accents(selected_notes)
@@ -562,7 +562,7 @@ elif mode == "📋Daily Pass Down":
     Pending analysis: {pending}
     
     Notes:       
-    {content_notes}
+    {note}
 
     Thanks & Best Regards,
     {name}
