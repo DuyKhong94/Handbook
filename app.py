@@ -511,9 +511,9 @@ elif mode == "📋Daily Pass Down":
         linedown=st.selectbox("Linedown Issues",cases)
         document=st.selectbox("Document Findings",cases)
         pending=st.selectbox("Pending Analysis",cases)
-        
-    with col2:
         outstanding=st.selectbox("Outstanding EOL Issues",cases)
+    with col2:
+        
         areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
         # depicts=st.text_input("Note1", "")
