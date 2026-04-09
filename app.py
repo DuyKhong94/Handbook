@@ -501,27 +501,36 @@ elif mode == "📋Daily Pass Down":
         text = text.replace('đ', 'd').replace('Đ', 'D')
         return text
     col1, col2=st.columns([1,1])
-    qualities=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
-    linedowns=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
-    documents=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
-    pendings=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
+    cases=["0 Case","1 Case","2 Cases","3 Cases","4 Cases","5 Cases"]
+   
     
     with col1:
         shifts=["Day Shift","Night Shift"]
         shift=st.selectbox("Chọn ca",shifts)
-        quality=st.selectbox("Quality Issues",qualities)
-        linedown=st.selectbox("Linedown Issues",linedowns)
-        document=st.selectbox("Document Findings",documents)
-        pending=st.selectbox("Pending Analysis",pendings)
+        quality=st.selectbox("Quality Issues",cases)
+        linedown=st.selectbox("Linedown Issues",cases)
+        document=st.selectbox("Document Findings",cases)
+        pending=st.selectbox("Pending Analysis",cases)
+        outstanding=st.selectbox("Outstanding EOL Issues",cases)
     with col2:
         areas=["EEC","ACPK"]
-        area=st.selectbox("Focused Factory",areas)
-        depicts=st.text_input("Note1", "")
-        depicts=depicts.strip()
-        depicts1=st.text_input("Note2", "")
-        depicts1=depicts1.strip()
-        depicts2=st.text_input("Note3", "")
-        depicts2=depicts2.strip()
+        area=st.selectbox("Focused Factory",cases)
+        # depicts=st.text_input("Note1", "")
+        # depicts=depicts.strip()
+        # depicts1=st.text_input("Note2", "")
+        # depicts1=depicts1.strip()
+        # depicts2=st.text_input("Note3", "")
+        # depicts2=depicts2.strip()
+        if "num_notes" not in st.session_state:
+            st.session_state.num_notes =1
+
+        if st.button("➕Add Notes"):
+            st.session_state.num_notes +=1
+
+        notes=[]
+        for i in range(st.session_state.num_notes):
+            note = st.text_input(f"Note {i+1}", key=f"note_{i}")
+            notes.append(note)
 
     # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
     # selected_notes=remove_vietnamese_accents(selected_notes)
@@ -550,9 +559,7 @@ elif mode == "📋Daily Pass Down":
     Pending analysis: {pending}
     
     Notes:       
-    {depicts}
-    {depicts1}
-    {depicts2}
+    {notes}
 
     Thanks & Best Regards,
     {name}
