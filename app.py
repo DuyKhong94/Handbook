@@ -532,7 +532,15 @@ elif mode == "📋Daily Pass Down":
         text = st.text_area("Nhập note")
     
         # Xóa dòng trống ở đầu
-        clean_text = text.lstrip("\n")
+        lines=text.split("\n")
+        if len(lines)>1:
+            intended_lines=[line[0]] + [f"   {line} for line in lines[1:]]
+        else:
+            intended_lines=lines
+        result = "\n".join(indented_lines)
+            
+
+        
     
         # Date + Name (optional)
         today = datetime.today().strftime("%d/%m/%Y")
@@ -550,7 +558,7 @@ elif mode == "📋Daily Pass Down":
     
     Notes:       
 
-    {text}
+    {result}
 
     Thanks & Best Regards,
     {name}
