@@ -556,10 +556,13 @@ elif mode == "📋Daily Pass Down":
     Document issue findings: {document}
     Pending analysis: {pending}
     Outstanding Issues:{outstanding}
-    Notes:       
 
+    
+    Notes:       
     {result}
 
+    
+    Have a good day 😘
     Thanks & Best Regards,
     {name}
     """
