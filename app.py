@@ -555,7 +555,7 @@ elif mode == "📋Daily Pass Down":
     Linedown issues: {linedown}
     Document issue findings: {document}
     Pending analysis: {pending}
-    
+    Outstanding Issues:{outstanding}
     Notes:       
 
     {result}
