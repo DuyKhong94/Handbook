@@ -515,22 +515,22 @@ elif mode == "📋Daily Pass Down":
     with col2:
         areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
-        # depicts=st.text_input("Note1", "")
-        # depicts=depicts.strip()
-        # depicts1=st.text_input("Note2", "")
-        # depicts1=depicts1.strip()
-        # depicts2=st.text_input("Note3", "")
-        # depicts2=depicts2.strip()
-        if "num_notes" not in st.session_state:
-            st.session_state.num_notes =1
+        depicts=st.text_input("Note1", "")
+        depicts=depicts.strip()
+        depicts1=st.text_input("Note2", "")
+        depicts1=depicts1.strip()
+        depicts2=st.text_input("Note3", "")
+        depicts2=depicts2.strip()
+        # if "num_notes" not in st.session_state:
+        #     st.session_state.num_notes =1
 
-        if st.button("➕Add Notes"):
-            st.session_state.num_notes +=1
+        # if st.button("➕Add Notes"):
+        #     st.session_state.num_notes +=1
 
-        #notes=[]
-        for i in range(st.session_state.num_notes):
-            note = st.text_input(f"Note {i+1}", key=f"note_{i}")
-            #notes.append(note)
+        # #notes=[]
+        # for i in range(st.session_state.num_notes):
+        #     note = st.text_input(f"Note {i+1}", key=f"note_{i}")
+        #     #notes.append(note)
 
         # clean_notes=[n for n in notes if n.strip()]
         # content_notes = "\n".join(clean_notes)
@@ -562,7 +562,10 @@ elif mode == "📋Daily Pass Down":
     Pending analysis: {pending}
     
     Notes:       
-    {note}
+    {depicts}
+    {depicts1}
+    {depicts2}
+
 
     Thanks & Best Regards,
     {name}
