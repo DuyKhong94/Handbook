@@ -549,9 +549,7 @@ elif mode == "📋Daily Pass Down":
     Pending analysis: {pending}
     
     Notes:       
-    {depicts}
-    {depicts1}
-    {depicts2}
+
     {text}
 
     Thanks & Best Regards,
