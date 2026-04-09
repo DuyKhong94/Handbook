@@ -514,7 +514,7 @@ elif mode == "📋Daily Pass Down":
         outstanding=st.selectbox("Outstanding EOL Issues",cases)
     with col2:
         areas=["EEC","ACPK"]
-        area=st.selectbox("Focused Factory",cases)
+        area=st.selectbox("Focused Factory",areas)
         # depicts=st.text_input("Note1", "")
         # depicts=depicts.strip()
         # depicts1=st.text_input("Note2", "")
