@@ -530,7 +530,7 @@ elif mode == "📋Daily Pass Down":
         #     st.session_state.num_notes +=1
 
  
-        text = st.text_area("Nhập notes",height=320)
+        text = st.text_area("Nhập notes(xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊",height=320)
         translated_text=GoogleTranslator(source='vi',target='en').translate(text)
         # Xóa dòng trống ở đầu
         lines=translated_text.split("\n")
