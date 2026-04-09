@@ -528,25 +528,11 @@ elif mode == "📋Daily Pass Down":
         # if st.button("➕Add Notes"):
         #     st.session_state.num_notes +=1
 
-        # #notes=[]
-        # for i in range(st.session_state.num_notes):
-        #     note = st.text_input(f"Note {i+1}", key=f"note_{i}")
-        #     #notes.append(note)
-
-        # clean_notes=[n for n in notes if n.strip()]
-        # content_notes = "\n".join(clean_notes)
-
-    # selected_notes = st.text_area("Nhập mô tả cho pending cases","")
-    # selected_notes=remove_vietnamese_accents(selected_notes)
-
-    #uploaded_file = st.file_uploader("Upload picture", type=["png", "jpg", "jpeg"])
-    # lines = [
-    # re.sub(r'^\d+\.\s*', '', line.strip()) 
-    # for line in selected_notes.split("\n") 
-    # if line.strip()
-    # ]
-    # notes_clean = "   |   ".join(lines)
-
+ 
+        text = st.text_area("Nhập note")
+    
+        # Xóa dòng trống ở đầu
+        clean_text = text.lstrip("\n")
     
         # Date + Name (optional)
         today = datetime.today().strftime("%d/%m/%Y")
