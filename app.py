@@ -593,30 +593,7 @@ elif mode == "📋Daily Pass Down":
     )
 elif mode == "📈 Dashboard":
 
-    column_main,column_right=st.columns([8,1])
-    with column_right:
-        
-        #st.markdown("### 📂 Upload file Excel")
-        uploaded_file = st.file_uploader("", type=["xlsx", "csv"], label_visibility="collapsed")
-        
-        if uploaded_file:
-            st.success(f"Đã chọn: {uploaded_file.name}")
-        
-        # Button đẹp
-        st.markdown("""
-        <style>
-        div.stButton > button {
-            background: linear-gradient(90deg, #ff4b4b, #ff7b7b);
-            color: white;
-            border-radius: 12px;
-            height: 50px;
-            font-weight: bold;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-        
-        if st.button("🚀 Upload to GitHub"):
-            st.write("Uploading...")
+
 
 
 
