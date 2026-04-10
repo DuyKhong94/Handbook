@@ -550,19 +550,19 @@ elif mode == "📋Daily Pass Down":
   
    #body of email
     body =f"""
-    Dear Team,
+    Dear ACBP Team & Leaders,
     I would like to pass down {area}-{shift}-{today}:
-    Quality issues: {quality}
-    Linedown issues: {linedown}
-    Document issue findings: {document}
-    Pending analysis: {pending}
-    Outstanding Issues:{outstanding}
+    ➤Quality issues: {quality}
+    ➤Linedown issues: {linedown}
+    ➤Document issue findings: {document}
+    ➤Pending analysis: {pending}
+    ➤Outstanding Issues:{outstanding}
 
     
-    Notes:       
+    Notes📝:       
     {result}
     
-    Have a good day 😘
+    Wishing the team great things and a productive day ahead 😘
     
     Thanks & Best Regards,
     {name}
