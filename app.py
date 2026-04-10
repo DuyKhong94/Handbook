@@ -592,7 +592,7 @@ elif mode == "📋Daily Pass Down":
         unsafe_allow_html=True
     )
 elif mode == "📈 Dashboard":
-
+    st.write("working on it")
 
 
 
