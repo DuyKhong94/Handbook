@@ -552,11 +552,11 @@ elif mode == "📋Daily Pass Down":
     body =f"""
     Dear ACBP Team & Leaders,
     I would like to pass down {area}-{shift}-{today}:
-    ➤Quality issues: {quality}
-    ➤Linedown issues: {linedown}
-    ➤Document issue findings: {document}
-    ➤Pending analysis: {pending}
-    ➤Outstanding Issues:{outstanding}
+    💠Quality issues: {quality}
+    💠Linedown issues: {linedown}
+    💠Document issue findings: {document}
+    💠Pending analysis: {pending}
+    💠Outstanding Issues:{outstanding}
 
     
     Notes📝:       
