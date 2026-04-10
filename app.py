@@ -595,6 +595,7 @@ elif mode == "📈 Dashboard":
 
     column_main,column_right=st.columns([8,1])
     with column_right:
+        uploaded_file = st.file_uploader(...)
         st.markdown("### 📂 Upload file Excel")
         
         if uploaded_file:
