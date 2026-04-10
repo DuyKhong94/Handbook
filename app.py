@@ -595,8 +595,9 @@ elif mode == "📈 Dashboard":
 
     column_main,column_right=st.columns([8,1])
     with column_right:
-        uploaded_file = st.file_uploader(...)
-        st.markdown("### 📂 Upload file Excel")
+        
+        #st.markdown("### 📂 Upload file Excel")
+        uploaded_file = st.file_uploader("", type=["xlsx", "csv"], label_visibility="collapsed")
         
         if uploaded_file:
             st.success(f"Đã chọn: {uploaded_file.name}")
