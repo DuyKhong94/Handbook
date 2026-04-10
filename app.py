@@ -593,7 +593,7 @@ elif mode == "📋Daily Pass Down":
     )
 elif mode == "📈 Dashboard":
 
-    column_main,column_right=st.columns[(8,1)]
+    column_main,column_right=st.columns([8,1])
     with column_right:
         uploaded_file=st.file_uploader("Upload file xlsx",type=["xlsx"])
         if uploaded_file is not None:
