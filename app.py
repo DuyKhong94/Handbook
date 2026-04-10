@@ -614,7 +614,7 @@ elif mode == "📈 Dashboard":
         """, unsafe_allow_html=True)
         
         if st.button("🚀 Upload to GitHub"):
-            st.write("Uploading..."))
+            st.write("Uploading...")
 
 
 
