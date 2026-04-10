@@ -592,10 +592,13 @@ elif mode == "📋Daily Pass Down":
         unsafe_allow_html=True
     )
 elif mode == "📈 Dashboard":
-    uploaded_file=st.file_uploader("Upload file xlsx",type=["xlsx"])
-    if uploaded_file is not None:
-        df =pd.read_excel(uploaded_file)
-        st.dataframe(df)
+
+    column_main,column_right=st.columns[(8,1)]
+    with column_right:
+        uploaded_file=st.file_uploader("Upload file xlsx",type=["xlsx"])
+        if uploaded_file is not None:
+            df =pd.read_excel(uploaded_file)
+            st.dataframe(df)
 
 
 
