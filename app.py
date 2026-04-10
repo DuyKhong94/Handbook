@@ -595,7 +595,7 @@ elif mode == "📈 Dashboard":
     uploaded_file=st.file_uploader("Upload file xlsx",type=["xlsx"])
     if uploaded_file is not None:
         df =pd.read_excel(uploaded_file)
-        st.DataFrame(df)
+        st.dataframe(df)
 
 
 
