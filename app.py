@@ -34,7 +34,7 @@ st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/1/aca558477a183490a42f138c9fb2c46b7caeb2ca/logo.png",use_container_width=True)
 st.sidebar.markdown("---")
-mode=st.sidebar.radio("APPLICATION FEATURES:",["➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
+mode=st.sidebar.radio("APPLICATION FEATURES:",["➕ Thêm lỗi mới", "📘 Quy Trình Phân tích","📈 Dashboard",
                                         "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","📋Daily Pass Down"])
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
@@ -591,7 +591,11 @@ elif mode == "📋Daily Pass Down":
         """,
         unsafe_allow_html=True
     )
-
+elif mode == "📈 Dashboard":
+    uploaded_file=st.file_uploader("Upload file xlsx",type=["xlsx"])
+    if uploaded_file is not None:
+        df =pd.read_excel(uploaded_file)
+        st.DataFrame(df)
 
 
 
