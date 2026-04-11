@@ -584,7 +584,10 @@ elif mode == "📋Daily Pass Down":
         unsafe_allow_html=True
     )
 elif mode == "📈 Dashboard":
-    st.write("working on it")
+    #st.write("working on it")
+    linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/0afba04c6823c0637e85d1b870e3791bf1bc11b3/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
+    df=pd.read_excel(linedown_lending_manhour_url)
+    st.dataframe(df)
 
 
 
