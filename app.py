@@ -589,7 +589,11 @@ elif mode == "📈 Dashboard":
     df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"]
-    st.dataframe(df2)
+    acpk_models=["030","106","001597","001406","001606","001504","001997"]
+    df3=df2[df2["Product"].isin(acpk_models)]
+    sum_manhours=df3["Total Man. Hour"].sum()
+    st.write(sum_manhours)
+    st.dataframe(df3)
 
 
 
