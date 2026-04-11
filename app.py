@@ -517,8 +517,9 @@ elif mode == "📋Daily Pass Down":
         
         areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
-
-  
+        names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
+        name = st.selectbox("Select Your name", names)
+          
  
         text = st.text_area("Nhập notes (xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊)",height=320)
         translated_text=GoogleTranslator(source='vi',target='en').translate(text)
@@ -535,8 +536,7 @@ elif mode == "📋Daily Pass Down":
     
         # Date + Name (optional)
         today = datetime.today().strftime("%d/%m/%Y")
-        names =["Nguyen Si Phu","Ha Thanh Dien","Dong Dinh Chanh","Nguyen Ngoc Dinh"]
-        name = st.selectbox("Select Your name", names)
+
   
    #body of email
     body =f"""
