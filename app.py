@@ -528,9 +528,13 @@ elif mode == "📋Daily Pass Down":
 
         # if st.button("➕Add Notes"):
         #     st.session_state.num_notes +=1
-
+        layout_text="""
+        Model:
+        Line:
+        Abnormal:
+        """
  
-        text = st.text_area("Nhập notes (xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊)",height=320)
+        text = st.text_area("Nhập notes (xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊)",layout_text,height=320)
         translated_text=GoogleTranslator(source='vi',target='en').translate(text)
         # Xóa dòng trống ở đầu
         lines=translated_text.split("\n")
