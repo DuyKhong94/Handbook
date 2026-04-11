@@ -560,7 +560,7 @@ elif mode == "📋Daily Pass Down":
     body_encoded = urllib.parse.quote(body,encoding="utf-8")
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}",encoding="utf-8")
     #mail_to_link=f"mailto:ryobiacbppe@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}&cc=VinhNghi.Luu@ttigroup.com.vn,DJ.Dong@ttigroup.com.vn"
-    mail_to_link=f"mailto:ThanhDien.Ha@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}&cc=VinhNghi.Luu@ttigroup.com.vn,DinhChanh.Dong@ttigroup.com.vn"
+    mail_to_link=f"mailto:ThanhDien.Ha@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}&cc=VinhNghi.Luu@ttigroup.com.vn;DinhChanh.Dong@ttigroup.com.vn"
 
 
     #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
