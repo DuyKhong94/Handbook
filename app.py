@@ -517,24 +517,10 @@ elif mode == "📋Daily Pass Down":
         
         areas=["EEC","ACPK"]
         area=st.selectbox("Focused Factory",areas)
-        # depicts=st.text_input("Note1", "")
-        # depicts=depicts.strip()
-        # depicts1=st.text_input("Note2", "")
-        # depicts1=depicts1.strip()
-        # depicts2=st.text_input("Note3", "")
-        # depicts2=depicts2.strip()
-        # if "num_notes" not in st.session_state:
-        #     st.session_state.num_notes =1
 
-        # if st.button("➕Add Notes"):
-        #     st.session_state.num_notes +=1
-        layout_text="""
-        Model:
-        Line:
-        Abnormal:
-        """
+  
  
-        text = st.text_area("Nhập notes (xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊)",layout_text,height=320)
+        text = st.text_area("Nhập notes (xin hãy nhập tiếng việt, bạn không cần cố gắng dịch đâu để mình giúp bạn nhé 😊)",height=320)
         translated_text=GoogleTranslator(source='vi',target='en').translate(text)
         # Xóa dòng trống ở đầu
         lines=translated_text.split("\n")
@@ -573,7 +559,7 @@ elif mode == "📋Daily Pass Down":
     """
     body_encoded = urllib.parse.quote(body,encoding="utf-8")
     subject_encoded = urllib.parse.quote(f"Daily Pass Down - {name} - {today} - {shift}",encoding="utf-8")
-    mail_to_link=f"mailto:ryobiacbppe@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}&cc=VinhNghi.Luu@ttigroup.com.vn"
+    mail_to_link=f"mailto:ryobiacbppe@ttigroup.com.vn?subject={subject_encoded}&body={body_encoded}&cc=VinhNghi.Luu@ttigroup.com.vn,DJ.Dong@ttigroup.com.vn"
 
     #st.markdown(f'<a href="{mail_to_link}" target="_blank">📩 Send Passdown Email</a>',
     # unsafe_allow_html=True
