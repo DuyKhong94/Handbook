@@ -588,11 +588,12 @@ elif mode == "📈 Dashboard":
     linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/6bded01273b51078758db68caac09799c6ef5b8c/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
     df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
-    df2=df1[df1["Confirm Owner"] =="PIE"]
-    acpk_models=["030","106","001597","001406","001606","001504","001997","011","095","096"]
-    df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))]
-    sum_manhours=df3["Total Man. Hour"].sum()
-    st.write(sum_manhours)
+    df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
+    acpk_models=["030","106","001597","001406","001606","001504","001997"] # list về AC PK models
+    df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))] # lọc theo list acpk_models với 3 số bắt đầu theo hàm startswith
+    sum_manhours=df3["Total Man. Hour"].sum() # tổng số giờ công 
+    sum_manhours_usd =(sum_manhours * 4.52)
+    st.write(sum_manhours,sum_manhours_usd)
     st.dataframe(df3)
 
 
