@@ -593,8 +593,7 @@ elif mode == "📈 Dashboard":
     df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))] # lọc theo list acpk_models với 3 số bắt đầu theo hàm startswith
     sum_manhours=df3["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_usd =(sum_manhours * 4.52)
-    st.write(sum_manhours,sum_manhours_usd)
-    st.dataframe(df3)
+    st.markdown(f"Total Line Down Man Hours ACPK: {sum_manhours}")
 
 
 
