@@ -651,7 +651,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].set_title("Line Down Contributors",y=1.15)
+    axs[0,1].set_title("Line Down Contributors",y=1.1)
     plt.tight_layout()
     st.pyplot(fig)
 
