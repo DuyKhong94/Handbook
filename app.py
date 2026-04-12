@@ -655,6 +655,17 @@ elif mode == "📈 Dashboard":
     fig.gca().add_artist(centre_circle)
         
     axs[0,1].set_title("Line Down Contributors",y=1.117)
+
+
+
+    ## Scatter Plot
+    url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/858b4f13a9c9ee626f453dba1c23c79f3d55b91c/EOL%20Daily%20Report%20Power%20Automate.csv"
+    df6=pd.read_csv(url1)
+    st.dataframe(df6)
+
+
+
+    
     plt.tight_layout()
     st.pyplot(fig)
 
