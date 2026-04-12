@@ -616,7 +616,7 @@ elif mode == "📈 Dashboard":
         "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
     fig, axs = plt.subplots(2, 2, figsize=(10, 8))
-    bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color=green)
+    bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color='green')
     axs[0,0].set_title("2F PE Line Down Indicators")
     for bar in bars:
         height=bar.get_height()
