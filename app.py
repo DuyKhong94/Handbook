@@ -652,7 +652,7 @@ elif mode == "📈 Dashboard":
     fig.gca().add_artist(centre_circle)
         
     #axs[0,1].set_title("PE Line Down Contributors")
-    plt.tight_layout()
+    #plt.tight_layout()
     st.pyplot(fig)
 
 
