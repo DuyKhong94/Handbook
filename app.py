@@ -623,6 +623,10 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
+
+    axs[0,1].pie(df_pie["Value"],df_pie["Area"],textprops=dict(color="w"))
+    axs[0,1].set_title("Line Down Contritutors")
+
     plt.tight_layout()
     st.pyplot(fig)
 
