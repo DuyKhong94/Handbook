@@ -624,9 +624,29 @@ elif mode == "📈 Dashboard":
         axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
 
-    axs[0,1].pie(df_pie["Value"],labels=df_pie["Area"],autopct='%1.1f%%',textprops=dict(color="w"))
-    axs[0,1].set_title("Line Down Contritutors")
+    wedges,texts=axs[0,1].pie(df_pie["Value"],startangle=90)
+    for i, p in enumerate(wedges):
+        ang = (p.theta2 - p.theta1)/2. + p.theta1
+        y = np.sin(np.deg2rad(ang))
+        x = np.cos(np.deg2rad(ang))
 
+        #vi tri text
+        horizontalalignment = "left" if x > 0 else "right"
+    
+        ax.annotate(
+            f"{Value[i]} g {Area[i]}",
+            xy=(x, y),                      # điểm trên pie
+            xytext=(1.4*np.sign(x), 1.4*y), # vị trí text (ra xa)
+            horizontalalignment=horizontalalignment,
+            arrowprops=dict(
+                arrowstyle="-",
+                connectionstyle=f"angle,angleA=0,angleB={ang}"
+                )
+            )
+    centre_circle = plt.Circle((0, 0), 0.5, fc='white')
+    fig.gca().add_artist(centre_circle)
+        
+    ax.set_title("PE Line Down Contributors")
     plt.tight_layout()
     st.pyplot(fig)
 
