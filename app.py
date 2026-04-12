@@ -633,7 +633,7 @@ elif mode == "📈 Dashboard":
         #vi tri text
         horizontalalignment = "left" if x > 0 else "right"
     
-        ax.annotate(
+        axs[0,1].annotate(
             f"{Value[i]} g {Area[i]}",
             xy=(x, y),                      # điểm trên pie
             xytext=(1.4*np.sign(x), 1.4*y), # vị trí text (ra xa)
