@@ -615,7 +615,9 @@ elif mode == "📈 Dashboard":
         "Area":["PE DC","PE ACPK","PE EEC"],
         "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
-    st.bar_chart(data=df,x="Area",y="Value")
+    fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+    axs[0,0].bar(df_pie["Area"],df_pie["Value"])
+    axs[0,0].set_title("2F PE Line Down Indicators")
 
     
 
