@@ -621,7 +621,7 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        ax[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=12)
+        axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=12)
 
     plt.tight_layout()
     st.pyplot(fig)
