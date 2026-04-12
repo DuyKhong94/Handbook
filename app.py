@@ -594,7 +594,7 @@ elif mode == "📈 Dashboard":
     sum_manhours=df3["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_usd =(sum_manhours * 4.52)
     st.markdown(f"Total Line Down Man Hours ACPK: {sum_manhours}")
-    st.markdown(f"Total Line Down Man Hours ACPK USD Exchanged: {sum_manhours_usd}")
+    st.markdown(f"Total Line Down Man Hours ACPK USD Exchanged: {sum_manhours_usd}$$")
 
 
 
