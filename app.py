@@ -662,8 +662,10 @@ elif mode == "📈 Dashboard":
     url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/858b4f13a9c9ee626f453dba1c23c79f3d55b91c/EOL%20Daily%20Report%20Power%20Automate.csv"
     df6=pd.read_csv(url1)
     #AC
-    df6=df6[df6["Focused Factory"]== "High Mix"]
-    df7=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))]
+    df6=df6[df6["Focused Factory"]== "High Mix"] #loc theo khu vuc high mix
+    df7=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))] # loc theo model acpk
+    df7=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
+    #eol_count=df8
     st.dataframe(df7)
 
 
