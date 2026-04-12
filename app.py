@@ -623,6 +623,9 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
+
+        
+    #PIE CHART
     wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90)
     for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
@@ -638,7 +641,7 @@ elif mode == "📈 Dashboard":
             x_text = 1.4 * np.sign(x)
         horizontalalignment = "left" if x_text > 0 else "right"
         axs[0,1].annotate(
-            f"{df_pie["Value"].iloc[i]} {df_pie["Area"].iloc[i]}",
+            f" {df_pie["Area"].iloc[i]}👉 {df_pie["Value"].iloc[i]}",
             xy=(x, y),                      # điểm trên pie
             xytext=(x_text,1.4*y), # vị trí text (ra xa)
             horizontalalignment=horizontalalignment,
