@@ -617,7 +617,7 @@ elif mode == "📈 Dashboard":
         
     fig, axs = plt.subplots(2, 4, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color='green')
-    axs[0,0].set_title("2F PE Line Down Indicators",y=1.12)
+    axs[0,0].set_title("2F PE Line Down Indicators")
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
@@ -651,7 +651,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].set_title("Line Down Contributors",y=1.12)
+    axs[0,1].set_title("Line Down Contributors",y=1.117)
     plt.tight_layout()
     st.pyplot(fig)
 
