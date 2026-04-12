@@ -624,14 +624,18 @@ elif mode == "📈 Dashboard":
         axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
 
-    wedges,texts=axs[0,1].pie(df_pie["Value"],startangle=90)
-    for i, p in enumerate(wedges):
+    for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
         y = np.sin(np.deg2rad(ang))
         x = np.cos(np.deg2rad(ang))
-
-        #vi tri text
-        horizontalalignment = "left" if x > 0 else "right"
+    
+        # 👇 ép ACPK sang trái, EEC sang phải
+        if area == "ACPK":
+            x_text = -1.5
+        elif area == "EEC":
+            x_text = 1.5
+        else:
+            x_text = 1.4 * np.sign(x)
     
         axs[0,1].annotate(
             f"{df_pie["Value"].iloc[i]} {df_pie["Area"].iloc[i]}",
