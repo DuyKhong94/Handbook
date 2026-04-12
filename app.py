@@ -611,6 +611,13 @@ elif mode == "📈 Dashboard":
     st.markdown(f"Total Line Down Man Hours EEC: {sum_manhours_eec}")
     st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd:.3f} $$")
 
+    df_pie=pd.DataFrame({
+        "Area":["PE DC","PE ACPK","PE EEC"],
+        "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
+        
+    st.bar_chart(data=df,x="Area",y="Value")
+
+    
 
 
 
