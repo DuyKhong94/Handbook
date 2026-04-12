@@ -665,7 +665,8 @@ elif mode == "📈 Dashboard":
     df6=df6[df6["Focused Factory"]== "High Mix"] #loc theo khu vuc high mix
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))] # loc theo model acpk
     df7=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
-    #eol_count=df8
+    eol_count=df7["PE PIC"].count()
+    st.markdown(eol_count)
     st.dataframe(df7)
 
 
