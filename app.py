@@ -617,7 +617,7 @@ elif mode == "📈 Dashboard":
         
     fig, axs = plt.subplots(2, 4, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color='green')
-    axs[0,0].set_title("2F PE Line Down Indicators")
+    axs[0,0].set_title("Line Down Indicators")
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
@@ -661,16 +661,39 @@ elif mode == "📈 Dashboard":
     ## Scatter Plot
     url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/858b4f13a9c9ee626f453dba1c23c79f3d55b91c/EOL%20Daily%20Report%20Power%20Automate.csv"
     df6=pd.read_csv(url1)
-    #AC
+    
+    #AC Ha Thanh Dien
     df6=df6[df6["Focused Factory"]== "High Mix"] #loc theo khu vuc high mix
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))] # loc theo model acpk
-    df7=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
-    eol_count=df7["PE PIC"].count()
-    st.markdown(eol_count)
-    st.dataframe(df7)
+    df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
+    eol_count_dien=df8["PE PIC"].count()
+    #st.markdown(eol_count)
+    #st.dataframe(df7)
+    
+    #AC Dong Dinh Chanh
+    df9=df7[df7["PE PIC"]=="Dong Dinh Chanh (VN.RYOBI-PIE)"]
+    eol_count_chanh=df9["PE PIC"].count()
+
+    #AC Nguyen Si Phu
+    df10=df7[df7["PE PIC"]=="Nguyen Si Phu (VN.RYOBI-PIE)"]
+    eol_count_phu=df10["PE PIC"].count()
+
+    #AC Nguyen Ngoc Dinh
+    df10=df7[df7["PE PIC"]=="Nguyen Ngoc Dinh (VN.RYOBI-PIE)"]
+    eol_count_dinh=df10["PE PIC"].count()
 
 
+    df_eol={
+    "Name":["Chánh","Điền","Định","Phú"],
+    "EOL Cases":[eol_count_chanh,eol_count_dien,eol_count_dinh,eol_count_phu]
+    }
 
+    bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
+    axs[0,2].set_title("EOL Cases")
+    for bar in bars:
+        height=bar.get_height()
+        xtext=bar.get_x() + bar.get_width()/2
+        axs[0,2].text(xtext,height,f"{height},ha='center',va='bottom',fontsize=6)
     
     plt.tight_layout()
     st.pyplot(fig)
