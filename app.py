@@ -688,7 +688,7 @@ elif mode == "📈 Dashboard":
     "EOL Cases":[eol_count_chanh,eol_count_dien,eol_count_dinh,eol_count_phu]
     }
 
-    bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue',fontsize=6)
+    bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue',textsize=6)
     axs[0,2].set_title("EOL Cases")
     for bar in bars:
         height=bar.get_height()
