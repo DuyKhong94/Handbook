@@ -636,7 +636,7 @@ elif mode == "📈 Dashboard":
             x_text = 1.5
         else:
             x_text = 1.4 * np.sign(x)
-    
+        horizontalalignment = "left" if x_text > 0 else "right"
         axs[0,1].annotate(
             f"{df_pie["Value"].iloc[i]} {df_pie["Area"].iloc[i]}",
             xy=(x, y),                      # điểm trên pie
