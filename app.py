@@ -617,8 +617,8 @@ elif mode == "📈 Dashboard":
         
     fig, axs = plt.subplots(2, 4, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color='green')
-    #axs[0, 0].tick_params(axis='x', labelsize=6)
-    axs[0, 0].bar_label(bars, fontsize=6)
+    axs[0, 0].tick_params(axis='x', labelsize=6)
+    #axs[0, 0].bar_label(bars, fontsize=6)
     axs[0,0].set_title("Line Down Indicators")
     for bar in bars:
         height=bar.get_height()
