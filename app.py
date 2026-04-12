@@ -633,7 +633,7 @@ elif mode == "📈 Dashboard":
         if area == "ACPK":
             x_text = -1.5
         elif area == "EEC":
-            x_text = 1.5
+            x_text = 1.2
         else:
             x_text = 1.4 * np.sign(x)
         horizontalalignment = "left" if x_text > 0 else "right"
