@@ -585,7 +585,7 @@ elif mode == "📋Daily Pass Down":
     )
 elif mode == "📈 Dashboard":
     #st.write("working on it")
-    linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/6bded01273b51078758db68caac09799c6ef5b8c/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
+    linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/17a01e2098fe3cbd7316fdd3f5f5415960281336/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
     df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
