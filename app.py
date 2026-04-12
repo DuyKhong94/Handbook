@@ -612,7 +612,7 @@ elif mode == "📈 Dashboard":
     # st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd:.3f} $$")
 
     df_pie=pd.DataFrame({
-        "Area":["PE ACPK","PE DC","PE EEC"],
+        "Area":["ACPK","DC","EEC"],
         "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
     fig, axs = plt.subplots(2, 4, figsize=(10, 5))
@@ -624,7 +624,7 @@ elif mode == "📈 Dashboard":
         axs[0,0].text(x,height,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
 
-    axs[0,1].pie(df_pie["Value"],labels=df_pie["Area"],textprops=dict(color="w"))
+    axs[0,1].pie(df_pie["Value"],labels=df_pie["Area"],autopct:'%1.1f%%',textprops=dict(color="w"))
     axs[0,1].set_title("Line Down Contritutors")
 
     plt.tight_layout()
