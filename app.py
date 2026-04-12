@@ -633,7 +633,7 @@ elif mode == "📈 Dashboard":
         if area == "ACPK":
             x_text = -1.5
         elif area == "EEC":
-            x_text = 1.2
+            x_text = 1.7
         else:
             x_text = 1.4 * np.sign(x)
         horizontalalignment = "left" if x_text > 0 else "right"
@@ -652,7 +652,7 @@ elif mode == "📈 Dashboard":
     fig.gca().add_artist(centre_circle)
         
     #axs[0,1].set_title("PE Line Down Contributors")
-    #plt.tight_layout()
+    plt.tight_layout()
     st.pyplot(fig)
 
 
