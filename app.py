@@ -661,7 +661,9 @@ elif mode == "📈 Dashboard":
     ## Scatter Plot
     url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/858b4f13a9c9ee626f453dba1c23c79f3d55b91c/EOL%20Daily%20Report%20Power%20Automate.csv"
     df6=pd.read_csv(url1)
-    st.dataframe(df6)
+    #AC
+    df7=df6[df6["Model"].astype(str).str.startswith==(tuple(acpk_models))]
+    st.dataframe(df7)
 
 
 
