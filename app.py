@@ -597,19 +597,19 @@ elif mode == "📈 Dashboard":
     sum_manhours_acpk=df3["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_acpk_usd =(sum_manhours_acpk * 4.52)
     st.markdown(f"Total Line Down Man Hours ACPK: {sum_manhours_acpk}")
-    st.markdown(f"Total Line Down Man Hours ACPK USD Exchanged: {sum_manhours_acpk_usd}$$")
+    st.markdown(f"Total Line Down Man Hours ACPK USD Exchanged: {sum_manhours_acpk_usd:.3f} $$")
     #DC    
     sum_manhours_dc=df4["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_dc_usd =(sum_manhours_dc * 4.52)
     st.markdown(f"Total Line Down Man Hours DC: {sum_manhours_dc}")
-    st.markdown(f"Total Line Down Man Hours DC USD Exchanged: {sum_manhours_dc_usd}$$")
+    st.markdown(f"Total Line Down Man Hours DC USD Exchanged: {sum_manhours_dc_usd:.3f} $$")
     #EEC
     eec_models=["130","240417"]
     df5=df2[df2["Product"].astype(str).str.startswith(tuple(eec_models))] # lọc theo list dc_models với 3 số bắt đầu theo hàm startswith
     sum_manhours_eec=df5["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_eec_usd =(sum_manhours_eec * 4.52)
     st.markdown(f"Total Line Down Man Hours EEC: {sum_manhours_eec}")
-    st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd}$$")
+    st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd:.3f} $$")
 
 
 
