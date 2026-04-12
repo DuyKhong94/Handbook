@@ -612,7 +612,7 @@ elif mode == "📈 Dashboard":
     st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd:.3f} $$")
 
     df_pie=pd.DataFrame({
-        "Area":["PE DC","PE ACPK","PE EEC"],
+        "Area":["PE ACPK","PE DC","PE EEC"],
         "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
     fig, axs = plt.subplots(2, 2, figsize=(10, 8))
