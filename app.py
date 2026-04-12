@@ -640,7 +640,7 @@ elif mode == "📈 Dashboard":
         axs[0,1].annotate(
             f"{df_pie["Value"].iloc[i]} {df_pie["Area"].iloc[i]}",
             xy=(x, y),                      # điểm trên pie
-            xytext=(1.4*np.sign(x), 1.4*y), # vị trí text (ra xa)
+            xytext=(x_text,1.4*y), # vị trí text (ra xa)
             horizontalalignment=horizontalalignment,
             fontsize=6,
             arrowprops=dict(
