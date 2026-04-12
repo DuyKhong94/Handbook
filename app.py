@@ -590,7 +590,7 @@ elif mode == "📈 Dashboard":
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
     acpk_models=["030","106","001597","001406","001606","001504","001997","053"] # list về AC PK models
-    dc_models=["011","159","010","095","096"] # list ve DC models
+    dc_models=["011","159","010","095","096","000"] # list ve DC models
     df4=df2[df2["Product"].astype(str).str.startswith(tuple(dc_models))] # lọc theo list dc_models với 3 số bắt đầu theo hàm startswith
     df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))] # lọc theo list acpk_models với 3 số bắt đầu theo hàm startswith
     #ACPK
@@ -604,7 +604,7 @@ elif mode == "📈 Dashboard":
     st.markdown(f"Total Line Down Man Hours DC: {sum_manhours_dc}")
     st.markdown(f"Total Line Down Man Hours DC USD Exchanged: {sum_manhours_dc_usd}$$")
     #EEC
-    eec_models=["130"]
+    eec_models=["130","240417"]
     df5=df2[df2["Product"].astype(str).str.startswith(tuple(eec_models))] # lọc theo list dc_models với 3 số bắt đầu theo hàm startswith
     sum_manhours_eec=df5["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_eec_usd =(sum_manhours_eec * 4.52)
