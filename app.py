@@ -772,6 +772,11 @@ elif mode == "📈 Dashboard":
         axs[0,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[0,2].set_title("KAIZEN")
     axs[0,2].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
+
+    #Main Factor
+    material=df7[df7["5M1D"] =="Material Issue"].count()
+
+    st.write(material)
     plt.tight_layout()
     st.pyplot(fig)
 
