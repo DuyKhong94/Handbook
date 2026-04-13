@@ -714,7 +714,7 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[0,3].text(x,height*0.99,f"{height}",fontsize=6}
+        axs[0,3].text(x,height*0.99,f"{height}",fontsize=6)
     axs[0,3].set_title("KAIZEN")
     
     plt.tight_layout()
