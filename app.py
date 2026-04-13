@@ -696,13 +696,13 @@ elif mode == "📈 Dashboard":
     }
 
     bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
-    #axs[0, 2].tick_params(axis='x', labelsize=6)
+    axs[0, 2].tick_params(axis='x', labelsize=6)
     axs[0, 2].bar_label(bars, fontsize=6)
     axs[0,2].set_title("EOL Cases")
     for bar in bars:
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
-        axs[0,2].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+        axs[0,2].text(xtext,height-1,f"{height}",ha='center',va='bottom',fontsize=6)
     
     plt.tight_layout()
     st.pyplot(fig)
