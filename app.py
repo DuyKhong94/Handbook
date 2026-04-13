@@ -126,8 +126,8 @@ if mode == "➕ Thêm lỗi mới":
 
             collection.insert_one(new_error)
             st.success(f"✅ Đã thêm lỗi {auto_error_code} cho model {model}")
-    new_file =st.file_uploader("Chọn file báo cáo mới nhất")
-    if st.button("Save & Sync"):
+    new_file =st.file_uploader("Chọn file báo cáo Lending & Linedown mới nhất")
+    if st.button("Save & Sync PDN Report"):
         if new_file is not None:
 
         # tạo file tạm
@@ -143,6 +143,32 @@ if mode == "➕ Thêm lỗi mới":
                 repo="Handbook",
                 file_path_repo="Lending - Rework manhours data 2026.xlsx",
                 file_path_local=temp_path,
+                commit_message="update from streamlit app"
+            )
+
+        st.success("Uploaded to GitHub!")
+        st.write(result)
+
+    else:
+        st.warning("Vui lòng chọn file trước!")
+
+    new_file2 =st.file_uploader("Chọn file báo cáo EOL mới nhất")
+    if st.button("Save & Sync EOL"):
+        if new_file is not None:
+
+        # tạo file tạm
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
+                tmp.write(new_file.read())
+                temp_path1 = tmp.name    
+
+
+    # 2. upload lên GitHub
+            result = upload_file_to_github(
+                token=st.secrets["GITHUB_TOKEN"],  # best practice 🔥
+                owner="DuyKhong94",
+                repo="Handbook",
+                file_path_repo="EOL Daily Report Power Automate.csv",
+                file_path_local=temp_path1,
                 commit_message="update from streamlit app"
             )
 
