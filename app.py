@@ -163,7 +163,7 @@ if mode == "➕ Thêm lỗi mới":
 
 
     # 2. upload lên GitHub
-            result = upload_file_to_github(
+            result1= upload_file_to_github(
                 token=st.secrets["GITHUB_TOKEN"],  # best practice 🔥
                 owner="DuyKhong94",
                 repo="Handbook",
@@ -173,7 +173,7 @@ if mode == "➕ Thêm lỗi mới":
             )
 
         st.success("Uploaded to GitHub!")
-        st.write(result)
+        st.write(result1)
 
     else:
         st.warning("Vui lòng chọn file trước!")
