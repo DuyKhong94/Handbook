@@ -774,7 +774,7 @@ elif mode == "📈 Dashboard":
     axs[0,2].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
 
     #Main Factor
-    material=(df7[df7["5M1D"] =="Material Issue"]).count()
+    material=(df7[df7["5M1D"] =="Material Issue"]).sum()
 
     st.write(material)
     plt.tight_layout()
