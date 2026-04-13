@@ -665,8 +665,9 @@ elif mode == "📈 Dashboard":
     df6=pd.read_csv(url1)
     
     #AC Ha Thanh Dien
-    df6=df6[df6["Focused Factory"]== "High Mix"] #loc theo khu vuc high mix
-    df7=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))] # loc theo model acpk
+    df6=df6[df6["Focused Factory"].isin(["High Mix","EEC"]) #loc theo khu vuc high mix
+    models=acpk_models + eec_models
+    df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
     eol_count_dien=df8["PE PIC"].count()
     #st.markdown(eol_count)
