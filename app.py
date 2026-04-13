@@ -774,8 +774,13 @@ elif mode == "📈 Dashboard":
     axs[0,2].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
 
     #Main Factor
+    factors=df7["5M1D"].unique()
     material=len(df7[df7["5M1D"] =="Material issue"])
-
+    man=len(df7[df7["5M1D"] =="Man issue"])
+    machine=len(df7[df7["5M1D"] =="Machine issue"])
+    method=len(df7[df7["5M1D"] =="Method issue"])
+    measurement=len(df7[df7["5M1D"] =="Measurement issue"])
+    st.write(factors)
     st.write(material)
     plt.tight_layout()
     st.pyplot(fig)
