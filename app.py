@@ -631,7 +631,7 @@ elif mode == "📈 Dashboard":
         
     #PIE CHART
     wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90)
-    axs[0,1].set_position([0.1, 0.5, 0.25, 0.25])  
+     
     for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
         y = np.sin(np.deg2rad(ang))
@@ -659,7 +659,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].set_title("USD $ LOSS",y=1.16)
+    axs[1,1].legend(loc='lower right', fontsize=6)
     
 
 
