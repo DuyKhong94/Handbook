@@ -618,13 +618,13 @@ elif mode == "📈 Dashboard":
         
     fig, axs = plt.subplots(2,2, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value2"],color='green')
-    axs[0,0].tick_params(axis='x', labelsize=6)
-    #axs[0].bar_label(bars, fontsize=6,padding=3)
+    axs[0,0].tick_params(axis='x', labelsize=8)
+    #axs[0].bar_label(bars, fontsize=8,padding=3)
     axs[0,0].set_title("AREA & LOSS")
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[0,0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
+        axs[0,0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=8)
     axs[0,0].set_ylim(0, max(df_pie["Value2"]) + 20)
 
 
@@ -650,7 +650,7 @@ elif mode == "📈 Dashboard":
             xy=(x, y),                      # điểm trên pie
             xytext=(x_text,1.4*y), # vị trí text (ra xa)
             horizontalalignment=horizontalalignment,
-            fontsize=6,
+            fontsize=8,
             arrowprops=dict(
                 arrowstyle="-",
                 connectionstyle=f"angle,angleA=0,angleB={ang}"
@@ -699,13 +699,13 @@ elif mode == "📈 Dashboard":
     }
 
     bars=axs[1,0].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
-    axs[1,0].tick_params(axis='x', labelsize=6)
+    axs[1,0].tick_params(axis='x', labelsize=8)
     #axs[1,0].bar_label(bars, fontsize=6, padding=3)
     axs[1,0].set_title("ANALYSIS")
     for bar in bars:
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
-        axs[1,0].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+        axs[1,0].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[1,0].set_ylim(0, max(df_eol["EOL Cases"]) + 20 )
 
     #KAIZEN
@@ -713,11 +713,11 @@ elif mode == "📈 Dashboard":
     "Name":["Chánh","Điền","Định","Phú"],
     "Kaizen":[0, 2, 0, 0]}
     bars=axs[1,1].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
-    axs[1,1].tick_params(axis='x', labelsize=6)
+    axs[1,1].tick_params(axis='x', labelsize=8)
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+        axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[1,1].set_title("KAIZEN")
     axs[1,1].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
     plt.tight_layout()
