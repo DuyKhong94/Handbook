@@ -711,13 +711,13 @@ elif mode == "📈 Dashboard":
     "Name":["Chánh","Điền","Định","Phú"],
     "Kaizen":[0, 2, 0, 0]}
     bars=axs[1,1].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
-    # axs[1,1].tick_params(axis='x', labelsize=6)
-    # for bar in bars:
-    #     height=bar.get_height()
-    #     x=bar.get_x() + bar.get_width()/2
-    #     axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+    axs[1,1].tick_params(axis='x', labelsize=6)
+    for bar in bars:
+        height=bar.get_height()
+        x=bar.get_x() + bar.get_width()/2
+        axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
     axs[1,1].set_title("KAIZEN")
-    plt.tight_layout()
+    #plt.tight_layout()
     st.pyplot(fig)
 
 
