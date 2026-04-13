@@ -790,7 +790,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[1,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
-    axs[1,2].set_title("MAIN FACTORS")
+    axs[1,2].set_title("ISSUE FACTORS")
     axs[1,2].set_ylim(0,max(df_mainfactors["Factors"])+20)
     axs[1,2].tick_params(axis='x', labelsize=5)
     plt.tight_layout()
