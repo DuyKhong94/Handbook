@@ -158,7 +158,7 @@ if mode == "➕ Thêm lỗi mới":
 
         # tạo file tạm
             with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
-                tmp.write(new_file.read())
+                tmp.write(new_file2.read())
                 temp_path = tmp.name    
 
 
