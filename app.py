@@ -780,8 +780,19 @@ elif mode == "📈 Dashboard":
     machine=len(df7[df7["5M1D"] =="Machine issue"])
     method=len(df7[df7["5M1D"] =="Method issue"])
     measurement=len(df7[df7["5M1D"] =="Measurement issue"])
-    st.write(factors)
-    st.write(material)
+    df_mainfactors={
+    "Name":["Material","Man","Machine","Method","Measurement"],
+    "Factors":[material,man,machine,method,measurement]}
+
+
+    bars=axs[1,2].bar(df_mainfactors["Name"],df_mainfactors["Factors"],color='purple']
+    for bar in bars:
+        height=bar.get_height()
+        x=bar.get_x() + bar.get_width()/2
+        axs[1,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
+    axs[1,2].set_title("MAIN FACTORS")
+    axs[1,2].set_ylim(0,max(df_mainfactors["Factors"])+20)
+
     plt.tight_layout()
     st.pyplot(fig)
 
