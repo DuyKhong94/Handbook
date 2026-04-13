@@ -625,7 +625,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[0,0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
-    axs[0,0].set_ylim(0, max(df_pie["Value2"]) * 1,1)
+    axs[0,0].set_ylim(0, max(df_pie["Value2"]) + 20)
 
 
         
@@ -705,7 +705,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
         axs[1,0].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
-    axs[1,0].set_ylim(0, max(df_eol["EOL Case"]) * 1,1)
+    axs[1,0].set_ylim(0, max(df_eol["EOL Case"]) + 20 )
 
     #KAIZEN
     df_kaizen={
