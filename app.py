@@ -709,8 +709,8 @@ elif mode == "📈 Dashboard":
     #KAIZEN
     df_kaizen={
     "Name":["Chánh","Điền","Định","Phú"],
-    "Kaizen":[0, 2, 0, 0]}
-    bars=axs[1,1].bar(df_kaizen["Name"],str(df_kaizen["Kaizen"]),color='red')
+    "Kaizen":str([0, 2, 0, 0])}
+    bars=axs[1,1].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
     axs[1,1].tick_params(axis='x', labelsize=6)
     for bar in bars:
         height=bar.get_height()
