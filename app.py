@@ -616,20 +616,20 @@ elif mode == "📈 Dashboard":
         "Value":[sum_manhours_acpk_usd,sum_manhours_dc_usd,sum_manhours_eec_usd],
         "Value2":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
-    fig, axs = plt.subplots(1, 4, figsize=(10, 5))
-    bars=axs[0].bar(df_pie["Area"],df_pie["Value2"],color='green')
-    axs[0].tick_params(axis='x', labelsize=6)
+    fig, axs = plt.subplots(2,2, figsize=(10, 5))
+    bars=axs[0,0].bar(df_pie["Area"],df_pie["Value2"],color='green')
+    axs[0,0].tick_params(axis='x', labelsize=6)
     #axs[0].bar_label(bars, fontsize=6,padding=3)
-    axs[0].set_title("AREA & LOSS")
+    axs[0,0].set_title("AREA & LOSS")
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
+        axs[0,0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
 
         
     #PIE CHART
-    wedges, texts = axs[1].pie(df_pie["Value"], startangle=90)
+    wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90)
     for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
         y = np.sin(np.deg2rad(ang))
@@ -657,7 +657,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[1].set_title("USD $ LOSS",y=1.16)
+    axs[0,1].set_title("USD $ LOSS",y=1.16)
 
 
 
@@ -696,27 +696,27 @@ elif mode == "📈 Dashboard":
     "EOL Cases":[eol_count_chanh,eol_count_dien,eol_count_dinh,eol_count_phu]
     }
 
-    bars=axs[2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
-    axs[2].tick_params(axis='x', labelsize=6)
-    #axs[2].bar_label(bars, fontsize=6, padding=3)
-    axs[2].set_title("ANALYSIS")
+    bars=axs[1,0].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
+    axs[1,0].tick_params(axis='x', labelsize=6)
+    #axs[1,0].bar_label(bars, fontsize=6, padding=3)
+    axs[1,0].set_title("ANALYSIS")
     for bar in bars:
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
-        axs[2].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+        axs[1,0].text(xtext,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
 
 
     #KAIZEN
     df_kaizen={
     "Name":["Chánh","Điền","Định","Phú"],
     "Kaizen":[0,2,0,0]}
-    bars=axs[3].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
-    axs[3].tick_params(axis='x', labelsize=6)
+    bars=axs[1,1].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
+    axs[1,1].tick_params(axis='x', labelsize=6)
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[3].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
-    axs[3].set_title("KAIZEN")
+        axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
+    axs[1,1].set_title("KAIZEN")
     
 
 
