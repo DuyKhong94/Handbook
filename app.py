@@ -720,7 +720,7 @@ elif mode == "📈 Dashboard":
     
     #=====================================================================
     #Lending 
-    df12=pd.read_excel(linedown_lending_manhour_url,sheet_name="Lending",skipsrow=1)
+    df12=pd.read_excel(linedown_lending_manhour_url,sheet_name="Lending",skiprows=1)
     st.dataframe(df12)
 
 
