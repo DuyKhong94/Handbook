@@ -154,12 +154,12 @@ if mode == "➕ Thêm lỗi mới":
 
     new_file2 =st.file_uploader("Chọn file báo cáo EOL mới nhất")
     if st.button("Save & Sync EOL"):
-        if new_file is not None:
+        if new_file2 is not None:
 
         # tạo file tạm
             with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
                 tmp.write(new_file.read())
-                temp_path1 = tmp.name    
+                temp_path = tmp.name    
 
 
     # 2. upload lên GitHub
@@ -168,7 +168,7 @@ if mode == "➕ Thêm lỗi mới":
                 owner="DuyKhong94",
                 repo="Handbook",
                 file_path_repo="EOL Daily Report Power Automate.csv",
-                file_path_local=temp_path1,
+                file_path_local=temp_path,
                 commit_message="update from streamlit app"
             )
 
