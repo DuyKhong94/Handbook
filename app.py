@@ -717,16 +717,6 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[1,1].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
     axs[1,1].set_title("KAIZEN")
-    
-
-
-
-
-
-
-
-
-    
     plt.tight_layout()
     st.pyplot(fig)
 
