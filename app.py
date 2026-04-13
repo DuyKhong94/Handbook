@@ -657,7 +657,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].set_title("USD $ EXCHANGED",y=1.16)
+    axs[0,1].set_title("USD $ LOSS",y=1.16)
 
 
 
