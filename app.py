@@ -630,7 +630,7 @@ elif mode == "📈 Dashboard":
 
         
     #PIE CHART
-    wedges, texts = axs[0,1].pie(df_pie["Value"],labels=df_pie["Area"], startangle=90)
+    wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90)
      
     for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
@@ -659,7 +659,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].legend(loc='best')
+    axs[0,1].legend(df_pie["Area"],loc='lower right')
     
 
 
