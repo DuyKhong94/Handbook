@@ -147,6 +147,7 @@ if mode == "➕ Thêm lỗi mới":
             )
 
         st.success("Uploaded to GitHub!")
+        st.write(result)
 
     else:
         st.warning("Vui lòng chọn file trước!")
