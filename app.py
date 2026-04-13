@@ -620,7 +620,7 @@ elif mode == "📈 Dashboard":
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value2"],color='green')
     axs[0, 0].tick_params(axis='x', labelsize=6)
     #axs[0, 0].bar_label(bars, fontsize=6,padding=3)
-    axs[0,0].set_title("Line Down Indicators")
+    axs[0,0].set_title("AREA MH")
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
@@ -657,7 +657,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].set_title("Line Down Contributors",y=1.16)
+    axs[0,1].set_title("USD $ EXCHANGED",y=1.16)
 
 
 
@@ -699,7 +699,7 @@ elif mode == "📈 Dashboard":
     bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
     axs[0, 2].tick_params(axis='x', labelsize=6)
     #axs[0, 2].bar_label(bars, fontsize=6, padding=3)
-    axs[0,2].set_title("EOL Cases")
+    axs[0,2].set_title("Analysis")
     for bar in bars:
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
