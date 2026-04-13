@@ -17,6 +17,7 @@ import urllib.parse
 import textwrap
 import webbrowser
 from deep_translator import GoogleTranslator
+from github_uploader import upload_file_to_github
 require_login()
 
 # ------------------ MongoDB ------------------
@@ -125,6 +126,30 @@ if mode == "➕ Thêm lỗi mới":
 
             collection.insert_one(new_error)
             st.success(f"✅ Đã thêm lỗi {auto_error_code} cho model {model}")
+    new_file =st.file_uploader("Chọn file báo cáo mới nhất")
+    if st.button("Save & Sync"):
+        if new_file is not None:
+
+        # tạo file tạm
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
+                tmp.write(new_file.read())
+                temp_path = tmp.name    
+
+
+    # 2. upload lên GitHub
+            result = upload_file_to_github(
+                token=st.secrets["GITHUB_TOKEN"],  # best practice 🔥
+                owner="DuyKhong94",
+                repo="Handbook",
+                file_path_repo="Lending - Rework manhours data 2026.xlsx",
+                file_path_local=temp_path,
+                commit_message="update from streamlit app"
+            )
+
+        st.success("Uploaded to GitHub!")
+
+    else:
+    st.warning("Vui lòng chọn file trước!")
 
 # # ==========================================================
 # # 🔍 TAB 2: TRA CỨU LỖI
