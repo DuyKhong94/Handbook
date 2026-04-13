@@ -670,7 +670,7 @@ elif mode == "📈 Dashboard":
 
     df6 = df6[df6["Target Date"] >= "2026-01-01"]
     models=acpk_models + eec_models
-    df11=df6[df6["Model"].astype(str).str.startswith(tuple(eec_models))]
+    df11=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))]
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
     eol_count_dien=df8["PE PIC"].count() + 18
@@ -683,11 +683,11 @@ elif mode == "📈 Dashboard":
 
     #AC Nguyen Si Phu
     df10=df7[df7["PE PIC"]=="Nguyen Si Phu (VN.RYOBI-PIE)"]
-    eol_count_phu=df10["PE PIC"].count() + 18
+    eol_count_phu=df10["PE PIC"].count() + 12
 
     #AC Nguyen Ngoc Dinh
     df10=df7[df7["PE PIC"]=="Nguyen Ngoc Dinh (VN.RYOBI-PIE)"]
-    eol_count_dinh=df10["PE PIC"].count() +18 
+    eol_count_dinh=df10["PE PIC"].count() + 12 
 
 
     df_eol={
