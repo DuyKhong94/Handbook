@@ -764,14 +764,14 @@ elif mode == "📈 Dashboard":
     df_kaizen={
     "Name":["Chánh","Điền","Định","Phú"],
     "Kaizen":[0, 2, 0, 0]}
-    bars=axs[1,1].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
-    axs[1,1].tick_params(axis='x', labelsize=8)
+    bars=axs[0,2].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
+    axs[0,2].tick_params(axis='x', labelsize=8)
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[1,1].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
-    axs[1,1].set_title("KAIZEN")
-    axs[1,1].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
+        axs[0,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
+    axs[0,2].set_title("KAIZEN")
+    axs[0,2].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
     plt.tight_layout()
     st.pyplot(fig)
 
