@@ -697,7 +697,7 @@ elif mode == "📈 Dashboard":
 
     bars=axs[0,2].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
     axs[0, 2].tick_params(axis='x', labelsize=6)
-    axs[0, 2].bar_label(bars, fontsize=6)
+    axs[0, 2].bar_label(ax.containers[0], fontsize=6, padding=3)
     axs[0,2].set_title("EOL Cases")
     for bar in bars:
         height=bar.get_height()
