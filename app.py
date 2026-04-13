@@ -630,7 +630,7 @@ elif mode == "📈 Dashboard":
 
         
     #PIE CHART
-    wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90)
+    wedges, texts = axs[0,1].pie(df_pie["Value"], startangle=90,radius=0.8)
     for i, (p, val, area) in enumerate(zip(wedges, df_pie["Value"], df_pie["Area"])):
         ang = (p.theta2 - p.theta1)/2. + p.theta1
         y = np.sin(np.deg2rad(ang))
