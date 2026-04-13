@@ -671,7 +671,7 @@ elif mode == "📈 Dashboard":
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
     eol_count_dien=df8["PE PIC"].count()
     #st.markdown(eol_count)
-    st.dataframe(df6)
+    st.dataframe(df7)
     
     #AC Dong Dinh Chanh
     df9=df7[df7["PE PIC"]=="Dong Dinh Chanh (VN.RYOBI-PIE)"]
