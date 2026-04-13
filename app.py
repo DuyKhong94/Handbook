@@ -718,6 +718,18 @@ elif mode == "📈 Dashboard":
         axs[0,3].text(x,height*0.99,f"{height}",ha='center',va='bottom',fontsize=6)
     axs[0,3].set_title("KAIZEN")
     
+    #=====================================================================
+    #Lending 
+    df12=pd.read_excel(linedown_lending_manhour_url,sheet_name="Lending",skipsrow=1)
+    st.dataframe(df12)
+
+
+
+
+
+
+
+    
     plt.tight_layout()
     st.pyplot(fig)
 
