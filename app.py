@@ -616,7 +616,7 @@ elif mode == "📈 Dashboard":
         "Value":[sum_manhours_acpk_usd,sum_manhours_dc_usd,sum_manhours_eec_usd],
         "Value2":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
-    fig, axs = plt.subplots(2, 4, figsize=(10, 5))
+    fig, axs = plt.subplots(1, 4, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value2"],color='green')
     axs[0, 0].tick_params(axis='x', labelsize=6)
     #axs[0, 0].bar_label(bars, fontsize=6,padding=3)
