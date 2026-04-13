@@ -613,7 +613,7 @@ elif mode == "📈 Dashboard":
 
     df_pie=pd.DataFrame({
         "Area":["ACPK","DC","EEC"],
-        "Value":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
+        "Value":[100,sum_manhours_dc,sum_manhours_eec]})
         
     fig, axs = plt.subplots(2, 4, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value"],color='green')
