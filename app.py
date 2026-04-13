@@ -785,7 +785,7 @@ elif mode == "📈 Dashboard":
     "Factors":[material,man,machine,method,measurement]}
 
 
-    bars=axs[1,2].bar(df_mainfactors["Name"],df_mainfactors["Factors"],color='purple']
+    bars=axs[1,2].bar(df_mainfactors["Name"],df_mainfactors["Factors"],color='purple')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
