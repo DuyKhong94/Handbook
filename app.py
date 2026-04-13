@@ -623,7 +623,7 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[0,0].text(x,height*1.01,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
+        axs[0,0].text(x,height*0.99,f"{height:.2f}",ha='center',va='bottom',fontsize=6)
 
 
         
