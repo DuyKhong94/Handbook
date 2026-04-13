@@ -673,21 +673,21 @@ elif mode == "📈 Dashboard":
     df11=df6[df6["Model"].astype(str).str.startswith(tuple(acpk_models))]
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
-    eol_count_dien=df8["PE PIC"].count() + 18
+    eol_count_dien=df8["PE PIC"].count() + 5
     #st.markdown(eol_count)
     st.dataframe(df11)
     
     #AC Dong Dinh Chanh
     df9=df7[df7["PE PIC"]=="Dong Dinh Chanh (VN.RYOBI-PIE)"]
-    eol_count_chanh=df9["PE PIC"].count()+ 18
+    eol_count_chanh=df9["PE PIC"].count()+ 5
 
     #AC Nguyen Si Phu
     df10=df7[df7["PE PIC"]=="Nguyen Si Phu (VN.RYOBI-PIE)"]
-    eol_count_phu=df10["PE PIC"].count() + 12
+    eol_count_phu=df10["PE PIC"].count() + 17
 
     #AC Nguyen Ngoc Dinh
     df10=df7[df7["PE PIC"]=="Nguyen Ngoc Dinh (VN.RYOBI-PIE)"]
-    eol_count_dinh=df10["PE PIC"].count() + 12 
+    eol_count_dinh=df10["PE PIC"].count() + 17 
 
 
     df_eol={
