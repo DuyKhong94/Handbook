@@ -677,7 +677,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[0,0].text(x,height*1.01,f"{height:.2f}",ha='center',va='bottom',fontsize=8)
-    axs[0,0].set_ylim(0, max(df_pie["Value2"]) + 20)
+    axs[0,0].set_ylim(0, max(df_pie["Value2"]) + 50)
 
 
         
