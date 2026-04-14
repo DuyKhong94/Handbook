@@ -795,7 +795,7 @@ elif mode == "📈 Dashboard":
 
 
     #RANK OF MODEL
-    df15=df1[df1["Model"].astype(str).str.startswith(tuple(models))]
+    df15=df1[df1["Product"].astype(str).str.startswith(tuple(models))]
     st.dataframe(df15)
 
     
