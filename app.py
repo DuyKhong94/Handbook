@@ -796,7 +796,8 @@ elif mode == "📈 Dashboard":
 
     #RANK OF MODEL
     df15=df1[df1["Product"].astype(str).str.startswith(tuple(models))]
-    st.dataframe(df15)
+    df_top5 = df15.nlargest(5, "Total Man. Hour")
+    st.dataframe(df_top5)
 
     
     
