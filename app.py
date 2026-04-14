@@ -797,7 +797,7 @@ elif mode == "📈 Dashboard":
     #RANK OF MODEL
     df15=df1[df1["Product"].astype(str).str.startswith(tuple(models))]
     df_top5 = df15.nlargest(5, "Total Man. Hour")
-    bars=axs[1,1].bar(df_top5["Product"],df_top5["Total Man. Hour"],color='pink'
+    bars=axs[1,1].bar(df_top5["Product"],df_top5["Total Man. Hour"],color='pink')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
