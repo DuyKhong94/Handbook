@@ -637,7 +637,7 @@ elif mode == "📋Daily Pass Down":
     )
 elif mode == "📈 Dashboard":
     #st.write("working on it")
-    linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/17a01e2098fe3cbd7316fdd3f5f5415960281336/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
+    linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/Lending - Rework manhours data 2026.xlsx"
     df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
@@ -716,7 +716,7 @@ elif mode == "📈 Dashboard":
 
 
     ## Scatter Plot
-    url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/858b4f13a9c9ee626f453dba1c23c79f3d55b91c/EOL%20Daily%20Report%20Power%20Automate.csv"
+    url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/EOL Daily Report Power Automate.csv"
     df6=pd.read_csv(url1)
     
     #AC Ha Thanh Dien
