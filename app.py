@@ -726,7 +726,7 @@ elif mode == "📈 Dashboard":
     df6 = df6[df6["Target Date"] >= "2026-01-01"]
     models=acpk_models + eec_models
     #df11=df6[df6["Model"].astype(str).str.startswith(tuple(models))]
-    df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk
+    df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk + eec
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
     eol_count_dien=df8["PE PIC"].count() + 12
     #st.markdown(eol_count)
@@ -783,8 +783,7 @@ elif mode == "📈 Dashboard":
     df_mainfactors={
     "Name":["Material","Man","Machine","Method","Measurement"],
     "Factors":[material,man,machine,method,measurement]}
-
-
+    #Main Factor Chart
     bars=axs[1,2].bar(df_mainfactors["Name"],df_mainfactors["Factors"],color='purple')
     for bar in bars:
         height=bar.get_height()
@@ -793,6 +792,14 @@ elif mode == "📈 Dashboard":
     axs[1,2].set_title("ISSUE FACTORS")
     axs[1,2].set_ylim(0,max(df_mainfactors["Factors"])+20)
     axs[1,2].tick_params(axis='x', labelsize=5)
+
+
+    #RANK OF MODEL
+    df15=df1[df1["Model"].astype(str).str.startswith(tuple(models))]
+    st.dataframe(df15)
+
+    
+    
     plt.tight_layout()
     st.pyplot(fig)
 
