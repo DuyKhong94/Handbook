@@ -643,6 +643,7 @@ elif mode == "📋Daily Pass Down":
     )
 elif mode == "📈 Dashboard":
     #st.write("working on it")
+    st_autorefresh(interval=60000)
     linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
     #df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
     df=load_excel(linedown_lending_manhour_url)
