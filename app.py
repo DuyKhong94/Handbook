@@ -26,7 +26,13 @@ def get_db():
     client = MongoClient(url)
     db = client["handbook"]
     return db
+@st.cache_data(ttl=60)
+def load_excel(linedown_lending_manhour_url):
+    return pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
 
+def load_csv(url1):
+    return pd.read_csv(url1)
+    
 db = get_db()
 collection = db["errors"]
 
@@ -638,7 +644,8 @@ elif mode == "📋Daily Pass Down":
 elif mode == "📈 Dashboard":
     #st.write("working on it")
     linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
-    df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
+    #df=pd.read_excel(linedown_lending_manhour_url,sheet_name="Quality & Downtime",skiprows=1)
+    df=load_excel(linedown_lending_manhour_url)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
     acpk_models=["030","106","001597","001406","001606","001504","001997","053","30"] # list về AC PK models
@@ -717,7 +724,8 @@ elif mode == "📈 Dashboard":
 
     ## Scatter Plot
     url1="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/EOL%20Daily%20Report%20Power%20Automate.csv"
-    df6=pd.read_csv(url1)
+    #df6=pd.read_csv(url1)
+    df6=load_csv(url1)
     
     #AC Ha Thanh Dien
     df6=df6[df6["Focused Factory"].isin(["High Mix","EEC"])] #loc theo khu vuc high mix
