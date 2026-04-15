@@ -651,7 +651,7 @@ elif mode == "📈 Dashboard":
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
     acpk_models=["030","106","001597","001406","001606","001504","001997","053","30"] # list về AC PK models
-    dc_models=["011","159","010","095","096","000","010","95","96","108","109"] # list ve DC models
+    dc_models=["011","159","010","095","096","000","010","95","96","108","109","040"] # list ve DC models
     df4=df2[df2["Product"].astype(str).str.startswith(tuple(dc_models))] # lọc theo list dc_models với 3 số bắt đầu theo hàm startswith
     df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))] # lọc theo list acpk_models với 3 số bắt đầu theo hàm startswith
     #ACPK
