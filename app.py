@@ -608,7 +608,7 @@ elif mode == "📋Daily Pass Down":
     💠Outstanding Issues:{outstanding}
 
     
-    {shift} Notes📝:       
+    📝{shift} Notes:       
     {result}
     
     Wishing the team great things and a productive day ahead 😘
