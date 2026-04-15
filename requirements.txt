@@ -11,4 +11,5 @@ pyxlsb
 matplotlib
 openai
 deep-translator
+streamlit-autorefresh
 
