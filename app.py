@@ -18,6 +18,7 @@ import textwrap
 import webbrowser
 from deep_translator import GoogleTranslator
 from github_uploader import upload_file_to_github
+from streamlit_autorefresh import st_autorefresh
 require_login()
 
 # ------------------ MongoDB ------------------
