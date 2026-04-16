@@ -818,8 +818,10 @@ elif mode == "📈 Dashboard":
     axs[1,1].set_ylim(0,max(df_top5["Total Man. Hour"])+20)
     axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=90)
     
+    ## material factors
+    factors=df7["Material Category"].unique()
+    st.write(factors)
     
-
     
     
     plt.tight_layout()
