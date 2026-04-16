@@ -853,12 +853,15 @@ elif mode == "📈 Dashboard":
     dfa1=dfa[dfa["Product"].astype(str).str.startswith(tuple(acpk_models))]# PDN nhap qua cho SQE
     
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
-    acpk_linedown_resolve=(dfa1["Total Man.Hour"]).sum() + (df1a["Total Man.Hour"]).sum()
+    acpk_linedown_resolved=(dfa1["Total Man. Hour"]).sum() + (df1a["Total Man. Hour"]).sum()
     df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
 
     df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
 
     dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
+    st.dataframe(df1c)
+    st.dataframe(dfc1)
+    st.write(acpk_linedown_resolved)
     plt.tight_layout()
     st.pyplot(fig)
 
