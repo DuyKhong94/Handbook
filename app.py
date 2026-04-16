@@ -839,7 +839,7 @@ elif mode == "📈 Dashboard":
     "Value":[metal,plastic,motor,packing,pcba,switch]}
     df_mat_sum = pd.DataFrame(df_mat_sum)
     df_mat_sum=df_mat_sum.nlargest(6,"Value")
-    bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color="#e76f51")
+    bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='#2a9d8f')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
