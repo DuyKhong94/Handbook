@@ -814,7 +814,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[1,1].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
-    axs[1,1].set_title("TOP 5 LOSS (MH)")
+    axs[1,1].set_title("TOP 5 LOSS")
     axs[1,1].set_ylim(0,max(df_top5["Total Man. Hour"])+20)
     axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=90)
     
