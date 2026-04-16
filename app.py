@@ -845,7 +845,13 @@ elif mode == "📈 Dashboard":
     axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
     axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
     axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
-  
+
+
+
+    ## TOTAL LINEDOWN RESOLVED
+    st.DataFrame(df3)
+    #df4
+    #df5
     plt.tight_layout()
     st.pyplot(fig)
 
