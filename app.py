@@ -831,14 +831,14 @@ elif mode == "📈 Dashboard":
     df_mat_sum={
     "Name":["Metal","Plastic","Motor","Packing","PCBA","SWITCH"],
     "Value":[metal,plastic,motor,packing,pcba,switch]}
-    df_mat_sum1=df_mat_sum.nlargest("Value")
-    bars=axs[2,2].bar(df_mat_sum1["Name"],df_mat_sum1["Value"],color='grey')
+    df_mat_sum=df_mat_sum.nlargest(6,"Value")
+    bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='grey')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[2,2].text(x,height*1.01,f"{height}",fontsize=8,ha='center',va='bottom')
     axs[2,2].set_title("Material Summaries")
-    axs[2,2].set_ylim(0,max(df_mat_sum1["Value"])+10)
+    axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
     axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
     
     plt.tight_layout()
