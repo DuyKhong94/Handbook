@@ -849,7 +849,7 @@ elif mode == "📈 Dashboard":
 
 
     ## TOTAL LINEDOWN RESOLVED
-    st.DataFrame(df3)
+    st.dataframe(df3)
     #df4
     #df5
     plt.tight_layout()
