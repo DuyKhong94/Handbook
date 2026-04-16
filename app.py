@@ -811,7 +811,7 @@ elif mode == "📈 Dashboard":
 
 
     #RANK OF MODEL
-    df15=df1[df1["Product"].astype(str).str.startswith(tuple(models))]
+    df15=df1[df1["Product"].astype(str).str[:9].str.startswith(tuple(models))]
     df_top5 = df15.nlargest(5, "Total Man. Hour")
     df_top5["Product"]=df_top5["Product"].astype(str)
     df_top5["Total Man. Hour"] = pd.to_numeric(df_top5["Total Man. Hour"], errors="coerce")
@@ -819,10 +819,10 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[1,1].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
+        axs[1,1].text(x,height,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[1,1].set_title("TOP 5 LOSS")
     axs[1,1].set_ylim(0,max(df_top5["Total Man. Hour"])+20)
-    axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=90)
+    axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=45)
     
     ## material factors
     # factors=df7["Material Category"].unique()
@@ -843,7 +843,7 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[2,2].text(x,height*1.01,f"{height}",fontsize=8,ha='center',va='bottom')
+        axs[2,2].text(x,height,f"{height}",fontsize=8,ha='center',va='bottom')
     axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
     axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
     axs[2,2].tick_params(axis='x', labelsize=6)
