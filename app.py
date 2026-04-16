@@ -859,9 +859,10 @@ elif mode == "📈 Dashboard":
     df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
 
     dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
-    st.dataframe(df1c)
-    st.dataframe(dfc1)
+    eec_linedown_resolved=(dfc1["Total Man. Hour"]).sum() + (df1c["Total Man. Hour"]).sum()
+
     st.write(acpk_linedown_resolved)
+    st.write(eec_linedown_resolved)
     plt.tight_layout()
     st.pyplot(fig)
 
