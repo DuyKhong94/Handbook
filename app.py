@@ -850,14 +850,15 @@ elif mode == "📈 Dashboard":
 
     ## TOTAL LINEDOWN RESOLVED
     dfa=df[df["Initial Owner"]=="SQE"]
-    dfa1=dfa[dfa["Product"].astype(str).str.startswith(tuple(acpk_models))]
+    dfa1=dfa[dfa["Product"].astype(str).str.startswith(tuple(acpk_models))]# PDN nhap qua cho SQE
+    
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
-    st.dataframe(df1a)
-    st.dataframe(dfa1)
+    acpk_linedown_resolve=(dfa1["Total Man.Hour"]).sum() + (df1a["Total Man.Hour"]).sum()
     df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
-    st.dataframe(df1b)
+
     df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
-    st.dataframe(df1c)
+
+    dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
     plt.tight_layout()
     st.pyplot(fig)
 
