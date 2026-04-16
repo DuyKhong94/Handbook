@@ -720,7 +720,7 @@ elif mode == "📈 Dashboard":
     centre_circle = plt.Circle((0, 0), 0.5, fc='white')
     fig.gca().add_artist(centre_circle)
         
-    axs[0,1].legend(df_pie["Area"],loc='lower right',bbox_to_anchor=(1.65, 0),title="Dollars Cont.")
+    axs[0,1].legend(df_pie["Area"],loc='lower right',bbox_to_anchor=(1.65, 0),title="Dollars Cont.",fontsize=6,title_fontsize=6)
     
 
 
