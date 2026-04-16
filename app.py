@@ -831,7 +831,7 @@ elif mode == "📈 Dashboard":
     df_mat_sum={
     "Name":["Metal","Plastic","Motor","Packing","PCBA","SWITCH"],
     "Value":[metal,plastic,motor,packing,pcba,switch]}
-
+    df_mat_sum=df_mat_sum.nlargest("Value")
     bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='grey')
     for bar in bars:
         height=bar.get_height()
