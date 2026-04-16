@@ -819,10 +819,9 @@ elif mode == "📈 Dashboard":
     axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=90)
     
     ## material factors
-    factors=df7["Material Category"].unique()
-    st.write(factors)
-    
-    
+
+    metal=len(df7["Material Category"]=="Metal")
+    st.write(metal)
     
     plt.tight_layout()
     st.pyplot(fig)
