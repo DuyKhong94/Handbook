@@ -890,6 +890,8 @@ elif mode == "📈 Dashboard":
     axs[2,0].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))  # chỉ hiện MM-DD
     axs[2,0].set_ylim(0,10)
     axs[2,0].tick_params(axis='x',labelsize=6)
+    axs[2,0].yaxis.set_major_locator(ticker.MultipleLocator(1))
+    axs[2,0].set_title("ACPK-EEC EOL STATUS")
     plt.tight_layout()
     st.pyplot(fig)
 
