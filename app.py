@@ -892,9 +892,13 @@ elif mode == "📈 Dashboard":
     # filter data
     df_3m = df7a[df7a["Date"] >= start_date]
     
-    df_count = df_3m.groupby("Date").size()
+    df_count = (
+        df_3m.groupby("Date")
+        .size()
+        .asfreq("D", fill_value=0)
+    )
     
-    axs[2,0].plot(df_count.index, df_count.values,color='black')
+    axs[2,0].plot(df_count.index, df_count.values,color="#2a9d8f")
     axs[2,0].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))  # chỉ hiện MM-DD
     axs[2,0].set_ylim(0,10)
     axs[2,0].tick_params(axis='x',labelsize=5)
