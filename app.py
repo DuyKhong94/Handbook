@@ -880,8 +880,12 @@ elif mode == "📈 Dashboard":
     ## EOL
 
     df7a=pd.DataFrame(df7)
-    st.dataframe(df7a)
-    axs[2,0].plot(df7a["Date"],df7a["Defect Q'ty"])
+   
+    df7a["Date"] = pd.to_datetime(df7a["Date"])
+    
+    df_count = df7a.groupby("Date").size()
+    
+    axs[2,1].plot(df_count.index, df_count.values, marker='o')
     plt.tight_layout()
     st.pyplot(fig)
 
