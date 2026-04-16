@@ -911,10 +911,11 @@ elif mode == "📈 Dashboard":
         y=3,
         color='red',     # màu đẹp
         linestyle='--',
-        linewidth=1
+        linewidth=1,
+        label='Target = 3'
     )
 
-    axs[2,0].legend(fontsize=6)
+    axs[2,0].legend(fontsize=4)
     plt.tight_layout()
     st.pyplot(fig)
 
