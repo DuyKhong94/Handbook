@@ -911,8 +911,7 @@ elif mode == "📈 Dashboard":
         y=3,
         color='red',     # màu đẹp
         linestyle='--',
-        linewidth=1,
-        label='Target = 3'
+        linewidth=1
     )
 
     axs[2,0].legend(fontsize=6)
