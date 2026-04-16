@@ -849,8 +849,11 @@ elif mode == "📈 Dashboard":
 
 
     ## TOTAL LINEDOWN RESOLVED
+    dfa=df[df["Initial Owner"]=="SQE"]
+    dfa1=dfa[dfa["Product"].astype(str).str.startswith(tuple(acpk_models))]
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
     st.dataframe(df1a)
+    st.dataframe(dfa1)
     df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
     st.dataframe(df1b)
     df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
