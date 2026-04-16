@@ -33,6 +33,10 @@ def load_excel(linedown_lending_manhour_url):
 
 def load_csv(url1):
     return pd.read_csv(url1)
+def my_autopct(pct):
+    total = df_mat_sum["Value"].sum()
+    val = int(pct * total / 100)
+    return f'{pct:.1f}%\n({val})'
     
 db = get_db()
 collection = db["errors"]
@@ -833,15 +837,15 @@ elif mode == "📈 Dashboard":
     "Value":[metal,plastic,motor,packing,pcba,switch]}
     df_mat_sum = pd.DataFrame(df_mat_sum)
     df_mat_sum=df_mat_sum.nlargest(6,"Value")
-    bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='grey')
-    for bar in bars:
-        height=bar.get_height()
-        x=bar.get_x() + bar.get_width()/2
-        axs[2,2].text(x,height*1.01,f"{height}",fontsize=8,ha='center',va='bottom')
-    axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
-    axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
-    axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
-    
+    # bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='grey')
+    # for bar in bars:
+    #     height=bar.get_height()
+    #     x=bar.get_x() + bar.get_width()/2
+    #     axs[2,2].text(x,height*1.01,f"{height}",fontsize=8,ha='center',va='bottom')
+    # axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
+    # axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
+    # axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
+    axs[2,2].pie(df_mat_sum["Value"],labels=df_mat_sum["Name"],autopct=my_autopct)
     plt.tight_layout()
     st.pyplot(fig)
 
