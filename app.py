@@ -906,6 +906,16 @@ elif mode == "📈 Dashboard":
     axs[2,0].yaxis.set_major_locator(ticker.MultipleLocator(1))
     axs[2,0].tick_params(axis='y', labelsize=5)
     axs[2,0].set_title("ACPK-EEC EOL STATUS")
+    
+    axs[2,0].axhline(
+        y=3,
+        color='#e76f51',     # màu đẹp
+        linestyle='--',
+        linewidth=1.5,
+        label='Target = 3'
+    )
+
+    axs[2,0].legend(fontsize=6)
     plt.tight_layout()
     st.pyplot(fig)
 
