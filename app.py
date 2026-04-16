@@ -827,7 +827,7 @@ elif mode == "📈 Dashboard":
     packing=len(df7[df7["Material Category"]=="Packing"])
     pcba=len(df7[df7["Material Category"]=="PCBA"])
     switch=len(df7[df7["Material Category"]=="Switch"])
-    st.write(metal,plastic,motor,packing,pcba,switch)
+    #st.write(metal,plastic,motor,packing,pcba,switch)
     
     plt.tight_layout()
     st.pyplot(fig)
