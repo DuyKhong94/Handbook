@@ -821,7 +821,7 @@ elif mode == "📈 Dashboard":
     ## material factors
     factors=df7["Material Category"].unique()
     st.write(factors)
-    metal=len(df7["Material Category"]=="Metal")
+    metal=(df7["Material Category"]=="Metal").count()
     plastic=len(df7["Material Category"]=="Plastic")
     motor=len(df7["Material Category"]=="Motor")
     packing=len(df7["Material Category"]=="Packing")
