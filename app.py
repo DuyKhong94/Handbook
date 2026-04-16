@@ -829,7 +829,7 @@ elif mode == "📈 Dashboard":
     switch=len(df7[df7["Material Category"]=="Switch"])
     #st.write(metal,plastic,motor,packing,pcba,switch)
     df_mat_sum={
-    "Name":["Metal","Plastic","Motor","Packing","PCBA","SWITCH"],
+    "Name":["Metal","Plastic","Motor","Packing","PCBA","Switch"],
     "Value":[metal,plastic,motor,packing,pcba,switch]}
     df_mat_sum = pd.DataFrame(df_mat_sum)
     df_mat_sum=df_mat_sum.nlargest(6,"Value")
