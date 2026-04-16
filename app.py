@@ -909,9 +909,9 @@ elif mode == "📈 Dashboard":
     
     axs[2,0].axhline(
         y=3,
-        color='#e76f51',     # màu đẹp
+        color='red',     # màu đẹp
         linestyle='--',
-        linewidth=1.5,
+        linewidth=1,
         label='Target = 3'
     )
 
