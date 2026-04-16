@@ -915,7 +915,7 @@ elif mode == "📈 Dashboard":
         label='Target = 3'
     )
 
-    axs[2,0].legend(fontsize=4)
+    axs[2,0].legend(fontsize=5)
     plt.tight_layout()
     st.pyplot(fig)
 
