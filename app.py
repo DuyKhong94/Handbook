@@ -865,7 +865,7 @@ elif mode == "📈 Dashboard":
     st.write(eec_linedown_resolved)
     #st.write(dc_linedown_resolved)
     df_linedown_resolved={
-    "Area":["ACPK","EEC"]
+    "Area":["ACPK","EEC"],
     "manhours":[acpk_linedown_resolved,ec_linedown_resolved]}
     bars=axs[2,0].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
     for bar in bars:
