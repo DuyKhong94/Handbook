@@ -878,6 +878,10 @@ elif mode == "📈 Dashboard":
 
 
     ## EOL
+
+    df7a=pd.DataFrame(df7)
+    st.dataframe(df7a)
+    
     plt.tight_layout()
     st.pyplot(fig)
 
