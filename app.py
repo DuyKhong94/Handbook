@@ -812,7 +812,7 @@ elif mode == "📈 Dashboard":
 
     #RANK OF MODEL
     df15=df1[df1["Product"].astype(str).str.startswith(tuple(models))]
-    df15=df15["Product"].astype(str).str[:9]
+    df15=df15[df15["Product"].astype(str).str[:9]]
     df_top5 = df15.nlargest(5, "Total Man. Hour")
     df_top5["Product"]=df_top5["Product"].astype(str)
     df_top5["Total Man. Hour"] = pd.to_numeric(df_top5["Total Man. Hour"], errors="coerce")
