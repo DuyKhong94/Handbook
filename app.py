@@ -844,7 +844,7 @@ elif mode == "📈 Dashboard":
         axs[2,2].text(x,height*1.01,f"{height}",fontsize=8,ha='center',va='bottom')
     axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
     axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
-    axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
+    axs[2,2].tick_params(axis='x', labelsize=6)
 
 
 
@@ -854,8 +854,8 @@ elif mode == "📈 Dashboard":
     
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
     acpk_linedown_resolved=(dfa1["Total Man. Hour"]).sum() + (df1a["Total Man. Hour"]).sum()
-    df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
-    dc_linedown_resolved=(df1b["Total Man. Hour"]).sum()
+    #df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
+    #dc_linedown_resolved=(df1b["Total Man. Hour"]).sum()
     df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
 
     #dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
@@ -863,7 +863,19 @@ elif mode == "📈 Dashboard":
     eec_linedown_resolved=(df1c["Total Man. Hour"]).sum()
     st.write(acpk_linedown_resolved)
     st.write(eec_linedown_resolved)
-    st.write(dc_linedown_resolved)
+    #st.write(dc_linedown_resolved)
+    df_linedown_resolved={
+    "Area":["ACPK","EEC"]
+    "manhours":[acpk_linedown_resolved,ec_linedown_resolved]}
+    bars=axs[2,0].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
+    for bar in bars:
+        height=bar.get_height()
+        x=bar.get_x() + bar.get_width()/2
+        axs[2,0].text(x,height *1.01,f"{height},fontsize=6,ha='center',va='bottom')
+    axs[2,0].set_title("LINEDOWN RESOLVED")
+    axs[2,0].set_ylim(0,df_linedown_resolved["manhours"]+30)
+    axs[2,0].tick_params(axis='x', labelsize=6)
+    
     plt.tight_layout()
     st.pyplot(fig)
 
