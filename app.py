@@ -881,7 +881,7 @@ elif mode == "📈 Dashboard":
 
     df7a=pd.DataFrame(df7)
     st.dataframe(df7a)
-    
+    axs[1,0].plot(df7a["Date"],df7a["Defect Q'ty"])
     plt.tight_layout()
     st.pyplot(fig)
 
