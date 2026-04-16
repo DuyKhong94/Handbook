@@ -886,6 +886,7 @@ elif mode == "📈 Dashboard":
     df_count = df7a.groupby("Date").size()
     
     axs[2,0].plot(df_count.index, df_count.values)
+    axs[2,0].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))  # chỉ hiện MM-DD
     axs[2,0].tick_params(axis='x',labelsize=6, labelrotation=90)
     plt.tight_layout()
     st.pyplot(fig)
