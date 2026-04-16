@@ -867,15 +867,17 @@ elif mode == "📈 Dashboard":
     df_linedown_resolved={
     "Area":["ACPK","EEC"],
     "manhours":[acpk_linedown_resolved,eec_linedown_resolved]}
-    bars=axs[2,0].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
+    bars=axs[2,1].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[2,0].text(x,height *1.01,f"{height}",fontsize=6,ha='center',va='bottom')
-    axs[2,0].set_title("LINEDOWN RESOLVED")
-    axs[2,0].set_ylim(0,max(df_linedown_resolved["manhours"])+50)
-    axs[2,0].tick_params(axis='x', labelsize=6)
-    
+        axs[2,1].text(x,height *1.01,f"{height}",fontsize=6,ha='center',va='bottom')
+    axs[2,1].set_title("LINEDOWN RESOLVED")
+    axs[2,1].set_ylim(0,max(df_linedown_resolved["manhours"])+50)
+    axs[2,1].tick_params(axis='x', labelsize=6)
+
+
+    ## EOL
     plt.tight_layout()
     st.pyplot(fig)
 
