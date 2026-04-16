@@ -19,6 +19,7 @@ import webbrowser
 from deep_translator import GoogleTranslator
 from github_uploader import upload_file_to_github
 from streamlit_autorefresh import st_autorefresh
+import matplotlib.dates as mdates
 require_login()
 
 # ------------------ MongoDB ------------------
