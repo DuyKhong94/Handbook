@@ -851,6 +851,10 @@ elif mode == "📈 Dashboard":
     ## TOTAL LINEDOWN RESOLVED
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
     st.dataframe(df1a)
+    df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
+    st.dataframe(df1b)
+    df1c=df1[df1["Product"].astype(str).str.startswith(tuple(eec_models))]
+    st.dataframe(df1c)
     plt.tight_layout()
     st.pyplot(fig)
 
