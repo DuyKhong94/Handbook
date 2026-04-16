@@ -804,9 +804,9 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[1,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
+        axs[1,2].text(x,height,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[1,2].set_title("ISSUE FACTORS")
-    axs[1,2].set_ylim(0,max(df_mainfactors["Factors"])+20)
+    axs[1,2].set_ylim(0,max(df_mainfactors["Factors"])+30)
     axs[1,2].tick_params(axis='x', labelsize=6)
 
 
@@ -821,7 +821,7 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[1,1].text(x,height,f"{height}",ha='center',va='bottom',fontsize=8)
     axs[1,1].set_title("TOP 5 LOSS")
-    axs[1,1].set_ylim(0,max(df_top5["Total Man. Hour"])+20)
+    axs[1,1].set_ylim(0,max(df_top5["Total Man. Hour"])+30)
     axs[1,1].tick_params(axis='x', labelsize=6,labelrotation=45)
     
     ## material factors
