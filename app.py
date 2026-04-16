@@ -677,7 +677,7 @@ elif mode == "📈 Dashboard":
         "Value":[sum_manhours_acpk_usd,sum_manhours_dc_usd,sum_manhours_eec_usd],
         "Value2":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
-    fig, axs = plt.subplots(2,3, figsize=(10, 5))
+    fig, axs = plt.subplots(3,3, figsize=(10, 5))
     bars=axs[0,0].bar(df_pie["Area"],df_pie["Value2"],color='green')
     axs[0,0].tick_params(axis='x', labelsize=8)
     #axs[0].bar_label(bars, fontsize=8,padding=3)
@@ -828,6 +828,18 @@ elif mode == "📈 Dashboard":
     pcba=len(df7[df7["Material Category"]=="PCBA"])
     switch=len(df7[df7["Material Category"]=="Switch"])
     #st.write(metal,plastic,motor,packing,pcba,switch)
+    df_mat_sum={
+    "Name":["Metal","Plastic","Motor","Packing","PCBA","SWITCH"],
+    "Value":[metal,plastic,motor,packing,pcba,switch]}
+
+    bars=axs[2,2].bar(df_mat_sum["Name"],df_mat_sum["Value"],color='grey')
+    for bar in bars:
+        height=bar.get_height()
+        x=bar.get_x() + bar.get_width()/2
+        axs[2,2].text(x,height*1.01,f"height",fontsize=8,ha='center',va='bottom')
+    axs[2,2].set_title("Material Summaries")
+    axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
+    axs[2,2].tick_params(axis='x', labelsize=6,labelrotation=90)
     
     plt.tight_layout()
     st.pyplot(fig)
