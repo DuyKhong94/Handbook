@@ -861,12 +861,12 @@ elif mode == "📈 Dashboard":
     #dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
     #eec_linedown_resolved=(dfc1["Total Man. Hour"]).sum() + (df1c["Total Man. Hour"]).sum()
     eec_linedown_resolved=(df1c["Total Man. Hour"]).sum()
-    st.write(acpk_linedown_resolved)
-    st.write(eec_linedown_resolved)
+    # st.write(acpk_linedown_resolved)
+    # st.write(eec_linedown_resolved)
     #st.write(dc_linedown_resolved)
     df_linedown_resolved={
     "Area":["ACPK","EEC"],
-    "manhours":[acpk_linedown_resolved,ec_linedown_resolved]}
+    "manhours":[acpk_linedown_resolved,eec_linedown_resolved]}
     bars=axs[2,0].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
     for bar in bars:
         height=bar.get_height()
