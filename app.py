@@ -884,14 +884,22 @@ elif mode == "📈 Dashboard":
     df7a=pd.DataFrame(df7)
    
     df7a["Date"] = pd.to_datetime(df7a["Date"])
+    today = pd.Timestamp.today()
+
+    # lùi lại 3 tháng
+    start_date = today - pd.DateOffset(months=3)
     
-    df_count = df7a.groupby("Date").size()
+    # filter data
+    df_3m = df7a[df7a["Date"] >= start_date]
     
-    axs[2,0].plot(df_count.index, df_count.values)
+    df_count = df_3m.groupby("Date").size()
+    
+    axs[2,0].plot(df_count.index, df_count.values,color='black')
     axs[2,0].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))  # chỉ hiện MM-DD
     axs[2,0].set_ylim(0,10)
-    axs[2,0].tick_params(axis='x',labelsize=6)
+    axs[2,0].tick_params(axis='x',labelsize=5)
     axs[2,0].yaxis.set_major_locator(ticker.MultipleLocator(1))
+    axs[2,0].tick_params(axis='y', labelsize=5)
     axs[2,0].set_title("ACPK-EEC EOL STATUS")
     plt.tight_layout()
     st.pyplot(fig)
