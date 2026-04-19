@@ -759,11 +759,11 @@ elif mode == "📈 Dashboard":
     #AC Nguyen Ngoc Dinh
     df10=df7[df7["PE PIC"]=="Nguyen Ngoc Dinh (VN.RYOBI-PIE)"]
     eol_count_dinh=df10["PE PIC"].count() + 12 
-
+    total_eol=eol_count_dien + eol_count_chanh + eol_count_phu + eol_count_dinh
 
     df_eol={
-    "Name":["Chánh","Điền","Định","Phú"],
-    "EOL Cases":[eol_count_chanh,eol_count_dien,eol_count_dinh,eol_count_phu]
+    "Name":["Chánh","Điền","Định","Phú","Total"],
+    "EOL Cases":[eol_count_chanh,eol_count_dien,eol_count_dinh,eol_count_phu,total_eol]
     }
 
     bars=axs[1,0].bar(df_eol["Name"],df_eol["EOL Cases"],color='skyblue')
@@ -778,8 +778,8 @@ elif mode == "📈 Dashboard":
 
     #KAIZEN
     df_kaizen={
-    "Name":["Chánh","Điền","Định","Phú"],
-    "Kaizen":[1, 2, 0, 0]}
+    "Name":["Chánh","Điền","Định","Phú","Total"],
+    "Kaizen":[1, 2, 0, 0, 3]}
     bars=axs[0,2].bar(df_kaizen["Name"],df_kaizen["Kaizen"],color='red')
     axs[0,2].tick_params(axis='x', labelsize=8)
     for bar in bars:
@@ -867,13 +867,13 @@ elif mode == "📈 Dashboard":
     #dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
     #eec_linedown_resolved=(dfc1["Total Man. Hour"]).sum() + (df1c["Total Man. Hour"]).sum()
     eec_linedown_resolved=(df1c["Total Man. Hour"]).sum()
-    total=acpk_linedown_resolved + eec_linedown_resolved
+    total_linedown=acpk_linedown_resolved + eec_linedown_resolved
     # st.write(acpk_linedown_resolved)
     # st.write(eec_linedown_resolved)
     #st.write(dc_linedown_resolved)
     df_linedown_resolved={
     "Area":["ACPK","EEC","Total"],
-    "manhours":[acpk_linedown_resolved,eec_linedown_resolved,total]}
+    "manhours":[acpk_linedown_resolved,eec_linedown_resolved,total_linedown]}
     bars=axs[2,1].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
     for bar in bars:
         height=bar.get_height()
@@ -910,7 +910,7 @@ elif mode == "📈 Dashboard":
     axs[2,0].tick_params(axis='x',labelsize=5)
     axs[2,0].yaxis.set_major_locator(ticker.MultipleLocator(1))
     axs[2,0].tick_params(axis='y', labelsize=5)
-    axs[2,0].set_title("ACPK-EEC EOL STATUS")
+    axs[2,0].set_title("DAILY EOL STATUS")
     
     axs[2,0].axhline(
         y=3,
