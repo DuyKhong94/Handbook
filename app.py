@@ -745,7 +745,7 @@ elif mode == "📈 Dashboard":
     #df11=df6[df6["Model"].astype(str).str.startswith(tuple(models))]
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk + eec
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
-    eol_count_dien=df8["PE PIC"].count() + 12
+    eol_count_dien=df8["PE PIC"].count() + 13
     st.write(eol_count_dien)
     #st.markdown(eol_count)
     #st.dataframe(df11)
