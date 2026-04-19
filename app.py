@@ -751,7 +751,7 @@ elif mode == "📈 Dashboard":
     #AC Dong Dinh Chanh
     df9=df7[df7["PE PIC"]=="Dong Dinh Chanh (VN.RYOBI-PIE)"]
     eol_count_chanh=df9["PE PIC"].count()+ 12
-
+    st.write(eol_count_chanh)
     #AC Nguyen Si Phu
     df10=df7[df7["PE PIC"]=="Nguyen Si Phu (VN.RYOBI-PIE)"]
     eol_count_phu=df10["PE PIC"].count() + 12
