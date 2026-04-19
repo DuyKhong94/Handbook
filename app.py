@@ -870,7 +870,7 @@ elif mode == "📈 Dashboard":
     #dfc1=dfa[dfa["Product"].astype(str).str.startswith(tuple(eec_models))]# PDN nhap qua cho SQE
     #eec_linedown_resolved=(dfc1["Total Man. Hour"]).sum() + (df1c["Total Man. Hour"]).sum()
     eec_linedown_resolved=(df1c["Total Man. Hour"]).sum()
-    total_linedown=len(acpk_linedown_resolved + eec_linedown_resolved)
+    total_linedown=acpk_linedown_resolved + eec_linedown_resolved
     # st.write(acpk_linedown_resolved)
     # st.write(eec_linedown_resolved)
     #st.write(dc_linedown_resolved)
