@@ -671,7 +671,7 @@ elif mode == "📈 Dashboard":
     # st.markdown(f"Total Line Down Man Hours DC: {sum_manhours_dc}")
     # st.markdown(f"Total Line Down Man Hours DC USD Exchanged: {sum_manhours_dc_usd:.3f} $$")
     #EEC
-    eec_models=["130","240417"]
+    eec_models=["130"," 130","240417"]
     df5=df2[df2["Product"].astype(str).str.startswith(tuple(eec_models))] # lọc theo list eec_models với 3 số bắt đầu theo hàm startswith
     sum_manhours_eec=df5["Total Man. Hour"].sum() # tổng số giờ công 
     sum_manhours_eec_usd =round(sum_manhours_eec * 4.52,2) # tinh tien
