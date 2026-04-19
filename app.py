@@ -739,7 +739,7 @@ elif mode == "📈 Dashboard":
     df6=df6[df6["Focused Factory"].isin(["High Mix","EEC"])] #loc theo khu vuc high mix
     df6["Target Date"] = pd.to_datetime(df6["Target Date"], errors="coerce")
 
-    df6 = df6[df6["Target Date"] >= "2026-01-01"]
+    df6 = df6[df6["Date"] >= "2026-01-01"]
     df6["Model"] = df6["Model"].astype(str).str.strip().str.replace(" ", "")
     models=acpk_models + eec_models
     #df11=df6[df6["Model"].astype(str).str.startswith(tuple(models))]
