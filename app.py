@@ -740,10 +740,11 @@ elif mode == "📈 Dashboard":
     df6["Target Date"] = pd.to_datetime(df6["Target Date"], errors="coerce")
 
     df6 = df6[df6["Target Date"] >= "2026-01-01"]
-    df6["Model"] = df6["Model"].astype(str).str.strip().str.replace(" ", "")
+    
     models=acpk_models + eec_models
     #df11=df6[df6["Model"].astype(str).str.startswith(tuple(models))]
     df7=df6[df6["Model"].astype(str).str.startswith(tuple(models))] # loc theo model acpk + eec
+    df7["Model"] = df7["Model"].astype(str).str.strip().str.replace(" ", "")
     df8=df7[df7["PE PIC"]=="Ha Thanh Dien (VN.RYOBI-PIE)"]
     eol_count_dien=df8["PE PIC"].count() + 13
     st.write(eol_count_dien)
