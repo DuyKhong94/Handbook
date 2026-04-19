@@ -876,12 +876,12 @@ elif mode == "📈 Dashboard":
     #st.write(dc_linedown_resolved)
     df_linedown_resolved={
     "Area":["ACPK","EEC","Total"],
-    "manhours":[acpk_linedown_resolved,eec_linedown_resolved,f"{total_linedown:.2f}"]}
+    "manhours":[acpk_linedown_resolved,eec_linedown_resolved,total_linedown]}
     bars=axs[2,1].bar(df_linedown_resolved["Area"],df_linedown_resolved["manhours"],color='blue')
     for bar in bars:
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
-        axs[2,1].text(x,height *1.01,f"{height}",fontsize=6,ha='center',va='bottom')
+        axs[2,1].text(x,height *1.01,f"{height:.2f}",fontsize=6,ha='center',va='bottom')
     axs[2,1].set_title("LINEDOWN RESOLVED")
     axs[2,1].set_ylim(0,max(df_linedown_resolved["manhours"])+50)
     axs[2,1].tick_params(axis='x', labelsize=6)
