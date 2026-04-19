@@ -773,8 +773,8 @@ elif mode == "📈 Dashboard":
     for bar in bars:
         height=bar.get_height()
         xtext=bar.get_x() + bar.get_width()/2
-        axs[1,0].text(xtext,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
-    axs[1,0].set_ylim(0, max(df_eol["EOL Cases"]) + 20 )
+        axs[1,0].text(xtext,height,f"{height}",ha='center',va='bottom',fontsize=8)
+    axs[1,0].set_ylim(0, max(df_eol["EOL Cases"]) + 50 )
 
     #KAIZEN
     df_kaizen={
