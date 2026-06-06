@@ -524,7 +524,7 @@ elif mode == "🔥Trợ lý AI":
 
                             pdf_url = r.get("pdf_report")
                             if pdf_url:
-                                st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+                                st.markdown(f"[📄 Xem báo cáo]({pdf_url})")
                             else:
                                 st.info("Không có file báo cáo PDF cho lỗi này.")
                 
