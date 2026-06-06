@@ -522,7 +522,7 @@ elif mode == "🔥Trợ lý AI":
                                 for i, img in enumerate(images):
                                     cols[i % 3].image(img, caption=error_code)
 
-                            pdf_url = result.get("pdf_report")
+                            pdf_url = r.get("pdf_report")
                             if pdf_url:
                                 st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
                             else:
