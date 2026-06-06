@@ -522,6 +522,13 @@ elif mode == "🔥Trợ lý AI":
                                 for i, img in enumerate(images):
                                     cols[i % 3].image(img, caption=error_code)
 
+                            pdf_url = result.get("pdf_report")
+                            if pdf_url:
+                                st.markdown(f"[📄 Tải báo cáo PDF tại đây]({pdf_url})")
+                            else:
+                                st.info("Không có file báo cáo PDF cho lỗi này.")
+                
+
             reply = f"Tìm thấy {len(results)} lỗi cho model {prompt}"
 
         # ================= CASE 2: AI =================
