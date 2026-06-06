@@ -502,7 +502,7 @@ elif mode == "🔥Trợ lý AI":
             results = search_defect(model)
 
             with st.chat_message("assistant"):
-                st.markdown(f"## 📋 Danh sách lỗi model {prompt}")
+                st.markdown(f"## 📋 Danh sách lỗi:")
 
                 if not results:
                     st.warning("Không tìm thấy dữ liệu")
