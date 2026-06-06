@@ -529,7 +529,7 @@ elif mode == "🔥Trợ lý AI":
                                 st.info("Không có file báo cáo PDF cho lỗi này.")
                 
 
-            reply = f"Tìm thấy {len(results)} lỗi cho model {prompt}"
+            reply = f"Tìm thấy {len(results)} lỗi cho model đã nhập:"
 
         # ================= CASE 2: AI =================
         else:
