@@ -428,11 +428,18 @@ elif mode == "🔥Trợ lý AI":
 
     def detect_intent(prompt):
         prompt_lower = prompt.lower().strip()
-        if re.fullmatch(r"\d{5,}", prompt_lower):
-            return "search_defect", prompt_lower
-        if re.search(r"(check|tra cứu|tìm lỗi|lịch sử)\s*\d{5,}", prompt_lower):
-            model = re.search(r"\d{5,}", prompt_lower).group()
-            return "search_defect", model
+    
+        # check PSRC221
+        # tra cứu PSRC221
+        # find C22E19YUE
+    
+        match = re.search(
+            r"(check|find|search|tra cứu|tim loi|tìm lỗi|lịch sử)\s+([a-zA-Z0-9]+)",
+            prompt_lower
+        )
+    
+        if match:
+            return "search_defect", match.group(2).upper()
     
         return "chat", None
 
@@ -440,41 +447,34 @@ elif mode == "🔥Trợ lý AI":
     def search_defect(query):
         if not query:
             return []
-
-        query = str(query)
-        query_norm = normalize_text(query.strip())
-
-        # CASE 1: MODEL
-        if query_norm.isdigit():
-            prefix = query_norm[:6]
-            return list(collection.find({
-                "model": {"$regex": f"^{prefix}"}
-            }).limit(20))
-
-        # CASE 2: ERROR CODE
-        result = collection.find_one({
-            "error_code": {"$regex": f"^{query.strip()}", "$options": "i"}
+    
+        query = query.strip()
+    
+        # 1. Tìm theo model
+        model_results = list(
+            collection.find({
+                "model": {
+                    "$regex": f"^{re.escape(query)}",
+                    "$options": "i"
+                }
+            }).limit(20)
+        )
+    
+        if model_results:
+            return model_results
+    
+        # 2. Tìm theo error code
+        error_result = collection.find_one({
+            "error_code": {
+                "$regex": f"^{re.escape(query)}",
+                "$options": "i"
+            }
         })
-        if result:
-            return [result]
-
-        # CASE 3: TEXT SEARCH
-        keywords = query_norm.split()
-        results = list(collection.find())
-
-        scored = []
-        for r in results:
-            text = normalize_text(
-                r.get("description", "") +
-                r.get("root_cause", "")
-            )
-            score = sum(k in text for k in keywords)
-
-            if score > 0:
-                scored.append((score, r))
-
-        scored.sort(reverse=True, key=lambda x: x[0])
-        return [r for _, r in scored[:5]]
+    
+        if error_result:
+            return [error_result]
+    
+        return []
 
     # ================= SESSION =================
     if "messages" not in st.session_state:
