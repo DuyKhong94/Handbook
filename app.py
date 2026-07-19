@@ -512,6 +512,7 @@ elif mode == "🔥Trợ lý AI":
 
                         with st.expander(f"🔧 {error_code} - {r.get('description', '')}"):
                             st.write(f"📌 {r.get('description')}")
+                            st.write(f"   {r.get('timestamp')}")
                             st.write(f"🔍 {r.get('root_cause')}")
                             st.write(f"🛠 {r.get('solution')}")
                             st.write(f"{r.get('improvement')}")
