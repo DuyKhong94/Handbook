@@ -885,7 +885,7 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[2,1].text(x,height *1.01,f"{height:.2f}",fontsize=6,ha='center',va='bottom')
     axs[2,1].set_title("LINEDOWN RESOLVED")
-    axs[2,1].set_ylim(0,max(df_linedown_resolved["manhours"])+50)
+    axs[2,1].set_ylim(0,max(df_linedown_resolved["manhours"])+500)
     axs[2,1].tick_params(axis='x', labelsize=6)
 
 
