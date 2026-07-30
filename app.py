@@ -854,7 +854,7 @@ elif mode == "📈 Dashboard":
         x=bar.get_x() + bar.get_width()/2
         axs[2,2].text(x,height,f"{height}",fontsize=8,ha='center',va='bottom')
     axs[2,2].set_title("MATERIAL ISSUE CATEGORIES")
-    axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+10)
+    axs[2,2].set_ylim(0,max(df_mat_sum["Value"])+50)
     axs[2,2].tick_params(axis='x', labelsize=6)
 
 
