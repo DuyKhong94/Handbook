@@ -687,7 +687,7 @@ elif mode == "📈 Dashboard":
     # st.markdown(f"Total Line Down Man Hours EEC USD Exchanged: {sum_manhours_eec_usd:.3f} $$")
 
     df_pie=pd.DataFrame({
-        "Area":["ACPK","DC","EEC"],
+        "Area":["ACPK","Others","EEC"],
         "Value":[sum_manhours_acpk_usd,sum_manhours_dc_usd,sum_manhours_eec_usd],
         "Value2":[sum_manhours_acpk,sum_manhours_dc,sum_manhours_eec]})
         
