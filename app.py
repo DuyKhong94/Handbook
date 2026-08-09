@@ -389,7 +389,7 @@ elif mode == "📂Link Tham Khảo":
     st.markdown("[11. Giới thiệu sản phẩm Pneumatic Nailer - Author: ME](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764823583/22-5_Pneumatic_Tools_Design_and_Process_ENG_version_Red_new_format_nsi8lz.pdf)")
     st.markdown("[12. Tài liệu DOE - Author: Ni Nguyen ](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749441/27._DOE_-_RYOBI_slbk44.pdf)")
     st.markdown("[13. Tài liệu MSA GR&R - Author: Ni Nguyen](https://res.cloudinary.com/dij9ajlgm/image/upload/v1764749440/30_MSA_GRR_tn740z.pdf)")
-    st.markdown("[14. Book Three Body Problem - Author: Liu Cixin](https://raw.githubusercontent.com/DuyKhong94/Handbook/837325523284c2ffe0bee9a415a61bd22d964684/The%20Three-Body%20Problem%20by%20Liu%20Cixin.pdf)")
+    st.markdown("[14. Book Three Body Problem - Author: Liu Cixin](https://res.cloudinary.com/dij9ajlgm/image/upload/v1786239000/The_Three-Body_Problem_by_Liu_Cixin_m0h57i.pdf)")
 elif mode == "📱Trang tính":
     col1, col2 = st.columns(2)
     with col1:
