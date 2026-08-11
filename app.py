@@ -341,7 +341,7 @@ elif mode == "🔍 ERP System & WI":
     4. *ERP dùng để tra cứu On Hand/ vật tư đó sử dụng cho model gì? và tra cứu model đó chạy từ bao lâu.*
     """)
     st.write(" Link: http://hkerpapp.hk.globaltti.net:8068/OA_HTML/AppsLocalLogin.jsp")
-    st.write(" Link WI - copy & paste on thư mục: V:\Ryobi_PIE\Share\VN-WI")
+    st.write(" Link WI - copy & paste on thư mục: V:\OP_Industrial_Engineering\Share\AIP-WI")
     st.divider()
     st.markdown("**Tra cứu BOM & Mã WI của Console và Packing**")
     st.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/64b2d8e6548a748ac417d222ef945b5e821bb936/ERP.jpg")
