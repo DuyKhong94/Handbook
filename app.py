@@ -665,7 +665,7 @@ elif mode == "📈 Dashboard":
     df=load_excel(linedown_lending_manhour_url)
     df1=df[df["Initial Owner"] == "PIE - Analysis"] # lọc theo PIE - Analysis
     df2=df1[df1["Confirm Owner"] =="PIE"] # Lọc 1 lần nữa về PIE confirmed
-    acpk_models=["030","106","001597","001406","001606","001504","001868","001848","001858","001997","056","301","302","303","304","011104","159196","001486"] # list về AC PK models
+    acpk_models=["030","106","001597","001406","001606","001504","001868","001848","001858","001997718","001997717","001451","056","301","302","303","304","011104","001486","001484","001690","001515","001524","001429","001457","001730","001725","001479","001507"] # list về AC PK models
     dc_models=["011","159","010","095","096","000","010","95","96","108","109","040"] # list ve DC models
     df4=df2[df2["Product"].astype(str).str.startswith(tuple(dc_models))] # lọc theo list dc_models với 3 số bắt đầu theo hàm startswith
     df3=df2[df2["Product"].astype(str).str.startswith(tuple(acpk_models))] # lọc theo list acpk_models với 3 số bắt đầu theo hàm startswith
