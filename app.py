@@ -865,8 +865,8 @@ elif mode == "📈 Dashboard":
     dfa1=dfa[dfa["Product"].astype(str).str.startswith(tuple(acpk_models))]# PDN nhap qua cho SQE
     
     df1a=df1[df1["Product"].astype(str).str.startswith(tuple(acpk_models))]
-    #st.dataframe(df1a)
-    #st.dataframe(dfa1)
+    st.dataframe(df1a)
+    st.dataframe(dfa1)
     acpk_linedown_resolved=(dfa1["Total Man. Hour"]).sum() + (df1a["Total Man. Hour"]).sum()
     #df1b=df1[df1["Product"].astype(str).str.startswith(tuple(dc_models))]
     #dc_linedown_resolved=(df1b["Total Man. Hour"]).sum()
