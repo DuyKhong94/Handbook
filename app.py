@@ -792,7 +792,7 @@ elif mode == "📈 Dashboard":
         height=bar.get_height()
         x=bar.get_x() + bar.get_width()/2
         axs[0,2].text(x,height*1.01,f"{height}",ha='center',va='bottom',fontsize=8)
-    axs[0,2].set_title("KAIZEN")
+    axs[0,2].set_title("AC&PK KAIZEN")
     axs[0,2].set_ylim(0, max(df_kaizen["Kaizen"]) + 1)
 
     #Main Factor
