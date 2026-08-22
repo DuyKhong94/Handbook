@@ -649,11 +649,11 @@ elif mode == "🔥Trợ lý AI":
                         
                        Khi trả lời thông tin giá, sử dụng format:
 
-                        🔎 <b>Item:</b> [Item]<br>
-                        💰 <b>Unit Price:</b> [Unit price]<br>
-                        📦 <b>UOM:</b> [UOM]<br>
-                        🏭 <b>Make / Buy:</b> [Make/Buy]<br><br>
-                        📝 <b>Description:</b><br>
+                        🔎 Item: [Item]
+                        💰 Unit Price: [Unit price]
+                        📦 UOM: [UOM]
+                        🏭 Make / Buy: [Make/Buy]
+                        📝 Description:
                         
                         Example:
                         
