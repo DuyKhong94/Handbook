@@ -43,7 +43,8 @@ def load_csv(url1):
 db = get_db()
 collection = db["errors"]
 price_collection= db["product_price"]
-
+data = price_collection.find_one()
+st.write(data)
 
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
