@@ -647,14 +647,20 @@ elif mode == "🔥Trợ lý AI":
                         3. Make/Buy
                         4. Description
                         
-                        Format the answer clearly and naturally.
+                       Khi trả lời thông tin giá, sử dụng format:
+
+                        🔎 <b>Item:</b> [Item]<br>
+                        💰 <b>Unit Price:</b> [Unit price]<br>
+                        📦 <b>UOM:</b> [UOM]<br>
+                        🏭 <b>Make / Buy:</b> [Make/Buy]<br><br>
+                        📝 <b>Description:</b><br>
                         
                         Example:
                         
-                        Item🔎: 054304022DG9
-                        Unit price💰: 458.8771
+                        🔎Item: 054304022DG9
+                        💰Unit price: 458.8771
                         Make/Buy: Make
-                        Description📝: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
+                        📝Description: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
                         
                         Do not omit Make/Buy or Description if these fields are available.
 
