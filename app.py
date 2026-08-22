@@ -650,7 +650,7 @@ elif mode == "🔥Trợ lý AI":
                        Khi trả lời thông tin giá, sử dụng format:
 
                          
-                         Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊:
+                         Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊
 
                         🔎 **Item:** [Item]
                         💰 **Unit Price:** [Unit price]
