@@ -42,6 +42,7 @@ def load_csv(url1):
     
 db = get_db()
 collection = db["errors"]
+price_collection= db["product_price"]
 
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
@@ -57,6 +58,7 @@ st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail
 # 🧩 TAB 1: THÊM LỖI MỚI
 # ==========================================================
 if mode == "➕ Thêm lỗi mới":
+    print("Product price:", price_collection.count_documents({}))
     st.subheader("Thêm lỗi sản phẩm mới")
 
     def generate_error_code(model, timestamp):
