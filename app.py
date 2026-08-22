@@ -44,7 +44,7 @@ db = get_db()
 collection = db["errors"]
 price_collection= db["product_price"]
 st.write("Product price:", price_collection.count_documents({}))
-data = price_collection.find_one("660147001")
+data = price_collection.find_one("690331003")
 
 st.write("DATA:")
 st.write(data)
