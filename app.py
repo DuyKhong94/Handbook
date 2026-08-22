@@ -446,20 +446,22 @@ elif mode == "🔥Trợ lý AI":
             return "search_defect", match.group(2).upper()
     
         return "chat", None
+        
     def detect_price(item_code):
-            """
-                Tìm sản phẩm và giá trong MongoDB product_price.
-            query: mã Item hoặc từ khóa mô tả sản phẩm.
-            """
-        query=str(item_code).strip.lstrip("'")
+        """
+        Tìm giá sản phẩm theo mã Item trong MongoDB product_price.
+        """
+    
+        query = str(item_code).strip().lstrip("'")
+    
         if not query:
             return []
-            
+    
         results = list(
             price_collection.find(
                 {
                     "Item": {
-                        "$regex": f"^'?{query}$",
+                        "$regex": f"^'?{re.escape(query)}$",
                         "$options": "i"
                     }
                 },
@@ -474,6 +476,7 @@ elif mode == "🔥Trợ lý AI":
                 }
             ).limit(10)
         )
+    
         return results
             
     # ================= SEARCH FUNCTION =================
