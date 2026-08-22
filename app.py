@@ -44,6 +44,10 @@ db = get_db()
 collection = db["errors"]
 price_collection= db["product_price"]
 st.write("Product price:", price_collection.count_documents({}))
+data = price_collection.find_one()
+
+st.write("DATA:")
+st.write(data)
 
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
