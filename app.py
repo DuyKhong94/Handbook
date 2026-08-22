@@ -574,7 +574,7 @@ elif mode == "📋Daily Pass Down":
     st.header("📋 Daily Pass Down")
     
 
-    print(data)
+   
     def remove_vietnamese_accents(text):
     
         text = unicodedata.normalize('NFD', text)
