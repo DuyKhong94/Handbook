@@ -642,7 +642,7 @@ elif mode == "🔥Trợ lý AI":
                     messages=messages,
                     tools=tools
                 )
-
+                message = response.choices[0].message
                 if message.tool_calls:
                 
                     tool_call = message.tool_calls[0]
