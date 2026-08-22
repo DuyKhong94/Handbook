@@ -619,11 +619,11 @@ elif mode == "🔥Trợ lý AI":
                         
                         After receiving the result from detect_price, provide the user with:
                         
-                        1. Item code
-                        2. Unit price
+                        1. Item code🔎
+                        2. Unit price💰
                         3. UOM
                         4. Make/Buy
-                        5. Description
+                        5. Description📝
                         
                         Format the answer clearly and naturally.
                         
@@ -636,7 +636,9 @@ elif mode == "🔥Trợ lý AI":
                         Description: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
                         
                         Do not omit Make/Buy or Description if these fields are available.
-                        
+
+                        If no matching Item is found, clearly say:
+                        ❌ Không tìm thấy mã Item này trong database.
                         Examples:
                         
                         "Giá 054304022DG9 bao nhiêu?"
