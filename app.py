@@ -649,18 +649,15 @@ elif mode == "🔥Trợ lý AI":
                         
                        Khi trả lời thông tin giá, sử dụng format:
 
-                        🔎 Item: [Item]
-                        💰 Unit Price: [Unit price]
-                        📦 UOM: [UOM]
-                        🏭 Make / Buy: [Make/Buy]
-                        📝 Description:
+                       Avatar AI: " Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊:"
+
+                        🔎 **Item:** [Item]
+                        💰 **Unit Price:** [Unit price]
+                        📦 **UOM:** [UOM]
+                        🏭 **Make / Buy:** [Make/Buy]
+                        📝 **Description:**
+                            [Description]
                         
-                        Example:
-                        
-                        🔎Item: 054304022DG9
-                        💰Unit price: 458.8771
-                        Make/Buy: Make
-                        📝Description: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
                         
                         Do not omit Make/Buy or Description if these fields are available.
 
