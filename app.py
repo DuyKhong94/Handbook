@@ -446,7 +446,36 @@ elif mode == "🔥Trợ lý AI":
             return "search_defect", match.group(2).upper()
     
         return "chat", None
-
+    def detect_price(item_code):
+            """
+                Tìm sản phẩm và giá trong MongoDB product_price.
+            query: mã Item hoặc từ khóa mô tả sản phẩm.
+            """
+        query=str(item_code).strip.lstrip("'")
+        if not query:
+            return []
+            
+        results = list(
+            price_collection.find(
+                {
+                    "Item": {
+                        "$regex": f"^'?{query}$",
+                        "$options": "i"
+                    }
+                },
+                {
+                    "_id": 0,
+                    "Seq": 1,
+                    "Item": 1,
+                    "UOM": 1,
+                    "Description": 1,
+                    "Make/Buy": 1,
+                    "Unit price": 1
+                }
+            ).limit(10)
+        )
+        return results
+            
     # ================= SEARCH FUNCTION =================
     def search_defect(query):
         if not query:
@@ -479,6 +508,37 @@ elif mode == "🔥Trợ lý AI":
             return [error_result]
     
         return []
+
+
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "detect_price",
+                "description": """
+                Tìm giá sản phẩm trong MongoDB collection product_price.
+    
+                Bắt buộc sử dụng function này khi người dùng hỏi
+                giá, price, unit price hoặc cost kèm mã Item.
+    
+                Ví dụ:
+                "Giá 054304022DG9 bao nhiêu?"
+                "054304022DG9 giá bao nhiêu?"
+                "Unit price của 054304022DG9?"
+                """,
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "item_code": {
+                            "type": "string",
+                            "description": "Mã Item cần tìm giá"
+                        }
+                    },
+                    "required": ["item_code"]
+                }
+            }
+        }
+    ]
 
     # ================= SESSION =================
     if "messages" not in st.session_state:
@@ -540,16 +600,102 @@ elif mode == "🔥Trợ lý AI":
         else:
 
             with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/32e2602963f4b3a1e668fa9b6c4ea4310577838e/6244668958904618602_109.jpg"):
-
+                messages = [
+                    {
+                        "role": "system",
+                        "content": """
+                        You are a helpful assistant for a manufacturing engineering handbook.
+                
+                        IMPORTANT RULE:
+                
+                        If the user asks about PRICE, UNIT PRICE, COST, or GIÁ
+                        and provides an Item code, you MUST use the detect_price tool.
+                
+                        The price must be retrieved from MongoDB product_price.
+                        Never guess or invent a price.
+                
+                        Examples:
+                
+                        "Giá 054304022DG9 bao nhiêu?"
+                        -> call detect_price with item_code = "054304022DG9"
+                
+                        "054304022DG9 giá bao nhiêu?"
+                        -> call detect_price with item_code = "054304022DG9"
+                
+                        "Unit price của 054304022DG9?"
+                        -> call detect_price with item_code = "054304022DG9"
+                
+                        If the user asks about errors or defects,
+                        do not use detect_price.
+                        """
+                    },
+                    {
+                        "role": "user",
+                        "content": str(prompt)
+                    }
+                ]
                 response = client.chat.completions.create(
                     model="gpt-4o-mini",
-                    messages=[
-                        {"role": "system", "content": "you are a helpful asistant"},
-                        {"role": "user", "content": str(prompt)}
-                    ]
+                    messages=messages,
+                    tools=tools
                 )
 
-                reply = response.choices[0].message.content
+                if message.tool_calls:
+                
+                    tool_call = message.tool_calls[0]
+                
+                    if tool_call.function.name == "detect_price":
+                
+                        import json
+                
+                        arguments = json.loads(tool_call.function.arguments)
+                
+                        item_code = arguments["item_code"]
+                
+                        # Gọi MongoDB
+                        result = detect_price(item_code)
+                
+                        # Thêm response của AI vào messages
+                        messages.append({
+                            "role": "assistant",
+                            "content": message.content,
+                            "tool_calls": [
+                                {
+                                    "id": tool_call.id,
+                                    "type": "function",
+                                    "function": {
+                                        "name": tool_call.function.name,
+                                        "arguments": tool_call.function.arguments
+                                    }
+                                }
+                            ]
+                        })
+                
+                        # Trả kết quả MongoDB cho AI
+                        messages.append({
+                            "role": "tool",
+                            "tool_call_id": tool_call.id,
+                            "content": json.dumps(
+                                result,
+                                ensure_ascii=False,
+                                default=str
+                            )
+                        })
+                
+                        # Cho AI đọc kết quả và trả lời người dùng
+                        final_response = client.chat.completions.create(
+                            model="gpt-4o-mini",
+                            messages=messages
+                        )
+                
+                        reply = final_response.choices[0].message.content
+                
+                    else:
+                        reply = message.content
+                
+                else:
+                    reply = message.content
+                
                 st.markdown("Eimi Fukada: " + reply)
 
                 # ================= SHOW IMAGE =================
