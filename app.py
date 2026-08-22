@@ -43,7 +43,7 @@ def load_csv(url1):
 db = get_db()
 collection = db["errors"]
 price_collection= db["product_price"]
-
+st.write("Product price:", price_collection.count_documents({}))
 
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
@@ -572,7 +572,7 @@ elif mode == "🔥Trợ lý AI":
 # # ==========================================================
 elif mode == "📋Daily Pass Down":
     st.header("📋 Daily Pass Down")
-    data = price_collection.find_one()
+    
 
     print(data)
     def remove_vietnamese_accents(text):
