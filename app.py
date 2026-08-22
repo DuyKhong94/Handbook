@@ -621,9 +621,8 @@ elif mode == "🔥Trợ lý AI":
                         
                         1. Item code
                         2. Unit price
-                        3. UOM
-                        4. Make/Buy
-                        5. Description
+                        3. Make/Buy
+                        4. Description
                         
                         Format the answer clearly and naturally.
                         
@@ -631,7 +630,6 @@ elif mode == "🔥Trợ lý AI":
                         
                         Item🔎: 054304022DG9
                         Unit price💰: 458.8771
-                        UOM: Piece
                         Make/Buy: Make
                         Description📝: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
                         
