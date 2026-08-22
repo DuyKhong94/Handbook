@@ -619,21 +619,21 @@ elif mode == "🔥Trợ lý AI":
                         
                         After receiving the result from detect_price, provide the user with:
                         
-                        1. Item code🔎
-                        2. Unit price💰
+                        1. Item code
+                        2. Unit price
                         3. UOM
                         4. Make/Buy
-                        5. Description📝
+                        5. Description
                         
                         Format the answer clearly and naturally.
                         
                         Example:
                         
-                        Item: 054304022DG9
-                        Unit price: 458.8771
+                        Item🔎: 054304022DG9
+                        Unit price💰: 458.8771
                         UOM: Piece
                         Make/Buy: Make
-                        Description: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
+                        Description📝: BL 9PCS COMBO KIT, W/ R86093 CHARGER + 2AH BATTERY...
                         
                         Do not omit Make/Buy or Description if these fields are available.
 
