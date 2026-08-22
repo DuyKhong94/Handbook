@@ -476,7 +476,30 @@ elif mode == "🔥Trợ lý AI":
                 }
             ).limit(10)
         )
+        if not results:
+            try:
+                number_query = int(query)
     
+                results = list(
+                    price_collection.find(
+                        {
+                            "Item": number_query
+                        },
+                        {
+                            "_id": 0,
+                            "Seq": 1,
+                            "Item": 1,
+                            "UOM": 1,
+                            "Description": 1,
+                            "Make/Buy": 1,
+                            "Unit price": 1
+                        }
+                    ).limit(10)
+                )
+    
+            except ValueError:
+                pass
+            
         return results
             
     # ================= SEARCH FUNCTION =================
