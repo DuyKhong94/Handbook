@@ -46,7 +46,7 @@ collection = db["errors"]
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
-st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/41f3521519501a81dbb602aae0449705f781fd77/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
+st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
 st.sidebar.markdown("---")
 mode=st.sidebar.radio("APPLICATION FEATURES:",["📈 Dashboard","➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
                                         "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","📋Daily Pass Down"])
