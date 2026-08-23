@@ -941,7 +941,7 @@ elif mode == "📋Daily Pass Down":
         unsafe_allow_html=True
     )
 elif mode == "📈 Dashboard":
-    st.header("KPI")
+    st.header("KEY PERFORMANCE INDICATOR")
     st.markdown("---")
     #st.write("working on it")
     st_autorefresh(interval=300000)
