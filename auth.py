@@ -13,7 +13,7 @@ USERS = {
 
     
   
-
+            "dashboard",
             "ai",
             "daily_passdown"
         ]
