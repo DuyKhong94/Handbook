@@ -705,7 +705,7 @@ elif mode == "🔥Trợ lý AI":
                          Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊
 
                         🔎 **Item:** [Item]
-                        💰 **Unit Price:** [Unit price]
+                        💰 **Unit Price:** [Unit price] $usd
                         📦 **UOM:** [UOM]
                         🏭 **Make / Buy:** [Make/Buy]
                         📝 **Description:**
