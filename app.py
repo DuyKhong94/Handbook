@@ -51,7 +51,7 @@ price_collection= db["product_price"]
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
-st.header("Process Engineering Handbook")
+st.sidebar.header("Process Engineering Handbook")
 st.sidebar.markdown("---")
 permissions = st.session_state.get("permissions", [])
 
