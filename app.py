@@ -105,7 +105,7 @@ mode = st.sidebar.radio(
     features
 )
 st.sidebar.markdown("---")
-st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
+
 #================User============
 if st.session_state.get("logged_in", False):
 
@@ -122,6 +122,8 @@ if st.session_state.get("logged_in", False):
         st.session_state.pop("permissions", None)
 
         st.rerun()
+st.sidebar.markdown("---")
+st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
