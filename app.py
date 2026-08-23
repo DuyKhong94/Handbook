@@ -710,7 +710,8 @@ elif mode == "🔥Trợ lý AI":
                         🏭 **Make / Buy:** [Make/Buy]
                         📝 **Description:**
                             [Description]
-                        
+                            
+                        If inquirer input quantities of this item, you must do math to calculate the total price = unit price * quantities
                         
                         Do not omit Make/Buy or Description if these fields are available.
 
