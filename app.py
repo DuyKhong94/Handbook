@@ -941,6 +941,7 @@ elif mode == "📋Daily Pass Down":
         unsafe_allow_html=True
     )
 elif mode == "📈 Dashboard":
+    st.header("KPI")
     #st.write("working on it")
     st_autorefresh(interval=300000)
     linedown_lending_manhour_url="https://raw.githubusercontent.com/DuyKhong94/Handbook/main/Lending%20-%20Rework%20manhours%20data%202026.xlsx"
