@@ -487,6 +487,7 @@ elif mode == "📱Trang tính":
                 )
         
 elif mode == "🔥Trợ lý AI":
+    st.header("Chat with me 👋")
 
     client = OpenAI(
         api_key=st.secrets["OPENROUTER_API_KEY"],
