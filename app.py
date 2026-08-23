@@ -66,7 +66,19 @@ section[data-testid="stSidebar"] {
 """, unsafe_allow_html=True)
 
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
-st.sidebar.header("PROCESS ENGINEERING HANDBOOK")
+st.sidebar.markdown(
+    """
+    <div style="text-align:center; margin-top:-5px; margin-bottom:15px;">
+        <div style="font-size:16px; font-weight:700;">
+            👋 WELCOME
+        </div>
+        <div style="font-size:13px; color:#888;">
+            Process Engineering Technical Handbook
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.sidebar.markdown("---")
 permissions = st.session_state.get("permissions", [])
 
