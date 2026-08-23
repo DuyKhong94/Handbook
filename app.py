@@ -49,7 +49,21 @@ price_collection= db["product_price"]
 
 # ------------------ Streamlit config ------------------
 st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
+st.markdown("""
+<style>
+/* Cố định độ rộng Sidebar */
+section[data-testid="stSidebar"] {
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+}
 
+/* Tắt thanh kéo resize */
+[data-testid="stSidebarResizer"] {
+    display: none !important;
+}
+</style>
+""", unsafe_allow_html=True)
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
 st.sidebar.header("Process Engineering Handbook")
 st.sidebar.markdown("---")
