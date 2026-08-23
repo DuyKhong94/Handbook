@@ -22,22 +22,8 @@ from streamlit_autorefresh import st_autorefresh
 import matplotlib.dates as mdates
 import matplotlib.ticker as ticker
 require_login()
-#================User============
-if st.session_state.get("logged_in", False):
 
-    st.sidebar.write(
-        f"👤 User: **{st.session_state.get('username', '')}**"
-    )
 
-    if st.sidebar.button(
-        "🚪 Logout",
-        use_container_width=True
-    ):
-        st.session_state.logged_in = False
-        st.session_state.pop("username", None)
-        st.session_state.pop("permissions", None)
-
-        st.rerun()
 
 # ------------------ MongoDB ------------------
 def get_db():
@@ -104,6 +90,22 @@ mode = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
+#================User============
+if st.session_state.get("logged_in", False):
+
+    st.sidebar.write(
+        f"👤 User: **{st.session_state.get('username', '')}**"
+    )
+
+    if st.sidebar.button(
+        "🚪 Logout",
+        use_container_width=True
+    ):
+        st.session_state.logged_in = False
+        st.session_state.pop("username", None)
+        st.session_state.pop("permissions", None)
+
+        st.rerun()
 
 # ==========================================================
 # 🧩 TAB 1: THÊM LỖI MỚI
