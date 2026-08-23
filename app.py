@@ -53,9 +53,9 @@ st.markdown("""
 <style>
 /* Cố định độ rộng Sidebar */
 section[data-testid="stSidebar"] {
-    width: 300px !important;
-    min-width: 300px !important;
-    max-width: 300px !important;
+    width: 350px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
 }
 
 /* Tắt thanh kéo resize */
