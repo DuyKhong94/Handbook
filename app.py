@@ -64,9 +64,9 @@ section[data-testid="stSidebar"] {
 }
 </style>
 """, unsafe_allow_html=True)
-st.sidebar.header("PROCESS ENGINEERING HANDBOOK")
-st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
 
+st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
+st.sidebar.header("PROCESS ENGINEERING HANDBOOK")
 st.sidebar.markdown("---")
 permissions = st.session_state.get("permissions", [])
 
