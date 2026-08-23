@@ -50,8 +50,42 @@ st.set_page_config(page_title="Process Engineering Handbook", layout="wide")
 st.title("Process Engineering Handbook")
 st.sidebar.image("https://raw.githubusercontent.com/DuyKhong94/Handbook/main/8c36775f-19bb-4cc5-b3ef-b7e3cd54b3b8.png",use_container_width=True)
 st.sidebar.markdown("---")
-mode=st.sidebar.radio("APPLICATION FEATURES:",["📈 Dashboard","➕ Thêm lỗi mới", "📘 Quy Trình Phân tích",
-                                        "🔍 ERP System & WI","☯ Team Center & FAI","📂Link Tham Khảo","📱Trang tính","🔥Trợ lý AI","📋Daily Pass Down"])
+permissions = st.session_state.get("permissions", [])
+
+features = []
+
+if "dashboard" in permissions:
+    features.append("📈 Dashboard")
+
+if "add_error" in permissions:
+    features.append("➕ Thêm lỗi mới")
+
+if "analysis" in permissions:
+    features.append("📘 Quy Trình Phân tích")
+
+if "erp" in permissions:
+    features.append("🔍 ERP System & WI")
+
+if "team_center" in permissions:
+    features.append("☯ Team Center & FAI")
+
+if "reference" in permissions:
+    features.append("📂Link Tham Khảo")
+
+if "spreadsheet" in permissions:
+    features.append("📱Trang tính")
+
+if "ai" in permissions:
+    features.append("🔥Trợ lý AI")
+
+if "daily_passdown" in permissions:
+    features.append("📋Daily Pass Down")
+
+
+mode = st.sidebar.radio(
+    "APPLICATION FEATURES:",
+    features
+)
 st.sidebar.markdown("---")
 st.sidebar.text(" ⭐⭐⭐Feel free to contact me at ✉: khongtrungduy12@gmail.com")
 
