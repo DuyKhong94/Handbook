@@ -11,9 +11,7 @@ USERS = {
         "permissions": [
 
 
-            "analysis",
-            "erp",
-            "team_center",
+            "dashboard",
   
 
             "ai",
