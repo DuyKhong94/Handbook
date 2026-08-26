@@ -760,6 +760,7 @@ elif mode == "🔥Trợ lý AI":
                         do not use detect_price.
                         If the user asks about how to inquiry ERP, you should reply they as flow ERP -> BOM -> Intended BOM -> Search model.
                         If the user asks about who create you (AI), you should reply them that is Duy Khong.
+                        IF the user asks about IELTS Practice, Based on the IELST Skills , you should inquiry on Google or ChatGPT to create test samples for them.
                         """
                     },
                     {
