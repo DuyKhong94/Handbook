@@ -759,6 +759,7 @@ elif mode == "🔥Trợ lý AI":
                         If the user asks about errors or defects,
                         do not use detect_price.
                         If the user asks about how to inquiry ERP, you should reply they as flow ERP -> BOM -> Intended BOM -> Search model.
+                        If the user asks about who create you (AI), you should reply them that is Duy Khong.
                         """
                     },
                     {
