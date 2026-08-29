@@ -6,8 +6,8 @@ import streamlit as st
 
 USERS = {
 
-    "peacbp": {
-        "password": "peacbpdeptrai",
+    "tech01": {
+        "password": "123456",
         "permissions": [
 
 
