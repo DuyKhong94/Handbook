@@ -9,7 +9,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
-from auth import require_login
+from auth.py import require_login
 from openai import OpenAI
 import unicodedata
 import re
