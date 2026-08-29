@@ -81,7 +81,8 @@ def require_login():
             else:
 
                 st.error(
-                    "Invalid username or password"
+                    "Your password is invalid or Your account is expired
+                    Please contact IT support!"
                 )
 
         st.stop()
