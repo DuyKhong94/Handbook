@@ -653,18 +653,13 @@ elif mode == "🔥Trợ lý AI":
     # ================= SESSION =================
     if "messages" not in st.session_state:
         st.session_state.messages = []
-    st.markdown("""
-    <style>
-    /* Đẩy nội dung column 1 xuống dưới */
-    div[data-testid="column"]:first-child {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
     col1, col2 = st.columns([1,6])
     with col1:
+        st.markdown(
+        "<div style='height: 500px;'></div>",
+        unsafe_allow_html=True
+        )
         voice_text = speech_to_text(
         language="vi",
         start_prompt="🎤",
