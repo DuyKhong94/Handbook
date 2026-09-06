@@ -673,7 +673,7 @@ elif mode == "🔥Trợ lý AI":
     col1, col2 = st.columns([5, 1])
 
     with col1:
-        prompt_text = st.chat_input("You type here...")
+         st.empty() 
     
     with col2:
         voice_text = speech_to_text(
@@ -686,6 +686,7 @@ elif mode == "🔥Trợ lý AI":
         )
     
     # Ưu tiên giọng nói nếu có
+    prompt_text = st.chat_input("You type here...")
     prompt = voice_text if voice_text else prompt_text
     
     if prompt:
