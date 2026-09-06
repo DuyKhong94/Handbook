@@ -653,7 +653,7 @@ elif mode == "🔥Trợ lý AI":
     # ================= SESSION =================
     if "messages" not in st.session_state:
         st.session_state.messages = []
-    col1, col2 = st.column([1,6])
+    col1, col2 = st.columns([1,6])
     with col1:
         voice_text = speech_to_text(
         language="vi",
