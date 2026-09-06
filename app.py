@@ -698,7 +698,10 @@ elif mode == "🔥Trợ lý AI":
             "user",
             avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"
         ):
-            st.markdown("Thợ cơ khí: " + prompt)
+            st.markdown("Thợ cơ khí: " + prompt
+            intent, model = detect_intent(prompt)
+            results = []
+            top_result = None
 
         # ================= CASE 1: SEARCH MODEL =================
         if intent == "search_defect" and model:
