@@ -501,7 +501,7 @@ elif mode == "📱Trang tính":
         
 elif mode == "🔥Trợ lý AI":
     st.header("Chat with me 👋")
-
+    
     client = OpenAI(
         api_key=st.secrets["OPENROUTER_API_KEY"],
         base_url="https://openrouter.ai/api/v1"
@@ -653,6 +653,16 @@ elif mode == "🔥Trợ lý AI":
     # ================= SESSION =================
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    st.markdown("""
+    <style>
+    /* Đẩy nội dung column 1 xuống dưới */
+    div[data-testid="column"]:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     col1, col2 = st.columns([1,6])
     with col1:
         voice_text = speech_to_text(
