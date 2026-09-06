@@ -658,17 +658,46 @@ elif mode == "🔥Trợ lý AI":
             st.markdown(message["content"])
 
     # ================= INPUT =================
-    prompt = st.chat_input("You type here...")
+    #prompt = st.chat_input("You type here...")
 
+    #if prompt:
+        #st.session_state.messages.append({"role": "user", "content": prompt})
+
+        #with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
+            #st.markdown("Thợ cơ khí: " + prompt)
+
+        #intent, model = detect_intent(prompt)
+        #results = []
+        #top_result = None
+    col1, col2 = st.columns([5, 1])
+
+    with col1:
+        prompt_text = st.chat_input("You type here...")
+    
+    with col2:
+        voice_text = speech_to_text(
+            language="vi",
+            start_prompt="🎤",
+            stop_prompt="⏹️",
+            just_once=True,
+            use_container_width=True,
+            key="voice_input"
+        )
+    
+    # Ưu tiên giọng nói nếu có
+    prompt = voice_text if voice_text else prompt_text
+    
     if prompt:
-        st.session_state.messages.append({"role": "user", "content": prompt})
-
-        with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
+        st.session_state.messages.append({
+            "role": "user",
+            "content": prompt
+        })
+    
+        with st.chat_message(
+            "user",
+            avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"
+        ):
             st.markdown("Thợ cơ khí: " + prompt)
-
-        intent, model = detect_intent(prompt)
-        results = []
-        top_result = None
 
         # ================= CASE 1: SEARCH MODEL =================
         if intent == "search_defect" and model:
