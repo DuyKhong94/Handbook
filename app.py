@@ -690,7 +690,8 @@ elif mode == "🔥Trợ lý AI":
    
     prompt = voice_text if voice_text else prompt_text
     
-    if prompt:
+
+    if prompt and (send or voice_text):
         st.session_state.messages.append({
             "role": "user",
             "content": prompt
