@@ -21,6 +21,7 @@ from github_uploader import upload_file_to_github
 from streamlit_autorefresh import st_autorefresh
 import matplotlib.dates as mdates
 import matplotlib.ticker as ticker
+from streamlit_mic_recorder import speech_to_text
 require_login()
 
 
