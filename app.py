@@ -687,7 +687,7 @@ elif mode == "🔥Trợ lý AI":
     
     
         # Ưu tiên giọng nói nếu có
-    prompt_text = st.chat_input("You type here...")
+   
     prompt = voice_text if voice_text else prompt_text
     
     if prompt:
