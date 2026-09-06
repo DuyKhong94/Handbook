@@ -654,8 +654,19 @@ elif mode == "🔥Trợ lý AI":
     if "messages" not in st.session_state:
         st.session_state.messages = []
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] == "user":
+                with st.chat_message(
+                    "user",
+                    avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569..."
+                ):
+                    st.write(message["content"])
+    
+        elif message["role"] == "assistant":
+            with st.chat_message(
+                "assistant",
+                avatar="..."
+            ):
+                st.write(message["content"])
 
     col_voice, col_input, col_send = st.columns([1, 6, 1])
     
