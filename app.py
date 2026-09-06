@@ -657,15 +657,14 @@ elif mode == "🔥Trợ lý AI":
         if message["role"] == "user":
                 with st.chat_message(
                     "user",
-                    avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569..."
-                ):
+                    avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"
+                    ):
                     st.write(message["content"])
     
         elif message["role"] == "assistant":
             with st.chat_message(
                 "assistant",
-                avatar="..."
-            ):
+                avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/32e2602963f4b3a1e668fa9b6c4ea4310577838e/6244668958904618602_109.jpg"):
                 st.write(message["content"])
 
     col_voice, col_input, col_send = st.columns([1, 6, 1])
