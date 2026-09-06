@@ -674,32 +674,7 @@ elif mode == "🔥Trợ lý AI":
 
     
     with col_voice:
-        st.markdown(
-        """
-        <div style="
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            margin-top:2px;
-        ">
-            <div style="
-                background:#f1f3f4;
-                width:45px;
-                height:45px;
-                border-radius:50%;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                font-size:22px;
-                box-shadow:0 2px 6px rgba(0,0,0,0.15);
-                cursor:pointer;
-            ">
-                🎤
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+
     
         voice_text = speech_to_text(
             language="vi",
