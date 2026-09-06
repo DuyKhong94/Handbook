@@ -527,8 +527,10 @@ elif mode == "🔥Trợ lý AI":
         )
     
         if match:
-            defect_code = re.sub(r"\s+", "", match.group(2))
-            return "search_defect", match.group(2).upper()
+            defect_code = match.group(2) # Xóa khoảng trắng và dấu 
+            defect_code = re.sub(r"[\s-]+", "", defect_code) # Chuyển chữ hoa 
+            defect_code = defect_code.upper() 
+            return "search_defect", defect_code
     
         return "chat", None
         
