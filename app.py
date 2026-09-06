@@ -652,237 +652,235 @@ elif mode == "🔥Trợ lý AI":
 
     # ================= SESSION =================
     if "messages" not in st.session_state:
-        st.session_state.messages = []
+        st.session_state.messages = 
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
-    col1, col2 = st.columns([1,6])
-    with col1:
-        st.markdown(
-        "<div style='height: 500px;'></div>",
-        unsafe_allow_html=True
-        )
+    col_voice, col_input, col_send = st.columns([1, 6, 1])
+    
+    with col_voice:
         voice_text = speech_to_text(
-        language="vi",
-        start_prompt="🎤",
-        stop_prompt="⏹️",
-        just_once=True,
-        use_container_width=True,
-        key="voice_input"
+            language="vi",
+            start_prompt="🎤",
+            stop_prompt="⏹️",
+            just_once=True,
+            use_container_width=True,
+            key="voice_input"
         )
-    with col2:
-        for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
     
-        # ================= INPUT =================
-        #prompt = st.chat_input("You type here...")
+    with col_input:
+        prompt_text = st.text_input(
+            "Message",
+            placeholder="You type here...",
+            label_visibility="collapsed",
+            key="text_input"
+        )
     
-        #if prompt:
-            #st.session_state.messages.append({"role": "user", "content": prompt})
-    
-            #with st.chat_message("user", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"):
-                #st.markdown("Thợ cơ khí: " + prompt)
-    
-            #intent, model = detect_intent(prompt)
-            #results = []
-            #top_result = None
-    
+    with col_send:
+        send = st.button(
+            "➤",
+            use_container_width=True,
+            key="send_button"
+        )
+        
     
     
         # Ưu tiên giọng nói nếu có
-        prompt_text = st.chat_input("You type here...")
-        prompt = voice_text if voice_text else prompt_text
-        
-        if prompt:
-            st.session_state.messages.append({
-                "role": "user",
-                "content": prompt
-            })
-        
-            with st.chat_message(
-                "user",
-                avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"
-            ):
-                st.markdown("Thợ cơ khí: " + prompt)
-                intent, model = detect_intent(prompt)
-                results = []
-                top_result = None
+    prompt_text = st.chat_input("You type here...")
+    prompt = voice_text if voice_text else prompt_text
     
-            # ================= CASE 1: SEARCH MODEL =================
-            if intent == "search_defect" and model:
-                results = search_defect(model)
+    if prompt:
+        st.session_state.messages.append({
+            "role": "user",
+            "content": prompt
+        })
     
-                with st.chat_message("assistant"):
-                    st.markdown(f"## 📋 Danh sách lỗi:")
-    
-                    if not results:
-                        st.warning("Không tìm thấy dữ liệu")
-                    else:
-                        for r in results:
-                            error_code = r.get("error_code")
-    
-                            with st.expander(f"🔧 {error_code} - {r.get('description', '')}"):
-                                st.write(f"📌 {r.get('description')}")
-                                st.write(f"   {r.get('timestamp')}")
-                                st.write(f"🔍 {r.get('root_cause')}")
-                                st.write(f"🛠 {r.get('solution')}")
-                                st.write(f"{r.get('improvement')}")
-    
-                                images = r.get("images") or []
-                                if images:
-                                    cols = st.columns(min(3, len(images)))
-                                    for i, img in enumerate(images):
-                                        cols[i % 3].image(img, caption=error_code)
-    
-                                pdf_url = r.get("pdf_report")
-                                if pdf_url:
-                                    st.markdown(f"[📄 Xem báo cáo]({pdf_url})")
-                                else:
-                                    st.info("Không có file báo cáo PDF cho lỗi này.")
-                    
-    
-                reply = f"Tìm thấy {len(results)} lỗi cho model đã nhập:"
-    
-            # ================= CASE 2: AI =================
-            else:
-    
-                with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/32e2602963f4b3a1e668fa9b6c4ea4310577838e/6244668958904618602_109.jpg"):
-                    messages = [
-                        {
-                            "role": "system",
-                            "content": """
-                            You are a helpful assistant for a manufacturing engineering handbook.
+        with st.chat_message(
+            "user",
+            avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/6c191b5d17d7df6d3c4778a62a0d1cba4f1bd5f7/19948569.jpg"
+        ):
+            st.markdown("Thợ cơ khí: " + prompt)
+            intent, model = detect_intent(prompt)
+            results = []
+            top_result = None
+
+        # ================= CASE 1: SEARCH MODEL =================
+        if intent == "search_defect" and model:
+            results = search_defect(model)
+
+            with st.chat_message("assistant"):
+                st.markdown(f"## 📋 Danh sách lỗi:")
+
+                if not results:
+                    st.warning("Không tìm thấy dữ liệu")
+                else:
+                    for r in results:
+                        error_code = r.get("error_code")
+
+                        with st.expander(f"🔧 {error_code} - {r.get('description', '')}"):
+                            st.write(f"📌 {r.get('description')}")
+                            st.write(f"   {r.get('timestamp')}")
+                            st.write(f"🔍 {r.get('root_cause')}")
+                            st.write(f"🛠 {r.get('solution')}")
+                            st.write(f"{r.get('improvement')}")
+
+                            images = r.get("images") or []
+                            if images:
+                                cols = st.columns(min(3, len(images)))
+                                for i, img in enumerate(images):
+                                    cols[i % 3].image(img, caption=error_code)
+
+                            pdf_url = r.get("pdf_report")
+                            if pdf_url:
+                                st.markdown(f"[📄 Xem báo cáo]({pdf_url})")
+                            else:
+                                st.info("Không có file báo cáo PDF cho lỗi này.")
+                
+
+            reply = f"Tìm thấy {len(results)} lỗi cho model đã nhập:"
+
+        # ================= CASE 2: AI =================
+        else:
+
+            with st.chat_message("assistant", avatar="https://raw.githubusercontent.com/DuyKhong94/Handbook/32e2602963f4b3a1e668fa9b6c4ea4310577838e/6244668958904618602_109.jpg"):
+                messages = [
+                    {
+                        "role": "system",
+                        "content": """
+                        You are a helpful assistant for a manufacturing engineering handbook.
+                        
+                        IMPORTANT RULE:
+                        
+                        If the user asks about PRICE, UNIT PRICE, COST, or GIÁ
+                        and provides an Item code, you MUST use the detect_price tool.
+                        
+                        The price must be retrieved from MongoDB product_price.
+                        Never guess or invent a price.
+                        
+                        After receiving the result from detect_price, provide the user with:
+                        
+                        1. Item code
+                        2. Unit price
+                        3. Make/Buy
+                        4. Description
+                        
+                       Khi trả lời thông tin giá, sử dụng format:
+
+                         
+                         Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊
+
+                        🔎 **Item:** [Item]
+                        💰 **Unit Price:** [Unit price] $usd
+                        📦 **UOM:** [UOM]
+                        🏭 **Make / Buy:** [Make/Buy]
+                        📝 **Description:**
+                            [Description]
                             
-                            IMPORTANT RULE:
-                            
-                            If the user asks about PRICE, UNIT PRICE, COST, or GIÁ
-                            and provides an Item code, you MUST use the detect_price tool.
-                            
-                            The price must be retrieved from MongoDB product_price.
-                            Never guess or invent a price.
-                            
-                            After receiving the result from detect_price, provide the user with:
-                            
-                            1. Item code
-                            2. Unit price
-                            3. Make/Buy
-                            4. Description
-                            
-                           Khi trả lời thông tin giá, sử dụng format:
-    
-                             
-                             Sau đây là thông tin bạn cần ạ, chúc một ngày tốt lành 😊
-    
-                            🔎 **Item:** [Item]
-                            💰 **Unit Price:** [Unit price] $usd
-                            📦 **UOM:** [UOM]
-                            🏭 **Make / Buy:** [Make/Buy]
-                            📝 **Description:**
-                                [Description]
-                                
-                            If inquirer input quantities of this item, you must do math to calculate the total price = unit price * quantities
-                            
-                            Do not omit Make/Buy or Description if these fields are available.
-    
-                            If no matching Item is found, clearly say:
-                            ❌ Không tìm thấy mã Item này trong database.
-                            Examples:
-                            
-                            "Giá 054304022DG9 bao nhiêu?"
-                            "054304022DG9 giá bao nhiêu?"
-                            "Unit price của 054304022DG9?"
-                            
-                            For all these cases, call detect_price.
-                            
-                            If the user asks about errors or defects,
-                            do not use detect_price.
-                            If the user asks about how to inquiry ERP, you should reply they as flow ERP -> BOM -> Intended BOM -> Search model.
-                            If the user asks about who create you (AI), you should reply them that is Duy Khong.
-                            IF the user asks about IELTS Practice, Based on the IELST Skills , you should inquiry on Google or ChatGPT to create test samples for them.
-                            """
-                        },
-                        {
-                            "role": "user",
-                            "content": str(prompt)
-                        }
-                    ]
-                    response = client.chat.completions.create(
-                        model="gpt-4o-mini",
-                        messages=messages,
-                        tools=tools
-                    )
-                    message = response.choices[0].message
-                    if message.tool_calls:
-                    
-                        tool_call = message.tool_calls[0]
-                    
-                        if tool_call.function.name == "detect_price":
-                    
-                            import json
-                    
-                            arguments = json.loads(tool_call.function.arguments)
-                    
-                            item_code = arguments["item_code"]
-                    
-                            # Gọi MongoDB
-                            result = detect_price(item_code)
-                    
-                            # Thêm response của AI vào messages
-                            messages.append({
-                                "role": "assistant",
-                                "content": message.content,
-                                "tool_calls": [
-                                    {
-                                        "id": tool_call.id,
-                                        "type": "function",
-                                        "function": {
-                                            "name": tool_call.function.name,
-                                            "arguments": tool_call.function.arguments
-                                        }
+                        If inquirer input quantities of this item, you must do math to calculate the total price = unit price * quantities
+                        
+                        Do not omit Make/Buy or Description if these fields are available.
+
+                        If no matching Item is found, clearly say:
+                        ❌ Không tìm thấy mã Item này trong database.
+                        Examples:
+                        
+                        "Giá 054304022DG9 bao nhiêu?"
+                        "054304022DG9 giá bao nhiêu?"
+                        "Unit price của 054304022DG9?"
+                        
+                        For all these cases, call detect_price.
+                        
+                        If the user asks about errors or defects,
+                        do not use detect_price.
+                        If the user asks about how to inquiry ERP, you should reply they as flow ERP -> BOM -> Intended BOM -> Search model.
+                        If the user asks about who create you (AI), you should reply them that is Duy Khong.
+                        IF the user asks about IELTS Practice, Based on the IELST Skills , you should inquiry on Google or ChatGPT to create test samples for them.
+                        """
+                    },
+                    {
+                        "role": "user",
+                        "content": str(prompt)
+                    }
+                ]
+                response = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=messages,
+                    tools=tools
+                )
+                message = response.choices[0].message
+                if message.tool_calls:
+                
+                    tool_call = message.tool_calls[0]
+                
+                    if tool_call.function.name == "detect_price":
+                
+                        import json
+                
+                        arguments = json.loads(tool_call.function.arguments)
+                
+                        item_code = arguments["item_code"]
+                
+                        # Gọi MongoDB
+                        result = detect_price(item_code)
+                
+                        # Thêm response của AI vào messages
+                        messages.append({
+                            "role": "assistant",
+                            "content": message.content,
+                            "tool_calls": [
+                                {
+                                    "id": tool_call.id,
+                                    "type": "function",
+                                    "function": {
+                                        "name": tool_call.function.name,
+                                        "arguments": tool_call.function.arguments
                                     }
-                                ]
-                            })
-                    
-                            # Trả kết quả MongoDB cho AI
-                            messages.append({
-                                "role": "tool",
-                                "tool_call_id": tool_call.id,
-                                "content": json.dumps(
-                                    result,
-                                    ensure_ascii=False,
-                                    default=str
-                                )
-                            })
-                    
-                            # Cho AI đọc kết quả và trả lời người dùng
-                            final_response = client.chat.completions.create(
-                                model="gpt-4o-mini",
-                                messages=messages
+                                }
+                            ]
+                        })
+                
+                        # Trả kết quả MongoDB cho AI
+                        messages.append({
+                            "role": "tool",
+                            "tool_call_id": tool_call.id,
+                            "content": json.dumps(
+                                result,
+                                ensure_ascii=False,
+                                default=str
                             )
-                    
-                            reply = final_response.choices[0].message.content
-                    
-                        else:
-                            reply = message.content
-                    
+                        })
+                
+                        # Cho AI đọc kết quả và trả lời người dùng
+                        final_response = client.chat.completions.create(
+                            model="gpt-4o-mini",
+                            messages=messages
+                        )
+                
+                        reply = final_response.choices[0].message.content
+                
                     else:
                         reply = message.content
-                    
-                    st.markdown("Eimi Fukada: " + reply)
-    
-                    # ================= SHOW IMAGE =================
-                    if top_result:
-                        st.markdown(f"### 🔧 {top_result.get('error_code')}")
-    
-                        images = top_result.get("images") or []
-    
-                        if images:
-                            cols = st.columns(min(3, len(images)))
-                            for i, img in enumerate(images):
-                                cols[i % 3].image(img, caption=top_result.get('error_code'))
-                        else:
-                            st.info("Không có ảnh minh hoạ")
-    
-            st.session_state.messages.append({"role": "assistant", "content": reply})
+                
+                else:
+                    reply = message.content
+                
+                st.markdown("Eimi Fukada: " + reply)
+
+                # ================= SHOW IMAGE =================
+                if top_result:
+                    st.markdown(f"### 🔧 {top_result.get('error_code')}")
+
+                    images = top_result.get("images") or []
+
+                    if images:
+                        cols = st.columns(min(3, len(images)))
+                        for i, img in enumerate(images):
+                            cols[i % 3].image(img, caption=top_result.get('error_code'))
+                    else:
+                        st.info("Không có ảnh minh hoạ")
+
+        st.session_state.messages.append({"role": "assistant", "content": reply})
 
 # # ==========================================================
 # # 🔍 TAB : PASSDOWN
