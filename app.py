@@ -668,8 +668,49 @@ elif mode == "🔥Trợ lý AI":
                 st.write(message["content"])
 
     col_voice, col_input, col_send = st.columns([1, 6, 1])
+    st.markdown("""
+    <style>
+    
+    .microphone-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2px;
+    }
+    
+    /* Button bên trong microphone */
+    .microphone-box button {
+        border-radius: 50% !important;
+        width: 45px !important;
+        height: 45px !important;
+        padding: 0 !important;
+        font-size: 20px !important;
+        border: 1px solid rgba(128,128,128,0.3) !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    /* Hover */
+    .microphone-box button:hover {
+        transform: scale(1.08);
+    }
+    
+    /* Click */
+    .microphone-box button:active {
+        transform: scale(0.92);
+    }
+    
+    </style>
+    """, unsafe_allow_html=True)
+
+
+
     
     with col_voice:
+        st.markdown(
+            '<div class="microphone-box">',
+            unsafe_allow_html=True
+        )
+    
         voice_text = speech_to_text(
             language="vi",
             start_prompt="🎤",
@@ -678,7 +719,8 @@ elif mode == "🔥Trợ lý AI":
             use_container_width=True,
             key="voice_input"
         )
-    
+
+        st.markdown("</div>", unsafe_allow_html=True)
     with col_input:
         prompt_text = st.text_input(
             "Message",
