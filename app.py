@@ -527,6 +527,7 @@ elif mode == "🔥Trợ lý AI":
         )
     
         if match:
+            defect_code = re.sub(r"\s+", "", match.group(2))
             return "search_defect", match.group(2).upper()
     
         return "chat", None
