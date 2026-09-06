@@ -678,7 +678,7 @@ elif mode == "🔥Trợ lý AI":
     
         voice_text = speech_to_text(
             language="vi",
-            start_prompt="🎤",
+            start_prompt="🐶🎤",
             stop_prompt="⏹️",
             just_once=True,
             use_container_width=True,
