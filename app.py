@@ -515,23 +515,43 @@ elif mode == "🔥Trợ lý AI":
         return text
 
     def detect_intent(prompt):
+
         prompt_lower = prompt.lower().strip()
     
-        # check PSRC221
-        # tra cứu PSRC221
-        # find C22E19YUE
+        # =========================
+        # TRA CỨU GIÁ
+        # =========================
+        if "giá" in prompt_lower:
+            # Lấy phần sau chữ "giá"
+            text = prompt_lower.split("giá", 1)[1].strip()
     
+            # Tìm chuỗi gồm số/chữ, có thể bị ngắt bởi khoảng trắng hoặc -
+            match = re.search(
+                r'([a-zA-Z0-9]+(?:[\s-]+[a-zA-Z0-9]+)*)',
+                text
+            )
+    
+            if match:
+                item_code = re.sub(r'[\s-]+', '', match.group(1))
+                item_code = item_code.upper()
+    
+                return "search_price", item_code
+    
+        # =========================
+        # TRA CỨU LỖI
+        # =========================
         match = re.search(
-            r"(check|find|search|tra cứu|tim loi|tìm lỗi|lịch sử)\s+([a-zA-Z0-9]+)",
+            r"(check|find|search|tra cứu|tim loi|tìm lỗi|lịch sử)\s+([a-zA-Z0-9\s-]+)",
             prompt_lower
         )
     
         if match:
-            defect_code = match.group(2) # Xóa khoảng trắng và dấu 
-            defect_code = re.sub(r"[\s-]+", "", defect_code) # Chuyển chữ hoa 
-            defect_code = defect_code.upper() 
+            defect_code = re.sub(r'[\s-]+', '', match.group(2))
+            defect_code = defect_code.upper()
+    
             return "search_defect", defect_code
     
+        return "chat", None
         return "chat", None
         
     def detect_price(item_code):
