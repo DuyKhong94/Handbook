@@ -674,7 +674,23 @@ elif mode == "🔥Trợ lý AI":
 
     
     with col_voice:
-
+        st.markdown(
+        """
+        <style>
+        /* Làm đẹp nút microphone */
+        button {
+            border-radius: 50px !important;
+            font-size: 20px !important;
+            transition: 0.2s;
+        }
+    
+        button:hover {
+            transform: scale(1.05);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     
         voice_text = speech_to_text(
             language="vi",
