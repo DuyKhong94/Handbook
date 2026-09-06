@@ -670,21 +670,16 @@ elif mode == "🔥Trợ lý AI":
         #intent, model = detect_intent(prompt)
         #results = []
         #top_result = None
-    col1, col2 = st.columns([5, 1])
 
-    with col1:
-         st.empty() 
-    
-    with col2:
-        voice_text = speech_to_text(
-            language="vi",
-            start_prompt="🎤",
-            stop_prompt="⏹️",
-            just_once=True,
-            use_container_width=True,
-            key="voice_input"
-        )
-    
+    voice_text = speech_to_text(
+        language="vi",
+        start_prompt="🎤",
+        stop_prompt="⏹️",
+        just_once=True,
+        use_container_width=True,
+        key="voice_input"
+    )
+
     # Ưu tiên giọng nói nếu có
     prompt_text = st.chat_input("You type here...")
     prompt = voice_text if voice_text else prompt_text
